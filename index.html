@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Supabase Test</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+>
+    <link href="https://fonts.googleapis.com/css?family=Playfair Display|Montserrat|Parisienne" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nova+Round&display=swap" rel="stylesheet">
+<link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<link
+  rel="stylesheet"
+  href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+  crossorigin="anonymous"
+/> 
+<link rel="stylesheet" href="http://www.w3.org/2000/svg">
+</head>
+
+<body>
+    <div style="width: 100%; height: 30px; color: white; background-color: #f4dfe2;"> <h3 style="font-size: 16px; font-family: 'Nova Round' , sans-serif ; padding-left: 55px; padding-top: 5px; padding-right: 20px;"> Nouveaux Produits Et Promotions </h3> </div>
+    <nav class="navbar navbar-lg" id="nav" style="display: flex; gap: 12px;">
+        <div class="container-fluid">
+    
+           
+    
+            
+            <button 
+                style="border: none;"
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="offcanvas"
+                data-bs-target="#sidebar"
+                aria-label="Open Menu"
+            >
+            <span></span>
+            <span style="margin-top: 5px;"></span>
+            </button>
+            <a class="navbar-brand" href="#">My Website</a>
+     <div style="gap: 10px;">
+            <button id="searchButton" class="search-button" type="button" style="background-color: transparent; color: transparent;">
+               
+                <?xml version="1.0" encoding="UTF-8"?><svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" color="#000000"><path d="M17 17L21 21" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M3 11C3 15.4183 6.58172 19 11 19C13.213 19 15.2161 18.1015 16.6644 16.6493C18.1077 15.2022 19 13.2053 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11Z" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            </button>
+            <a  style=" color: #d47fa6;  "> <?xml version="1.0" encoding="UTF-8"?><svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" color="#000000"><path d="M19.2609 9.69589L20.6455 18.6959C20.8319 19.9074 19.8945 21 18.6688 21H5.33122C4.10545 21 3.16809 19.9074 3.35448 18.6959L4.73909 9.69589C4.8892 8.72022 5.7287 8 6.71584 8H17.2842C18.2713 8 19.1108 8.72022 19.2609 9.69589Z" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M14 5C14 3.89543 13.1046 3 12 3C10.8954 3 10 3.89543 10 5" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg><button style="background: #f3d6dc; border-radius: 50%; color: #ffa1af; border: none; outline: none; " id="btn-to-open-cart" onclick="toggleCart()">0</button></a>
+           
+       </div> </div>
+    </nav>
+    
+    
+    
+    <div
+        class="offcanvas offcanvas-start"
+        tabindex="-1"
+        id="sidebar"
+        aria-labelledby="sidebarLabel"
+    >
+    
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="sidebarLabel">
+              
+            </h5>
+    
+            <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="offcanvas"
+                aria-label="Close"
+            ></button>
+        </div>
+    
+        <div class="offcanvas-body">
+    
+            <ul class="navbar-nav">
+    
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+    
+                <li class="nav-item">
+                    <a class="nav-link" href="products.html">Products</a>
+                </li>
+    
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About</a>
+                </li>
+    
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+                <li class="nav-item">
+                <a href="category.html?category=hair care">
+                    Hair Care
+                </a>
+            </li>
+                <li class="nav-item">
+                <a href="category.html?category=facial care">
+                    Facial Care
+                </a>
+            </li>
+                <li class="nav-item">
+                <a href="category.html?category=body care">
+                    Body Care
+                </a>
+            </li>
+            </ul>
+    
+        </div>
+    </div>
+   <div class="hero">
+   <a href="products.html"> <img src="pic.jpeg" alt=""></a>
+    
+   </div>
+   <div class="marquee-container">
+    <div class="marquee-track">
+      
+      <div><img src="celimax.png" alt="celimax"></div>
+      <div><img src="Arencia.png" alt="Arencia"></div>
+      <div><img src="Anua.png" alt="Anua"></div>
+      <div><img src="dralthea.png" alt="Dr.Althea"></div>
+      <div><img src="marvis.png" alt="Marvis"></div>
+      <div><img src="medicube.png" alt="Medicube"></div>
+      <div><img src="panoxyl.png" alt="panoxyl"></div>
+      <div><img src="skin1004.png" alt="skin1004"></div>
+      <div><img src="theordinary.png" alt="theOrdinary"></div>
+      <div><img src="vaseline.png" alt="vaseline"></div>
+      <div><img src="fino.png" alt="fino"></div>
+      <div><img src="kerastase.png" alt="kerastase"></div>
+      <div><img src="vichy.png" alt="vichy"></div>
+      <div><img src="larocheposay.png" alt="larocheposay"></div>
+      <div><img src="boj.jpg" alt="fino"></div>
+  
+      
+      <div><img src="celimax.png" alt="celimax"></div>
+      <div><img src="Arencia.png" alt="Arencia"></div>
+      <div><img src="Anua.png" alt="Anua"></div>
+      <div><img src="dralthea.png" alt="Dr.Althea"></div>
+      <div><img src="marvis.png" alt="Marvis"></div>
+      <div><img src="medicube.png" alt="Medicube"></div>
+      <div><img src="panoxyl.png" alt="panoxyl"></div>
+      <div><img src="skin1004.png" alt="skin1004"></div>
+      <div><img src="theordinary.png" alt="theOrdinary"></div>
+      <div><img src="vaseline.png" alt="vaseline"></div>
+      <div><img src="fino.png" alt="fino"></div>
+      <div><img src="kerastase.png" alt="kerastase"></div>
+      <div><img src="vichy.png" alt="vichy"></div>
+      <div><img src="larocheposay.png" alt="larocheposay"></div>
+      <div><img src="boj.jpg" alt="fino"></div>
+    </div>
+  </div>
+  <div class="scroll-container-wrapper">
+     <h2 style="font-family: 'Nova Round' , sans serif; margin-left: 5px; font-weight: bold; text-decoration: underline #f4dfe2; font-size: 34px;"> Trouvez Votre Routine: </h2>
+    <div class="scroll-controls">
+      <button class="scroll-btn" id="scrollLeftBtn" aria-label="Scroll left">&#10094;</button>
+      <button class="scroll-btn" id="scrollRightBtn" aria-label="Scroll right">&#10095;</button>
+    </div>
+  
+    
+    <div class="scroll-box" id="scrollBox">
+      <div class="scroll-item"> <img class="imgs" src="acne.jpeg" alt=""> <div class="btn1"> <a  href="routine.html?concern=acné&title=acné"><button type="button" style="background: none; color: white; outline: transparent !important; border: transparent !important;" > Acné</button> </a></div> </div>
+      <div class="scroll-item"> <img class="imgs" src="sec.jpeg" alt=""><div class="btn1"> <a  href="routine.html?concern=peau%seche&title=peau séche"><button type="button" style="background: none; color: white; outline: transparent !important; border: transparent !important;" > peau séche</button> </a></div> </div>
+      <div class="scroll-item"> <img class="imgs" src="cernes.jpeg" alt=""><div class="btn1"> <a  href="routine.html?concern=cernes&title=cernes"><button type="button"style="background: none; color: white; outline: transparent !important; border: transparent !important;" > cernes</button> </a></div> </div>
+      <div class="scroll-item"> <img class="imgs" src="rides.jpeg" alt=""><div class="btn1" 
+        > <a  href="routine.html?concern=rides&title=rides"><button type="button" style="background: none; color: white; outline: transparent !important; border: transparent !important;" > rides</button> </a></div> </div>
+      <div class="scroll-item"> <img class="imgs" src="peau.jpeg" alt=""><div class="btn1"style=" 
+        "> <a  href="routine.html?concern=peau%irritée&title=peau irritée"><button type="button" style="background: none; color: white; outline: transparent !important; border: transparent !important;" > peau irritée</button> </a></div> </div>
+      <div class="scroll-item"> <img class="imgs" src="taches.jpeg" alt=""><div class="btn1"style=" 
+        "> <a  href="routine.html?concern=tâches%pigmentées&title=tâches pigmentées"><button type="button" style="background: none; color: white; outline: transparent !important; border: transparent !important;" > tâches pigmentées</button> </a></div> </div>
+    </div>
+  </div>
+ <h2 style="font-family: 'Nova Round' , sans serif; margin-left: 5px; text-decoration: underline #f4dfe2; font-weight: bold; text-decoration: underline #f4dfe2; font-size: 34px;"> Découvrez-nos BestSellers: </h2> 
+  <div id="bestseller-container">
+
+  </div>
+
+ 
+     <div id="reviewModal" class="review-modal">
+
+        <div class="review-box">
+    
+            <button
+                type="button"
+                id="closeReview"
+                class="close-review"
+            >
+                ×
+            </button>
+    
+            <h2>
+                Add a review
+            </h2>
+    
+            <h3 id="reviewProductName"></h3>
+    
+    
+            <input
+                type="text"
+                id="reviewName"
+                placeholder="Your name"
+            >
+    
+    
+            <textarea
+                id="reviewText"
+                placeholder="Write your review..."
+            ></textarea>
+            <label for="reviewImage">Add a photo (optional)</label>
+
+<input
+    type="file"
+    id="reviewImage"
+    accept="image/png, image/jpeg, image/webp"
+>
+
+<img
+    id="reviewImagePreview"
+    style="display: none; max-width: 200px;"
+    alt="Preview"
+>
+    
+            <div
+                class="rating-stars"
+                id="ratingStars"
+            >
+    
+                <button
+                    type="button"
+                    class="rating-star"
+                    data-rating="1"
+                ><span class="material-symbols-outlined">
+                    kid_star
+                    </span></button>
+    
+                <button
+                    type="button"
+                    class="rating-star"
+                    data-rating="2"
+                ><span class="material-symbols-outlined">
+                    kid_star
+                    </span></button>
+    
+                <button
+                    type="button"
+                    class="rating-star"
+                    data-rating="3"
+                ><span class="material-symbols-outlined">
+                    kid_star
+                    </span></button>
+    
+                <button
+                    type="button"
+                    class="rating-star"
+                    data-rating="4"
+                ><span class="material-symbols-outlined">
+                    kid_star
+                    </span></button>
+    
+                <button
+                    type="button"
+                    class="rating-star"
+                    data-rating="5"
+                ><span class="material-symbols-outlined">
+                    kid_star
+                    </span></button>
+    
+            </div>
+    
+    
+            <input
+                type="hidden"
+                id="reviewRating"
+                value="0"
+            >
+    
+    
+            <button
+                type="button"
+                id="submitReview"
+            >
+                Submit review
+            </button>
+    
+    
+            <p id="reviewMessage"></p>
+    
+        </div>
+    
+    </div></div>
+    <!-- PRODUCT DETAILS MODAL -->
+<div id="productModal" class="product-modal" >
+
+    <div class="product-modal-box">
+
+        <!-- CLOSE BUTTON -->
+        <button
+            type="button"
+            id="closeProductModal"
+            class="close-product-modal"
+        >
+            ×
+        </button>
+
+
+        <!-- PRODUCT IMAGE / SWIPER -->
+        <div class="swiper product-swiper">
+
+            <div class="swiper-wrapper" id="productSwiperWrapper">
+                <!-- JavaScript will put the images here -->
+            </div>
+
+            <!-- Swiper arrows -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+
+            <!-- Swiper dots -->
+            <div class="swiper-pagination"></div>
+
+        </div>
+
+
+        <!-- PRODUCT INFORMATION -->
+        <div class="product-modal-info">
+
+            <h2 id="modalProductName"></h2>
+
+            <div
+                id="modalProductRating"
+                class="modal-product-rating"
+            ></div>
+
+            <p
+                id="modalProductDescription"
+                class="modal-product-description"
+            ></p>
+
+
+            <!-- PRICE -->
+            <div class="modal-product-prices">
+
+                <span
+                    id="modalOldPrice"
+                    class="modal-old-price"
+                ></span>
+
+                <span
+                    id="modalCurrentPrice"
+                    class="modal-current-price"
+                ></span>
+
+            </div>
+
+
+            <!-- ADD TO CART -->
+            <button
+                type="button"
+                id="modalAddToCart"
+                class="modal-add-cart"
+            >
+                Add to cart
+            </button>
+            <button
+            type="button"
+            id="modalBuyNow"
+            class="modal-add-cart"
+        >
+            Buy Now
+        </button>
+
+        </div>
+
+
+        <!-- REVIEWS -->
+        <div id="modalProductReviews" class="modal-reviews-section">
+
+            <h3>Customer Reviews</h3>
+        
+            <div
+                id="modalReviewsList"
+                class="modal-reviews"
+            >
+            </div>
+        
+            <button
+                type="button"
+                id="modalAddReview"
+                class="modal-add-review"
+            >
+                Add a review
+            </button>
+        
+        </div>
+       
+
+
+
+
+
+        
+        <h1 style="font-family: 'Nova Round' , sans-serif ; margin-top: 5px;">D'autres Produits:</h1>
+       <div id="products-container2" style="display: grid; grid-template-columns: repeat(2, 1fr); margin-top: 5px;" > </div>
+</div> </div>
+
+ 
+<h1 style="font-family: 'Nova Round' , sans-serif ; font-size: 34px; text-decoration: underline #f4dfe2; margin-top: 5px; font-weight: bold;">L'Utilisation De Nos BestSellers:</h1>
+   <div class="scroll-box" id="scrollBox" style="display: flexbox;">
+     <div class="scroll-item1"> 
+         <div>
+             <video src="tiktok.mp4" playsinline="true" autoplay="autoplay" loop="loop" muted="muted" style="width: 100%;
+             height: 60%;
+             object-fit: cover;
+             object-position: top 44px;
+             border-radius: 12px;
+             transition:0.3s;
+             cursor: pointer;
+             position: absolute;">  
+                 </video>
+
+    </div>
+        <div id="product4-container" class="product-card3">
+
+        </div>
+    </div>
+      
+      <div class="scroll-item2"> 
+        <div>
+            <video src="vid2.mp4" playsinline="true" autoplay="autoplay" loop="loop" muted="muted" style="width: 100%;
+            height: 60%;
+            object-fit: cover;
+            object-position: top 44px;
+            border-radius: 12px;
+            transition:0.3s;
+            cursor: pointer;
+            position: absolute;">  
+                </video>
+
+   </div>
+       <div id="product5-container" class="product-card4">
+
+       </div>
+   </div>
+     </div></div>
+ 
+    <h1 id="Os" style="font-family: 'Nova Round' , sans-serif ; font-size: 34px; text-decoration: underline #f4dfe2; margin-top: 35px; font-weight: bold;">Offres Exclusives：</h1>
+
+    <div id="products-container" class="products" data-limit="8" style="margin-top: 5px;"></div>
+    <div id="searchWindow" class="search-window">
+
+        <div class="search-header">
+    
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search products..."
+                autocomplete="off"
+            >
+    
+            <button id="closeSearch" type="button">
+                ×
+            </button>
+    
+        </div>
+    
+    
+        <div id="searchResults" class="search-results"></div>
+    
+    </div>
+           <h1 style="font-family: 'Nova Round' , sans-serif ; font-size: 34px; text-decoration: underline #f4dfe2; margin-top: 47px; font-weight: bold; "> Recommandations de Dermalab by W： </h1>
+
+           <div style="
+           
+           border-radius: 17px;
+           width: 100%;
+           position: relative;
+           text-align: center;
+           margin-top: 37px;
+           height: 1650px;
+       ">
+     <div  style="display: grid; width: 100%; position: absolute; height: 500px;  " >
+        <video style="height: 300px; width: 95%; object-fit: cover; object-position: center; border-radius: 18px; margin-left: 5px;  " playsinline autoplay loop controls muted > <source src="vid4.mp4" type="video/mp4"> </video>
+        <span style=" color: #ffa1af; font-size: 60px;" class="material-symbols-outlined">
+        spa
+        </span> 
+        <h2 style="font-size: 25px; font-weight: bold; font-family: 'Nova Round'; color: black; "> Dermalab by W： </h2>
+        <h4  style="font-size: 19px; font-family: 'Nova Round'; color: black; "> Nous ne pouvons pas trouver de produit de soin qui résolve tous les problèmes, avec des recommandations de produits pour certains problèmes spécifiques. </h4>
+    </div>
+    <div  style="display: grid; width: 100%; position: absolute; height: 500px; margin-top: 550px; " >
+        <video style="height: 300px; width: 95%; object-fit: cover; object-position: center; border-radius: 18px; margin-left: 5px;  " playsinline autoplay loop controls muted > <source src="vid6.mp4" type="video/mp4"> </video>
+        <span style=" color: #ffa1af; font-size: 60px;" class="material-symbols-outlined">
+        spa
+        </span> 
+        <h2 style="font-size: 25px; font-weight: bold; font-family: 'Nova Round'; color: black; "> Dermalab by W： </h2>
+        <h4  style="font-size: 19px; font-family: 'Nova Round'; color: black; "> Explication de chacun des trois sérums Anua avec des recommandations basées sur les préoccupations de chaque produit. </h4>
+    </div>
+    <div  style="display: grid; width: 100%; position: absolute; height: 500px; margin-top: 1100px; " >
+        <video style="height: 300px; width: 95%; object-fit: cover; object-position: center; border-radius: 18px; margin-left: 5px;  " playsinline autoplay loop controls muted > <source src="vid5.mp4" type="video/mp4"> </video>
+        <span style=" color: #ffa1af; font-size: 60px;" class="material-symbols-outlined">
+        spa
+        </span> 
+        <h2 style="font-size: 25px; font-weight: bold; font-family: 'Nova Round'; color: black; "> Dermalab by W： </h2>
+        <h4  style="font-size: 19px; font-family: 'Nova Round'; color: black; "> Recommandations et avis sur les crèmes solaires coréennes en termes de préoccupations, de texture et d'effets. </h4>
+   
+       <div style="display: grid; gap: 5px;">
+    <a class="b" href="products.html"><button  style="    border: none;
+        
+        background: #f3d6dc;
+    
+        color: white;
+    
+        padding: 10px 20px;
+    
+        border-radius: 12px;
+        margin-top: 17px;
+        font-family: 'Nova Round', sans-serif;
+        margin-left: 3px;
+        cursor: pointer;
+        width: auto;
+        height: auto;
+   
+
+        ">  Explorer Plus D’options </button></a>
+        <a class="b" href="#Os"><button  style="    border: 3px solid #f3d6dc;
+           
+            background:white ;
+            outline: 3px solid #f3d6dc;
+            color: #f3d6dc;
+        
+            padding: 10px 20px;
+        
+            border-radius: 12px;
+            margin-top: 17px;
+            font-family: 'Nova Round', sans-serif;
+             margin-right: 5px;
+            cursor: pointer;
+            width: auto;
+            height: auto;
+            ">  Offres Exclusives </button></a></div>
+    </div> </div>
+    <h1 style="font-family: 'Nova Round' , sans-serif ; font-size: 34px; text-decoration: underline #f4dfe2; margin-top: 97px; font-weight: bold; "> Avis Clients： </h1>
+       <div  style="width: 100%; height: auto; border-radius: 35px;  margin-top: 47px;">
+        <div class="product-cardy" >
+           <img src="rev (1).jpeg" alt="">
+          <h1 style="color: #ffa1af; font-family: 'Nova Round';  "> Avis De Marque  </h1>
+          <h4> Centella wa3raa 。。 </h4>
+          <span style="color: #ffa1af; display: inline-block; width: 300px;"> ★★★★★ </span>
+        </div>
+        <div class="product-cardy" >
+            <img src="rev (2).jpeg" alt="">
+           <h1 style="color: #ffa1af; font-family: 'Nova Round';  "> Avis De Service  </h1>
+           <h4> Fenaa Aslan nti ktjibi ghir zaaz yakhtii 。。 </h4>
+           <span style="color: #ffa1af; display: inline-block; width: 300px;"> ★★★★★ </span>
+        </div>
+        <div class="product-cardy" >
+            <img src="rev (3).jpeg" alt="">
+           <h1 style="color: #ffa1af; font-family: 'Nova Round';  "> Avis De Service  </h1>
+           <h4> زوين هادشي غزال وصلني تبارك الله دغياا قل من 24 ساعة
+
+            صراحة تبارك الله عليكم
+            
+            وشكرا بزاف على تعاملك اصحبتي الله يسهل عليك 。。 </h4>
+           <span style="color: #ffa1af; display: inline-block; width: 300px;"> ★★★★★ </span>
+        </div>
+        <div class="product-cardy" >
+            <img src="rev (4).jpeg" alt="">
+           <h1 style="color: #ffa1af; font-family: 'Nova Round';  "> Avis De Marque  </h1>
+           <h4> الصراحة حتى انا ولا عندي ادمان فالروتين ديالي وكيعطي نتيجة واو 。。 </h4>
+           <span style="color: #ffa1af; display: inline-block; width: 300px;"> ★★★★★ </span>
+        </div>
+        <div class="product-cardy" >
+            <img src="rev (5).jpeg" alt="">
+           <h1 style="color: #ffa1af; font-family: 'Nova Round';  "> Avis De Marque </h1>
+           <h4> Mrcc rah jarbto wa3eer 。。 </h4>
+           <span style="color: #ffa1af; display: inline-block; width: 300px;"> ★★★★★ </span>
+        </div>
+        <div class="product-cardy" >
+            <img src="rev (6).jpeg" alt="">
+           <h1 style="color: #ffa1af; font-family: 'Nova Round';  "> Avis De Marque </h1>
+           <h4> خديتو صدق ليا طوووب 。。 </h4>
+           <span style="color: #ffa1af; display: inline-block; width: 300px;"> ★★★★★ </span>
+        </div>
+    </div>
+    <div class="swiper mySwiper" style="width: 80%; height: 300px;">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img src="pics (1).jpeg">
+            </div>
+    
+            <div class="swiper-slide">
+                <img src="pics (2).jpeg">
+            </div>
+    
+            <div class="swiper-slide">
+                <img src="pics (3).jpeg">
+            </div>
+    
+            <div class="swiper-slide">
+                <img src="pics (4).jpeg">
+            </div>
+    
+            <div class="swiper-slide">
+                <img src="pics (5).jpeg">
+            </div>
+        </div>
+    </div>
+    <div class="faq-section">
+
+        <h1 class="faq-title">Questions Fréquentes</h1>
+    
+        <!-- FAQ 1 -->
+        <div class="faq-item">
+            <button class="faq-question">
+                Quelle est votre politique de retour ?
+                <span class="faq-icon">+</span>
+            </button>
+    
+            <div class="faq-answer">
+                <p>
+                    Vous pouvez retourner un produit dans un délai de 14 jours
+                    après sa réception, à condition qu'il soit non utilisé et
+                    dans son emballage d'origine.
+                </p>
+            </div>
+        </div>
+    
+    
+        <!-- FAQ 2 -->
+        <div class="faq-item">
+            <button class="faq-question">
+                Combien de temps faut-il pour recevoir ma commande ?
+                <span class="faq-icon">+</span>
+            </button>
+    
+            <div class="faq-answer">
+                <p>
+                    Les commandes sont généralement livrées sous 2 à 5 jours
+                    ouvrables au Maroc. Le délai peut varier selon votre ville.
+                </p>
+            </div>
+        </div>
+    
+    
+        <!-- FAQ 3 -->
+        <div class="faq-item">
+            <button class="faq-question">
+                Effectuez-vous des livraisons internationales ?
+                <span class="faq-icon">+</span>
+            </button>
+    
+            <div class="faq-answer">
+                <p>
+                    Nous proposons actuellement des livraisons au Maroc.
+                    Les livraisons internationales peuvent être disponibles
+                    prochainement.
+                </p>
+            </div>
+        </div>
+    
+    
+        <!-- FAQ 4 -->
+        <div class="faq-item">
+            <button class="faq-question">
+                Quels sont les moyens de paiement disponibles ?
+                <span class="faq-icon">+</span>
+            </button>
+    
+            <div class="faq-answer">
+                <p>
+                    Vous pouvez payer votre commande avec les moyens de paiement
+                    disponibles au moment du passage de la commande.
+                </p>
+            </div>
+        </div>
+    
+    
+        <!-- FAQ 5 -->
+        <div class="faq-item">
+            <button class="faq-question">
+                Puis-je suivre ma commande ?
+                <span class="faq-icon">+</span>
+            </button>
+    
+            <div class="faq-answer">
+                <p>
+                    Oui. Une fois votre commande expédiée, vous recevrez les
+                    informations nécessaires pour suivre l'état de votre colis.
+                </p>
+            </div>
+        </div>
+    
+    
+       
+        <div class="faq-item">
+            <button class="faq-question">
+                Puis-je annuler ou modifier ma commande ?
+                <span class="faq-icon">+</span>
+            </button>
+    
+            <div class="faq-answer">
+                <p>
+                    Si votre commande n'a pas encore été préparée ou expédiée,
+                    contactez-nous rapidement afin de demander une modification
+                    ou une annulation.
+                </p>
+            </div>
+        </div>
+    
+    </div>
+    <div class="footer">
+         <h1 style="margin-top: 30px; color: #c51650; font-weight: bold; font-size: 35px;"> NAVIGATION </h1> 
+         <div style="display: grid; gap: 10px; margin-top: 20px; ">
+         <a href="index.html" style="color: #c51650; text-decoration: none; font-size: 24px; font-weight: bold;">  Acceuil</a>   
+         <a href="products.html" style="color: #c51650; text-decoration: none; font-size: 24px; font-weight: bold;"> Products </a>
+         <a href="#bestseller-container"style="color: #c51650; text-decoration: none; font-size: 24px; font-weight: bold;"> BestSellers </a>
+         <a href="contact.html"style="color: #c51650; text-decoration: none; font-size: 24px; font-weight: bold;"> Contact </a></div>
+         <div style="display: flex; gap: 10px; margin-top: 15px;  margin-left: 20px; ">
+           <a href="https://www.instagram.com/florenciabeauty.ma?igsi=YXhpazUyb296ZGVn" target="_blank" rel="noopener noreferrer"><i style="color: #c51650; font-size: 30px;" class="fa-brands fa-instagram"> </i></a>
+          <a href="https://www.tiktok.com/@florencia.beauty.ma?_r=1&_t=ZS-99HbskBBZav" target="_blank" rel="noopener noreferrer">  <i style="color: #c51650; font-size: 30px;" class="fa-brands fa-tiktok"></i></a>
+         </div>
+        </div>
+    <div id="message" style="
+position: fixed;
+top: 80px;
+right: 20px;
+background: #4caf50;
+color: white;
+padding: 10px 20px;
+border-radius: 8px;
+display: none;
+z-index: 999;
+"> Product added to cart
+</div>
+<div id="cart-overlay" class="cart-overlay"></div>
+
+<div id="cart-sidebar" class="cart-sidebar">
+    <div class="cart-header">
+        <h3>Your Bag</h3>
+        <button class="close-btn" onclick="toggleCart()">&times;</button>
+    </div>
+    <div class="cart-items" style="color:black;">
+        </div>
+    <div class="cart-footer" style="padding: 20px; border-top: 1px solid #333;">
+        <div class="d-flex justify-content-between mb-3">
+            <span>Subtotal</span>
+            <span id="cart-subtotal">dh0.00</span>
+        </div>
+        
+        <button class="buy-button" onclick="goToCheckout()" style="color: rgb(0, 0, 0);">Checkout</button>
+    </div>
+</div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    
+    <script src="app.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+
+<script type="text/javascript" src="{{ url_for('static', filename='index.js') }}"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<script> lucide.createIcons(); </script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+></script>
+<script>
+    function toggleSearch(){
+        const box = document.getElementById("searchBox");
+    
+        if(box.style.display === "none" || box.style.display === ""){
+            box.style.display = "block";
+        }else{
+            box.style.display = "none";
+        }
+    }
+    
+    function searchItems(){
+    
+    let input = document.getElementById("searchInput").value.toLowerCase();
+    let items = document.querySelectorAll(".products");
+    
+    items.forEach(function(item){
+    
+    let text = item.textContent.toLowerCase();
+    
+    if(text.includes(input)){
+        item.style.display = "block";
+    }else{
+        item.style.display = "none";
+    }
+    
+    });
+    
+    }
+    </script>
+    <script>
+    const scrollBox = document.getElementById('scrollBox');
+    const scrollLeftBtn = document.getElementById('scrollLeftBtn');
+    const scrollRightBtn = document.getElementById('scrollRightBtn');
+    
+    scrollLeftBtn.addEventListener('click', () => {
+      scrollBox.scrollBy({left: 200, behavior: 'smooth' });
+    });
+    
+    scrollRightBtn.addEventListener('click', () => {
+      scrollBox.scrollBy({ left: 200, behavior: 'smooth' });
+    });</script>
+    <script>
+   const swiper = new Swiper(".mySwiper", {
+    loop: true,
+
+    effect: "fade",
+
+    fadeEffect: {
+        crossFade: true
+    },
+
+    autoplay: {
+        delay: 1000,
+    },
+
+    speed: 1000
+});</script>
+<script>
+    
+const faqQuestions = document.querySelectorAll(".faq-question");
+
+faqQuestions.forEach(question => {
+
+    question.addEventListener("click", () => {
+
+        const answer = question.nextElementSibling;
+        const icon = question.querySelector(".faq-icon");
+
+        if (answer.style.maxHeight) {
+
+            answer.style.maxHeight = null;
+            icon.textContent = "+";
+
+        } else {
+
+            answer.style.maxHeight = answer.scrollHeight + "px";
+            icon.textContent = "−";
+
+        }
+
+    });
+
+});
+
+</script>
+</body>
+
+
+</html>

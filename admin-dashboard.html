@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Admin Dashboard</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nova+Round&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #fffff0;
+            font-family: "Nova Round", sans-serif;
+            color: #000;
+        }
+
+        .admin-header {
+            background: white;
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #eee;
+        }
+
+        .admin-header h1 {
+            margin: 0;
+        }
+
+        #logoutButton {
+            border: none;
+            background: #f3d6dc;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        .dashboard {
+            padding: 30px;
+        }
+
+        .welcome {
+            margin-bottom: 30px;
+        }
+
+        .admin-sections {
+            display: grid;
+            grid-template-columns: repeat(
+                auto-fit,
+                minmax(220px, 1fr)
+            );
+            gap: 20px;
+        }
+
+        .admin-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .admin-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .admin-card h2 {
+            margin-top: 0;
+        }
+        #productsSection {
+    margin-top: 30px;
+}
+
+#addProductButton,
+#saveProductButton,
+#backToDashboard {
+    border: none;
+    background: #f3d6dc;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: inherit;
+    margin-bottom: 20px;
+}
+
+#addProductForm {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+#addProductForm input,
+#addProductForm textarea {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-family: inherit;
+}
+
+#addProductForm textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+    </style>
+
+</head>
+
+<body>
+
+
+    <header class="admin-header">
+
+        <h1>Admin Dashboard</h1>
+
+        <button id="logoutButton">
+            Logout
+        </button>
+
+    </header>
+
+
+    <main class="dashboard">
+
+        <div class="welcome">
+
+            <h2>Welcome, Admin 👋</h2>
+
+            <p>
+                Manage your website from here.
+            </p>
+
+        </div>
+
+
+        <div class="admin-sections">
+
+
+            <div class="admin-card" id="productsCard">
+
+                <h2>📦 Products</h2>
+
+                <p>
+                    Add, edit and delete products.
+                </p>
+
+            </div>
+
+
+            <div class="admin-card">
+
+                <h2>⭐ Reviews</h2>
+
+                <p>
+                    Approve or manage customer reviews.
+                </p>
+
+            </div>
+
+
+            <div class="admin-card">
+
+                <h2>🛍️ Orders</h2>
+
+                <p>
+                    View customer orders.
+                </p>
+
+            </div>
+
+
+        </div>
+       <!-- PRODUCTS SECTION -->
+
+<section
+id="productsSection"
+style="display: none; margin-top: 40px;"
+>
+
+<h2>Products</h2>
+
+<button
+    id="backToDashboard"
+    style="
+        padding: 10px 20px;
+        border: none;
+        border-radius: 8px;
+        background: #f3d6dc;
+        cursor: pointer;
+        font-family: inherit;
+    "
+>
+    ← Back
+</button>
+
+<div
+    id="adminProductsContainer"
+    style="
+        margin-top: 25px;
+        display: grid;
+        grid-template-columns:
+            repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+    "
+>
+
+    <p>Loading products...</p>
+
+</div>
+
+</section>
+<!-- PRODUCTS SECTION -->
+
+<div id="productsSection" style="display: none;">
+
+    <button id="backToDashboard">
+        ← Back to Dashboard
+    </button>
+
+    <h2>Manage Products</h2>
+
+    <button id="addProductButton">
+        + Add Product
+    </button>
+
+    <!-- ADD PRODUCT FORM -->
+
+    <div id="addProductForm" style="display: none;">
+
+        <h3>Add New Product</h3>
+
+        <input
+            type="text"
+            id="productName"
+            placeholder="Product name"
+        >
+
+        <textarea
+            id="productDescription"
+            placeholder="Product description"
+        ></textarea>
+
+        <input
+            type="number"
+            id="productPrice"
+            placeholder="Price"
+        >
+
+        <input
+            type="number"
+            id="productOldPrice"
+            placeholder="Old price (optional)"
+        >
+
+        <input
+            type="text"
+            id="productBrand"
+            placeholder="Brand"
+        >
+
+        <input
+            type="text"
+            id="productCategory"
+            placeholder="Category"
+        >
+
+        <input
+            type="text"
+            id="productImage"
+            placeholder="Image URL"
+        >
+
+        <button id="saveProductButton">
+            Save Product
+        </button>
+
+        <p id="productMessage"></p>
+
+    </div>
+
+    <div id="adminProductsContainer"></div>
+
+</div>
+    </main>
+
+
+    <!-- SUPABASE -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+    <script>
+
+        const SUPABASE_URL =
+            "https://wcnjkjpqgwpszesjiuzz.supabase.co";
+
+        const SUPABASE_KEY =
+            "sb_publishable_w5h0bJZLiL_LGc5V09P6JA_PZwfnpLD";
+
+
+        const supabaseClient =
+            window.supabase.createClient(
+                SUPABASE_URL,
+                SUPABASE_KEY
+            );
+
+
+        /* =========================
+           CHECK LOGIN
+        ========================= */
+
+        async function checkAdmin() {
+
+            const {
+                data: {
+                    session
+                }
+            } =
+                await supabaseClient.auth.getSession();
+
+
+            if (!session) {
+
+                window.location.href =
+                    "admin.html";
+
+                return;
+
+            }
+
+            console.log(
+                "Admin session:",
+                session
+            );
+
+        }
+
+
+        /* =========================
+           LOGOUT
+        ========================= */
+
+        document
+            .getElementById("logoutButton")
+            .addEventListener(
+                "click",
+                async () => {
+
+                    await supabaseClient.auth.signOut();
+
+                    window.location.href =
+                        "admin.html";
+
+                }
+            );
+
+
+        /* =========================
+           START
+        ========================= */
+
+        checkAdmin();
+       /* =========================
+   PRODUCTS
+========================= */
+
+const productsCard =
+    document.getElementById("productsCard");
+
+const productsSection =
+    document.getElementById("productsSection");
+
+const adminProductsContainer =
+    document.getElementById(
+        "adminProductsContainer"
+    );
+
+const backToDashboard =
+    document.getElementById(
+        "backToDashboard"
+    );
+
+
+/* OPEN PRODUCTS */
+
+productsCard.addEventListener(
+    "click",
+    () => {
+
+        productsSection.style.display =
+            "block";
+
+        document.querySelector(
+            ".admin-sections"
+        ).style.display = "none";
+
+        loadAdminProducts();
+
+    }
+);
+
+
+/* BACK */
+
+backToDashboard.addEventListener(
+    "click",
+    () => {
+
+        productsSection.style.display =
+            "none";
+
+        document.querySelector(
+            ".admin-sections"
+        ).style.display = "grid";
+
+    }
+);
+
+
+/* =========================
+   LOAD PRODUCTS
+========================= */
+
+async function loadAdminProducts() {
+
+    adminProductsContainer.innerHTML =
+        "<p>Loading products...</p>";
+
+
+    const {
+        data,
+        error
+    } =
+        await supabaseClient
+            .from("products")
+            .select("*")
+            .order("id", {
+                ascending: true
+            });
+
+
+    if (error) {
+
+        console.error(
+            "Error loading admin products:",
+            error
+        );
+
+        adminProductsContainer.innerHTML =
+            "<p>Could not load products.</p>";
+
+        return;
+    }
+
+
+    console.log(
+        "Admin products:",
+        data
+    );
+
+
+    adminProductsContainer.innerHTML =
+        "";
+
+
+    if (!data || data.length === 0) {
+
+        adminProductsContainer.innerHTML =
+            "<p>No products found.</p>";
+
+        return;
+    }
+
+
+    data.forEach(product => {
+
+        const card =
+            document.createElement("div");
+
+
+        card.style.background =
+            "white";
+
+        card.style.padding =
+            "20px";
+
+        card.style.borderRadius =
+            "15px";
+
+        card.style.boxShadow =
+            "0 5px 20px rgba(0,0,0,0.08)";
+
+
+        card.innerHTML = `
+
+            <img
+                src="${product.image || ""}"
+                alt="${product.name || ""}"
+                style="
+                    width: 100%;
+                    height: 200px;
+                    object-fit: contain;
+                    border-radius: 10px;
+                "
+            >
+
+            <h3>
+                ${product.name || "Unnamed product"}
+            </h3>
+
+            <p>
+                ${product.description || ""}
+            </p>
+
+            <p>
+                <strong>
+                    Price:
+                </strong>
+
+                ${product.price || 0} MAD
+            </p>
+
+            ${
+                product.old_price
+                    ? `
+                        <p>
+                            <strong>
+                                Old price:
+                            </strong>
+
+                            ${product.old_price} MAD
+                        </p>
+                    `
+                    : ""
+            }
+
+            <p>
+                <strong>
+                    Brand:
+                </strong>
+
+                ${product.Brand || "—"}
+            </p>
+
+            <p>
+                <strong>
+                    Category:
+                </strong>
+
+                ${product.category || "—"}
+            </p>
+
+        `;
+
+
+        adminProductsContainer.appendChild(
+            card
+        );
+
+    });
+
+}
+    </script>
+
+</body>
+
+</html>

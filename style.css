@@ -1,0 +1,1902 @@
+ 
+
+
+body {
+    font-family: "Nova Round" , sans-serif ;
+    max-width: 1000px;
+    
+}
+
+#products-container {
+    font-family: "Nova Round" , sans-serif ;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    
+    
+    align-items: start; 
+}
+.products-container {
+    font-family: "Nova Round" , sans-serif ;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    
+    
+    align-items: start; 
+}
+.product-card2 {
+    font-family: "Nova Round" , sans-serif ;
+    background:white;
+    border-radius:18px;
+    padding:15px;
+    text-align:center;
+    
+    transition:0.3s;
+    border: 2px #fdc7fd;
+    outline-width: 2px;
+    outline-color: #fdc7fd;
+}
+
+.product-card2:hover{
+    transform:translateY(-5px);
+}
+
+.product-card2 img{
+    width:100%;
+    height:180px;
+    object-fit:cover;
+    border-radius:12px;
+}
+
+.product-card2 h2{
+    font-family: "Nova Round" , sans-serif ;
+    font-size:15px;
+    margin-top:20px;
+    color:#f3d6dc;
+}
+.product-card{
+    font-family: "Nova Round" , sans-serif ;
+    background:white;
+    border-radius:18px;
+    padding:15px;
+    text-align:center;
+    
+    transition:0.3s;
+    border: 2px #fdc7fd;
+    outline-width: 2px;
+    outline-color: #fdc7fd;
+}
+
+.product-card:hover{
+    transform:translateY(-5px);
+}
+
+.product-card img{
+    width:100%;
+    height:180px;
+    object-fit:cover;
+    border-radius:12px;
+}
+
+.product-card h2{
+    font-family: "Nova Round" , sans-serif ;
+    font-size:15px;
+    margin-top:20px;
+    color:#f3d6dc;
+}
+.product-cardy{
+    font-family: "Nova Round" , sans-serif ;
+    background:rgb(252, 252, 252);
+    border-radius:18px;
+    padding:15px;
+    text-align:center;
+    margin-top: 15px;
+    transition:0.3s;
+    border: 2px #fdc7fd;
+    outline-width: 2px;
+    outline-color: #fdc7fd;
+}
+
+.product-cardy:hover{
+    transform:translateY(-5px);
+}
+
+.product-cardy img{
+    width:90%;
+    height:180px;
+    object-fit: contain;
+    object-position: center;
+    border-radius:12px;
+}
+
+.product-cardy h2{
+    font-family: "Nova Round" , sans-serif ;
+    font-size:15px;
+    margin-top:20px;
+    color:#f3d6dc;
+}
+.container-fluid { 
+    display: flex;
+    font-family: "Nova Round" , sans-serif ;
+}
+#nav {
+    position: relative;
+    background-color: #ffffff;
+    border: none;
+    outline: none;
+    padding-top: 5px;
+    height: 50px;
+    font-family: "Nova Round" , sans-serif ;
+    width: 100%;
+}
+.costum-menu {
+    width: 38px;
+    height: 30px;
+    padding: 5px 0;
+    border: none;
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 7px;
+}
+
+.container-fluid span {
+    display: grid;
+    gap: 4px;
+    width: 15px;
+    height: 3px;
+    background: currentColor;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+}
+
+.navbar-toggler {
+    margin-right: 20px;
+    border: none;
+    outline: none;
+}
+.navbar-toggler:focus,
+.navbar-toggler:focus-visible,
+.navbar-toggler:active {
+    box-shadow: none !important;
+    border: none !important;
+    outline: none !important;
+}
+.navbar-toggler:active {
+    box-shadow: none;
+    border: none;
+    outline: none !important;
+}
+.navbar-toggler:hover {
+    border: none;
+    outline: none;
+    
+}
+.navbar-brand {
+    margin-left: 0px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 22px;
+    font-family: "Nova Round" , sans-serif ;
+  
+}
+
+.offcanvas-start {
+    width: 280px !important;
+    background-color: #ffffff;
+    font-family: "Nova Round" , sans-serif ;
+}
+
+
+.offcanvas-header {
+    border-bottom: 1px solid #eaeaea;
+    padding: 1.25rem;
+    font-family: "Nova Round" , sans-serif ;
+}
+
+
+.offcanvas-body .navbar-nav .nav-link {
+    padding: 0.75rem 1rem;
+    color: #2d2d2d;
+    font-weight: 500;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    border-radius: 6px;
+    margin-bottom: 4px;
+    font-family: "Nova Round" , sans-serif ;
+    
+}
+
+.offcanvas-body .navbar-nav .nav-link:hover {
+    background-color: #f8f9fa;
+    color: #e79396 !important;
+}
+.search-button span {
+    color: black;
+    background-color: none;
+    border: none  !important;
+    outline: none  !important;
+}
+.search-button {
+    color: transparent;
+    background-color: none !important;
+    border: none  !important;
+    outline: none  !important;
+}
+.search-window {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: white;
+
+    z-index: 9999;
+
+    display: none;
+
+    padding: 30px;
+
+    overflow-y: auto;
+}
+
+#searchButton  {
+    color: none !important;
+    background-color: none  !important;
+}
+
+
+.search-window.show {
+    display: block;
+}
+
+
+
+
+.search-header {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    max-width: 700px;
+
+    margin: 0 auto 30px;
+}
+
+
+#searchInput {
+
+    width: 100%;
+
+    padding: 15px 20px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 5px;
+
+    font-size: 16px;
+
+    outline: none;
+}
+
+
+#searchInput:focus {
+
+    outline: none;
+
+    border-color: #999;
+
+}
+
+
+#closeSearch {
+
+    border: none;
+
+    background: none;
+
+    font-size: 30px;
+
+    cursor: pointer;
+
+    line-height: 1;
+}
+
+
+
+
+.search-results {
+
+    max-width: 700px;
+
+    margin: 0 auto;
+
+}
+
+
+
+
+.search-product {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 15px;
+
+    border-bottom: 1px solid #eee;
+
+    cursor: pointer;
+
+}
+
+
+.search-product img {
+
+    width: 70px;
+
+    height: 70px;
+
+    object-fit: cover;
+
+    border-radius: 5px;
+
+}
+
+
+.search-product-info h3 {
+
+    margin: 0 0 5px;
+
+    font-size: 16px;
+
+}
+
+
+.search-product-info p {
+
+    margin: 0;
+
+    font-size: 14px;
+
+}
+
+
+
+
+.no-results {
+
+    text-align: center;
+
+    padding: 40px;
+
+    color: #777;
+
+}
+.hero{
+    width:100%;
+    height: auto;
+    
+    
+}
+.hero img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    object-position: inherit;
+    
+}
+
+.marquee-container {
+    overflow: hidden;
+    width: 100%;
+    max-width: 1000px;
+    background: #f9f9f9;
+    padding: 20px 0;
+  }
+  
+  .marquee-track {
+    display: flex;
+    gap: 20px; 
+    width: max-content;
+    animation: scrollLeft 25s linear infinite;
+    
+    will-change: transform; 
+  }
+  
+
+  
+  .marquee-track div {
+    height: 50px; 
+    width: 150px;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .marquee-track img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+  }
+  
+  @keyframes scrollLeft {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+ 
+.scroll-container-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 40px auto;
+    font-family: sans-serif;
+  }
+  
+  
+  .scroll-controls {
+    position: absolute;
+    top: 2px;
+    right: 0;
+    display: none;
+    gap: 8px;
+  }
+  @media (min-width: 700px) {
+      .scroll-controls {
+          display: flex;
+      }
+  }
+  
+  .scroll-btn {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    transition: background 0.2s;
+  }
+  
+  .scroll-btn:hover {
+    background-color: #e0e0e0;
+  }
+  
+  
+  .scroll-box {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    gap: 16px;
+    padding: 10px 4px;
+    scrollbar-width: none;
+  }
+  
+ 
+  .scroll-box::-webkit-scrollbar {
+    display: none;
+  }
+  
+ 
+  
+  .scroll-item {
+    width: auto;
+    max-width: 300px;
+    height: auto;
+    max-height: 400px;
+   min-width: 300px;
+   min-height: 400px;
+   transition:0.3s;
+   cursor: pointer;
+    position: relative;
+  }
+  .scroll-item:hover{
+    transform:translateY(-5px);
+}
+  .imgs {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 12px;
+      transition:0.3s;
+      cursor: pointer;
+      position: absolute;
+  }
+  .imgs:hover{
+    transform:translateY(-5px);
+}
+ 
+.btn1 {
+    z-index: 1000;
+        
+    margin-top: 100%;
+    background-color: #f3d6dc;
+    color: white;
+    font-family:'Nova Round';
+    font-size: 16px;
+    border-radius: 15px;
+    transition:0.3s;
+    padding: 5%;
+    position: absolute;
+    margin-left: 30%;
+    width: auto;
+    height: auto;
+  }
+  .btn1:hover{
+    transform:translateY(-5px);
+}
+/* =========================
+   BESTSELLERS
+========================= */
+
+#bestseller-container {
+    width: 100%;
+    max-width: 1000px;
+    margin: 30px auto;
+    box-sizing: border-box;
+}
+
+/* ONE bestseller card */
+.bestseller-card {
+    width: 100%;
+    min-height: 450px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    gap: 50px;
+
+    padding: 40px;
+
+    box-sizing: border-box;
+
+    background-color: rgb(255, 246, 246);
+    border-radius: 20px;
+
+    overflow: hidden;
+}
+
+
+/* LEFT SIDE — IMAGE */
+
+.bestseller-image-container {
+    flex: 0 0 45%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    min-width: 0;
+}
+
+.bestseller-image {
+    display: block;
+
+    width: 100%;
+    max-width: 320px;
+    height: 320px;
+
+    object-fit: contain;
+
+    border-radius: 15px;
+}
+
+
+/* RIGHT SIDE — INFORMATION */
+
+.bestseller-info {
+    flex: 1;
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: flex-start;
+    justify-content: center;
+}
+
+
+/* TITLE */
+
+.bestseller-title {
+    margin: 0 0 15px;
+
+    font-family: "Nova Round", sans-serif;
+
+    font-size: 32px;
+
+    color: #f3d6dc;
+}
+
+
+/* DESCRIPTION */
+
+.bestseller-description {
+    margin: 0 0 15px;
+
+    font-family: "Nova Round", sans-serif;
+
+    font-size: 18px;
+
+    line-height: 1.5;
+}
+
+
+/* PRICE */
+
+.bestseller-price {
+    margin-bottom: 15px;
+
+    font-family: "Nova Round", sans-serif;
+
+    font-size: 22px;
+}
+
+
+/* REVIEW COUNT */
+
+.review-count {
+    margin: 0 0 15px;
+
+    font-family: "Nova Round", sans-serif;
+
+    font-size: 15px;
+}
+
+
+/* REVIEW BUTTON */
+
+.review-button {
+    padding: 12px 20px;
+
+    border: none;
+    border-radius: 12px;
+
+    background-color: #f3d6dc;
+    color: white;
+
+    font-family: "Nova Round", sans-serif;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.review-button:hover {
+    transform: translateY(-2px);
+}
+
+
+/* REVIEWS UNDER THE CARD */
+
+.product-reviews {
+    width: 100%;
+    box-sizing: border-box;
+
+    margin-top: 20px;
+}
+.rating-stars {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin: 15px 0;
+}
+
+.rating-stars {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin: 20px 0;
+    position: relative;
+    z-index: 10000;
+}
+
+.rating-star {
+    appearance: none;
+    -webkit-appearance: none;
+
+    border: none;
+    outline: none;
+    box-shadow: none;
+
+    background: transparent;
+
+    font-size: 38px;
+    line-height: 1;
+
+    color: #d8d8d8;
+
+    cursor: pointer;
+
+    padding: 5px;
+
+    pointer-events: auto;
+
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.rating-star:hover {
+    color: #f891a6;
+    transform: scale(1.15);
+}
+
+.rating-star.active {
+    color: #f795a9;
+    transform: scale(1.1);
+}
+.review-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(0, 0, 0, 0.45);
+}
+
+.review-modal.show {
+    display: flex;
+}
+@media(min-width: 650px) {
+.bestseller-card, .review-box {
+    display: grid;
+    
+}
+}
+.review-box {
+    position: relative;
+    width: 90%;
+    max-width: 500px;
+    padding: 30px;
+    background: white;
+    border-radius: 20px;
+}
+.product-reviews {
+    margin-top: 20px;
+}
+
+.review-card {
+    padding: 15px;
+    margin-top: 15px;
+
+    border-top: 1px solid #ddd;
+}
+.review-card {
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.review-photo {
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    height: 250px;
+    object-fit: contain;
+    object-position: center;
+    border-radius: 12px;
+    margin: 15px auto;
+}
+.review-card h3 {
+    margin: 0 0 5px;
+    font-family: 'Nova Round', sans-serif;
+}
+
+.review-stars {
+    color: #f3d6dc;
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.review-card p {
+    font-family: 'Nova Round', sans-serif;
+    margin: 0;
+}
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+    .bestseller-card {
+        flex-direction: column;
+
+        gap: 25px;
+
+        padding: 25px;
+
+        text-align: center;
+    }
+
+    .bestseller-image-container {
+        flex: none;
+
+        width: 100%;
+    }
+
+    .bestseller-image {
+        width: 80%;
+        max-width: 280px;
+        height: 280px;
+    }
+
+    .bestseller-info {
+        width: 100%;
+
+        align-items: center;
+    }
+
+    .bestseller-title {
+        font-size: 26px;
+    }
+
+    .bestseller-description {
+        font-size: 16px;
+    }
+    .swiper-button-next {
+        display: none;
+        color: transparent;
+    }
+    .swiper-button-prev {
+        display: none;
+        color: transparent;
+    }
+
+}
+/* =========================
+   PRODUCT MODAL — FULL PAGE
+========================= */
+
+.product-modal {
+
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    z-index: 99998;
+
+    background: white;
+
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    padding: 0;
+
+    overflow: hidden;
+
+    box-sizing: border-box;
+}
+
+
+.product-modal.show {
+
+    display: flex;
+
+}
+
+
+/* =========================
+   FULL PAGE PRODUCT BOX
+========================= */
+
+.product-modal-box {
+
+    position: relative;
+
+    width: 100vw;
+    height: 100vh;
+
+    max-width: none;
+    max-height: none;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    background: white;
+
+    border-radius: 0;
+
+    padding: 40px;
+
+    box-sizing: border-box;
+
+}
+
+
+/* =========================
+   CLOSE BUTTON
+========================= */
+
+.close-product-modal {
+
+    position: absolute;
+
+    top: 20px;
+    right: 25px;
+
+    z-index: 100;
+
+    border: none;
+
+    background: transparent;
+
+    font-size: 32px;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    padding: 5px;
+
+}
+
+
+/* =========================
+   SWIPER
+========================= */
+
+.product-swiper {
+
+    width: 100%;
+
+    max-width: 550px;
+
+    height: 450px;
+
+    margin: 0 auto 30px;
+
+}
+
+
+.product-swiper .swiper-slide {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+}
+
+
+.product-swiper .swiper-slide img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: contain;
+
+    border-radius: 15px;
+
+}
+
+
+/* =========================
+   PRODUCT INFORMATION
+========================= */
+
+.product-modal-info {
+
+    width: 100%;
+
+    max-width: 900px;
+
+    margin: 0 auto;
+
+    text-align: center;
+
+}
+
+
+#modalProductName {
+
+    font-family: "Nova Round", sans-serif;
+
+    font-size: 32px;
+
+    margin-bottom: 15px;
+
+}
+
+
+.modal-product-description {
+
+    font-family: "Nova Round", sans-serif;
+
+    color: #555;
+
+    line-height: 1.6;
+
+    max-width: 700px;
+
+    margin: 0 auto;
+
+}
+
+
+.modal-product-prices {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin: 20px 0;
+
+}
+
+
+.modal-current-price {
+
+    font-family: "Nova Round", sans-serif;
+
+    font-size: 24px;
+
+    font-weight: bold;
+
+}
+
+
+.modal-old-price {
+
+    font-family: "Nova Round", sans-serif;
+
+    color: #999;
+
+    text-decoration: line-through;
+
+    font-size: 14px;
+
+}
+
+
+/* =========================
+   ADD TO CART
+========================= */
+
+.modal-add-cart {
+
+    border: none;
+
+    background: #f3d6dc;
+
+    color: white;
+
+    padding: 13px 28px;
+
+    border-radius: 12px;
+
+    font-family: "Nova Round", sans-serif;
+
+    cursor: pointer;
+
+}
+
+
+/* =========================
+   REVIEWS
+========================= */
+
+.modal-reviews-section {
+
+    width: 100%;
+
+    max-width: 900px;
+
+    margin: 40px auto 0;
+
+    border-top: 1px solid #eee;
+
+    padding-top: 25px;
+
+}
+
+
+.modal-reviews-section h3 {
+
+    font-family: "Nova Round", sans-serif;
+
+    font-size: 22px;
+
+}
+
+
+.modal-add-review {
+
+    border: none;
+
+    background: #f3d6dc;
+
+    color: white;
+
+    padding: 12px 22px;
+
+    border-radius: 10px;
+
+    font-family: "Nova Round", sans-serif;
+
+    cursor: pointer;
+
+    margin-top: 15px;
+
+    position: relative;
+
+    z-index: 100;
+
+}
+
+
+.modal-review-card {
+
+    padding: 15px 0;
+
+    border-top: 1px solid #eee;
+
+}
+
+
+.modal-review-card h4 {
+
+    margin: 0 0 5px;
+
+    font-family: "Nova Round", sans-serif;
+
+}
+
+
+.modal-review-stars {
+
+    color: #f3d6dc;
+
+    margin-bottom: 8px;
+
+}
+
+
+.modal-review-card p {
+
+    margin: 0 0 10px;
+
+    font-family: "Nova Round", sans-serif;
+
+}
+
+
+.modal-review-photo {
+
+    display: block;
+
+    width: 100%;
+
+    max-width: 250px;
+
+    height: 200px;
+
+    object-fit: contain;
+
+    object-position: center;
+
+    border-radius: 12px;
+
+    margin-top: 10px;
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    .product-modal-box {
+
+        width: 100vw;
+
+        height: 100vh;
+
+        padding: 25px 18px;
+
+    }
+
+
+    .close-product-modal {
+
+        top: 15px;
+
+        right: 18px;
+
+    }
+
+
+    .product-swiper {
+
+        height: 300px;
+
+        margin-top: 20px;
+
+    }
+
+
+    #modalProductName {
+
+        font-size: 25px;
+
+    }
+
+
+    .modal-product-description {
+
+        font-size: 15px;
+
+    }
+
+
+    .modal-reviews-section {
+
+        margin-top: 30px;
+
+    }
+
+}
+/* =========================
+   SWIPER
+========================= */
+@media (max-width: 650px) {
+.product-swiper .swiper-button-next {
+    color: transparent;
+}
+.product-swiper .swiper-button-prev {
+    color: transparent;
+}
+}
+.product-swiper {
+
+    width: 100%;
+
+    max-width: 500px;
+
+    height: 400px;
+
+    margin: 0 auto 25px;
+
+}
+
+
+.product-swiper .swiper-slide {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+}
+
+
+.product-swiper .swiper-slide img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: contain;
+
+    border-radius: 15px;
+
+}
+
+
+/* =========================
+   PRODUCT INFORMATION
+========================= */
+
+.product-modal-info {
+
+    text-align: center;
+
+}
+
+
+#modalProductName {
+
+    font-family: "Nova Round", sans-serif;
+
+    font-size: 28px;
+
+    margin-bottom: 10px;
+
+}
+
+
+.modal-product-description {
+
+    font-family: "Nova Round", sans-serif;
+
+    color: #555;
+
+    line-height: 1.6;
+
+}
+
+
+.modal-product-prices {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin: 15px 0;
+
+}
+
+
+.modal-current-price {
+
+    font-family: "Nova Round", sans-serif;
+
+    font-size: 22px;
+
+    font-weight: bold;
+
+}
+.bestseller-price, .modal-old-price {
+    display: flex;
+}
+
+.modal-old-price {
+
+    font-family: "Nova Round", sans-serif;
+
+    color: #999;
+
+    text-decoration: line-through;
+
+    font-size: 13px;
+
+}
+
+
+/* =========================
+   ADD TO CART
+========================= */
+
+.modal-add-cart {
+
+    border: none;
+
+    background: #f3d6dc;
+
+    color: white;
+
+    padding: 12px 25px;
+
+    border-radius: 12px;
+
+    font-family: "Nova Round", sans-serif;
+
+    cursor: pointer;
+
+}
+
+
+/* =========================
+   REVIEWS
+========================= */
+
+.modal-reviews-section {
+
+    margin-top: 30px;
+
+    border-top: 1px solid #eee;
+
+    padding-top: 20px;
+
+}
+
+
+.modal-reviews-section h3 {
+
+    font-family: "Nova Round", sans-serif;
+
+}
+
+
+.modal-add-review {
+
+    border: none;
+
+    background: #f3d6dc;
+
+    color: white;
+
+    padding: 10px 20px;
+
+    border-radius: 10px;
+
+    font-family: "Nova Round", sans-serif;
+
+    cursor: pointer;
+   z-index: 10000;
+}
+
+
+@media (max-width: 600px) {
+
+    .product-modal-box {
+
+        padding: 18px;
+
+    }
+
+
+    .product-swiper {
+
+        height: 300px;
+
+    }
+
+
+    #modalProductName {
+
+        font-size: 23px;
+
+    }
+
+}
+.modal-reviews-section {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.modal-review-card {
+    padding: 15px 0;
+    border-top: 1px solid #eee;
+}
+
+.modal-review-card h4 {
+    margin: 0 0 5px;
+    font-family: "Nova Round", sans-serif;
+}
+
+.modal-review-stars {
+    color: #f3d6dc;
+    margin-bottom: 8px;
+}
+
+.modal-review-card p {
+    margin: 0 0 10px;
+    font-family: "Nova Round", sans-serif;
+}
+
+.modal-review-photo {
+    display: block;
+    width: 100%;
+    max-width: 250px;
+    height: 200px;
+    object-fit: contain;
+    object-position: center;
+    border-radius: 12px;
+    margin-top: 10px;
+}
+@media (max-width: 650px) {
+    .swiper-button-next , .swiper-button-prev{
+        display: none;
+        color: none;
+    }
+}
+.product-card3 {
+    background: rgb(255, 255, 255);
+    margin-top: 110px;
+    padding: 20px;
+    border-radius: 18px;
+    
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    gap: 5px;
+    height: 20%;
+}
+
+.product-card3 img {
+    margin-bottom: 10% ;
+    width: 90%;
+    max-width: 300px;
+    height: 150px;
+    object-fit: contain;
+    object-position: center;
+    border-radius: 12px;
+}
+
+.product-card3 h2 {
+    font-family: "Nova Round", sans-serif;
+    font-size: 15px;
+}
+.product-card4 {
+    background: rgb(255, 255, 255);
+    margin-top: 110px;
+    padding: 20px;
+    border-radius: 18px;
+    
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    gap: 5px;
+    height: 20%;
+}
+
+.product-card4 img {
+    margin-bottom: 10% ;
+    width: 90%;
+    max-width: 300px;
+    height: 150px;
+    object-fit: contain;
+    object-position: center;
+    border-radius: 12px;
+}
+
+.product-card4 h2 {
+    font-family: "Nova Round", sans-serif;
+    font-size: 15px;
+}
+
+.scroll-item1 {
+    width: auto;
+    max-width: 300px;
+    height: auto;
+    max-height: 400px;
+   min-width: 300px;
+   min-height: 400px;
+   transition:0.3s;
+   cursor: pointer;
+    position: relative;
+  }
+  .scroll-item1:hover{
+    transform:translateY(-5px);
+}
+.b{
+    transition:0.3s;   
+}
+.b:hover{
+    transform:translateY(-10px);}
+.scroll-item2 {
+    width: auto;
+    max-width: 300px;
+    height: auto;
+    max-height: 400px;
+   min-width: 300px;
+   min-height: 400px;
+   transition:0.3s;
+   cursor: pointer;
+    position: relative;
+  }
+  .scroll-item2:hover{
+    transform:translateY(-5px);
+}
+.cart-sidebar {
+    position: fixed;
+    top: 0;
+    right: -400px; 
+    width: 400px;  
+    height: 100%;
+    background: #fffff0;
+    color: #000000;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+    transition: right 0.3s ease-in-out;
+    z-index: 99999;
+    display: flex;
+    flex-direction: column;
+}
+
+
+@media (max-width: 480px) {
+    .cart-sidebar {
+        width: 85%; 
+        right: -85%;
+    }
+}
+
+
+.cart-sidebar.open {
+    right: 0;
+}
+
+
+
+.cart-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); 
+    display: none; 
+    z-index: 99999;
+}
+
+.cart-overlay.active {
+    display: block;
+}
+
+.cart-header { font-family: "Nova Round"; padding: 20px; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; }
+.cart-items { flex-grow: 1; overflow-y: auto; padding: 20px; }
+.checkout-btn{
+    bottom: 0;
+    width: 90%;
+    margin-left: 5px; 
+    margin-right: 5px;
+    color: #d47fa6;
+    background: #fffff0;
+    font-family: "Lobster Two";
+    height: 50px;
+}
+.buy-button {
+  width: 100%;
+  padding: 15px;
+  background: #fffff0;
+  color: white;
+  border: none;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+}
+.cart-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #333;
+}
+
+.cart-item img {
+    border-radius: 4px;
+    object-fit: cover;
+}
+
+.cart-item-details {
+    flex-grow: 1;
+}
+
+.cart-item-details p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.remove-item {
+    background: transparent;
+    border: none;
+    color: #d47fa6;
+    font-size: 0.8rem;
+    cursor: pointer;
+    text-decoration: underline;
+}
+.buy-button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+.mySwiper {
+    width: 100%;
+    height: 400px;
+}
+
+.mySwiper .swiper-slide {
+    width: 100%;
+    height: 100%;
+}
+
+.mySwiper .swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    border-radius: 12px;
+}
+.faq-section {
+    text-align: center;
+    width: 100%;
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 15px;
+    font-family: 'Nova Round', sans-serif;
+}
+
+.faq-title {
+    font-size: 34px;
+    font-weight: bold;
+    text-decoration: underline #f4dfe2;
+    margin-bottom: 25px;
+}
+
+.faq-item {
+    border-bottom: 1px solid #f4dfe2;
+}
+
+.faq-question {
+    width: 90%;
+    border: none;
+    background: transparent;
+    padding: 20px 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+    font-family: 'Nova Round', sans-serif;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.faq-icon {
+    font-size: 25px;
+    transition: transform 0.3s ease;
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+}
+
+.faq-answer p {
+    padding: 0 5px 20px;
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.6;
+}
+.footer{
+    padding-left: 20px ;
+    width: 100%;
+    height: auto;
+    background-color: #fff2f4;
+    
+    font-family: 'Nova Round' ;
+    text-align: start;
+    display: grid;
+    gap: 10px;
+}
+.brand-card {
+    padding: 30px;
+    border: 1px solid #ddd;
+    margin: 10px;
+    cursor: pointer;
+    text-align: center;
+    background: #fffff0;
+}
+
+#brand-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+#modalQuantityContainer {
+  
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: #f891a6;
+    font-family: "Nova Round";
+}
+#modalQuantity{
+    width: 100px;
+    height: 50px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 12px;
+    color: #f891a6;
+    font-family: "Nova Round";
+    border: #f891a6 2px solid;
+}
+#quantityMinus{
+    color: #f891a6;
+    background-color: transparent;
+    border-radius: 12px ;
+    border: #f891a6 2px solid;
+}
+#quantityPlus {
+    color: #f891a6;
+    background-color: transparent;
+    border-radius: 12px ;
+    border: #f891a6 2px solid;
+}
+.close-review {
+    border-radius: 12px;
+    color: #c51650;
+    border: #c51650 2px solid;
+    padding: 3px;
+    background-color: transparent;
+    width: 30px;
+}
+.rvwtxt {
+    color: #c51650;
+    font-family: 'Nova Round';
+    margin-top: 20px;
+}
+#reviewProductName{
+    font-family: 'Nova Round';
+    margin-top: 14px;
+    margin-bottom: 14px;
+}
+#reviewName{
+    border-radius: 12px;
+    border: #c51650 2px solid;
+    height: 50px;
+    width: 200px;
+    padding: 20px;
+    color: #c51650;
+    font-family: 'Nova Round';
+}
+#reviewText{
+    border-radius: 12px;
+    border: #c51650 2px solid;
+    height: 50px;
+    margin-top: 10px;
+    width: 200px;
+    padding: 10px;
+    padding-bottom: 10px;
+    color: #c51650;
+    font-family: 'Nova Round';
+}
+#reviewImage{
+    border-radius: 12px;
+    padding: 10px;
+    margin-top: 10px;
+    color: #c51650;
+    background-color: transparent;
+    font-family: 'Nova Round';
+
+}
+#submitReview{
+    border-radius: 12px;
+    padding: 10px;
+    margin-top: 10px;
+    color: #c51650;
+    background-color: transparent;
+    font-family: 'Nova Round';
+    border: #c51650 2px solid;
+}
+#reviewMessage{
+    font-family: 'Nova Round';
+    font-size: 20px;
+    color: #c51650;
+    margin-left: 10px;
+    margin-top: 10px;
+}

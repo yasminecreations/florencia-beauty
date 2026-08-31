@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EliteShop - Checkout</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nova+Round&display=swap" rel="stylesheet">
+    <script src="https://www.paypal.com/sdk/js?client-id=AUX"></script>
+    <style>
+        body { font-family: 'Nova Round', sans-serif; background: #fafafa; display: flex; justify-content: center; padding: 50px 20px; margin: 0; }
+        .checkout-card { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); width: 100%; max-width: 450px; }
+        h2 { border-bottom: 2px solid #a8977a; padding-bottom: 10px; color: #c51650; }
+        .price-row { display: flex; justify-content: space-between; margin-bottom: 15px; color: #555; font-size: 14px; }
+        .total-row { display: flex; justify-content: space-between; margin-top: 20px; padding-top: 15px; border-top: 2px solid #eee; font-weight: bold; font-size: 1.2em; color: #161711; }
+        #paypal-button-container { margin-top: 30px; min-height: 150px; }
+        .empty-msg { text-align: center; padding: 20px; color: #666; }
+        input { width: 100%; padding: 10px; margin-top: 10px; border: 1px solid #ddd; border-radius: 5px; box-sizing: border-box; }
+        .checkout { background-color: #a8977a; color: white; border: none; padding: 15px; width: 100%; border-radius: 20px; cursor: pointer; margin-top: 10px; font-weight: bold; }
+    </style>
+</head>
+<body>
+<div style="display: grid;">
+    <div class="checkout-card">
+        <h2>Votre Commande</h2>
+        <div id="order-items-container"></div>
+        
+        <div style="margin-top: 20px;"> 
+            <h3 style="font-size: 16px;">Veuillez entrer votre num / رقم الهاتف</h3>
+            <input id="client-phone" type="tel" placeholder="+212 6..." required> 
+        </div>
+
+        <div id="paypal-button-container"></div>
+    </div>
+
+    <div style="margin: 20px auto; color: #c51650; background-color: rgb(255, 255, 255); width: 100%;  border-radius: 20px; padding: 30px; box-sizing: border-box; text-align: center;">
+        <h3 id="total" style="font-family: 'Parisienne'; font-size: 25px;"> Paiement A La Livraison </h3>
+        <form class="orderForm" id="orderForm">
+            <h3 class="title" style="color: #c51650; font-size: 14px;"> Entrez Vos Informations: </h3>
+            <input type="text" id="fullName" placeholder="Full Name" required><br>
+            <input type="text" id="adress" placeholder="Address" required><br>
+            <input type="tel" id="whatsapp-phone" placeholder="Entrez votre num.. +212...." required><br>
+            <button type="button" class="checkout" onclick="sendToWhatsApp()">Order Via WhatsApp</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    // --- DISPLAY & INITIALIZATION ---
+    function initCheckout() {
+        const container = document.getElementById('order-items-container');
+        const myCart = JSON.parse(localStorage.getItem("cart")) || [];
+        
+        if (myCart.length === 0) {
+            container.innerHTML = "<p class='empty-msg'>Votre Panier est vide.</p>";
+            return;
+        }
+
+        let subtotal = 0;
+        container.innerHTML = ""; 
+
+        myCart.forEach(item => {
+            const itemTotal = parseFloat(item.price) * item.quantity;
+            subtotal += itemTotal;
+            const row = document.createElement('div');
+            row.className = 'price-row';
+            row.innerHTML = `<span>${item.name} (x${item.quantity})</span><span>${itemTotal.toFixed(2)} DH</span>`;
+            container.appendChild(row);
+        });
+
+        let finalShipping = subtotal >= 700.00 ? 0.00 : 29.00;
+        let feeMAD = (subtotal + finalShipping) * 0.05;
+        let finalTotalMAD = subtotal + finalShipping + feeMAD;
+
+        container.insertAdjacentHTML('beforeend', `
+            <div class="price-row"><span>Shipping ${finalShipping === 0 ? '<b>(Free)</b>' : ''}</span><span>${finalShipping.toFixed(2)} DH</span></div>
+            <div class="price-row" style="color: #888;"><span>Fee (5%)</span><span>${feeMAD.toFixed(2)} DH</span></div>
+            <div class="total-row"><span>Total</span><span>${finalTotalMAD.toFixed(2)} DH</span></div>
+        `);
+
+        // --- PAYPAL BUTTON RENDERING ---
+        if (typeof paypal !== 'undefined') {
+            paypal.Buttons({
+                createOrder: function(data, actions) {
+                    const userPhone = document.getElementById('client-phone').value;
+                    if (!userPhone || userPhone.length < 8) {
+                        alert("Please enter a valid phone number first!");
+                        return;
+                    }
+
+                    const exchangeRate = 0.10; 
+                    const paypalItems = myCart.map(item => {
+                        let sizeDetails = `[Size: ${item.size1}${item.size2 ? ' / ' + item.size2 : ''}]`;
+                        return {
+                            name: `${item.name}  - Tel: ${userPhone}`,
+                            unit_amount: {
+                                currency_code: 'USD',
+                                value: (parseFloat(item.price) * exchangeRate).toFixed(2)
+                            },
+                            quantity: item.quantity.toString()
+                        };
+                    });
+
+                    const itemsTotalUSD = (subtotal * exchangeRate).toFixed(2);
+                    const shippingUSD = (finalShipping * exchangeRate).toFixed(2);
+                    const taxUSD = (feeMAD * exchangeRate).toFixed(2);
+                    const grandTotalUSD = (finalTotalMAD * exchangeRate).toFixed(2);
+
+                    return actions.order.create({
+                        purchase_units: [{
+                            description: "Commande de Florencia Beauty",
+                            amount: {
+                                currency_code: 'USD',
+                                value: grandTotalUSD,
+                                breakdown: {
+                                    item_total: { currency_code: 'USD', value: itemsTotalUSD },
+                                    shipping: { currency_code: 'USD', value: shippingUSD },
+                                    tax_total: { currency_code: 'USD', value: taxUSD }
+                                }
+                            },
+                            items: paypalItems
+                        }]
+                    });
+                },
+                onApprove: function(data, actions) {
+                    return actions.order.capture().then(function(details) {
+                        alert('Thank you ' + details.payer.name.given_name + '!');
+                        localStorage.removeItem("cart");
+                        window.location.href = "thankyou.html"; 
+                    });
+                },
+                onError: function(err) {
+                    console.error("PayPal Error:", err);
+                    alert("A PayPal error occurred. Please check your network or try again.");
+                }
+            }).render('#paypal-button-container');
+        } else {
+            console.warn("PayPal SDK not detected. Check internet connection or browser blocking.");
+            document.getElementById('paypal-button-container').innerHTML = "<p style='color:red;'>Payment gateway unavailable. Check your connection.</p>";
+        }
+    }
+
+    // --- WHATSAPP LOGIC ---
+    function sendToWhatsApp() {
+        const myCart = JSON.parse(localStorage.getItem("cart")) || [];
+        if (myCart.length === 0) { alert("Your cart is empty!"); return; }
+
+        let fullName = document.getElementById("fullName").value;
+        let adress = document.getElementById("adress").value;
+        let phone = document.getElementById("whatsapp-phone").value;
+
+        if (!fullName || !adress || !phone) {
+            alert("Veuillez Completer le forum!");
+            return;
+        }
+
+        let subtotal = 0;
+        myCart.forEach(item => { subtotal += parseFloat(item.price) * item.quantity; });
+        let shipping = subtotal >= 700 ? 0 : 29;
+        let fee = (subtotal + shipping) * 0.05;
+        let finalTotale = subtotal + shipping ;
+        let finalTotal = subtotal + shipping + fee;
+
+        let message = `*Florencia Beauty - Nouvelle Commande*%0A%0A`;
+        message += `*Le Nom Du Client:* ${fullName}%0A*Num du Client:* ${phone}%0A*Addresse Du Client:* ${adress}%0A%0A*Produits Choisis:*%0A`;
+        myCart.forEach(item => {
+            message += `• ${item.name} x${item.quantity} - ${(item.price * item.quantity).toFixed(2)} DH%0A`;
+        });
+        message += `%0A*Total:* ${finalTotale.toFixed(2)} DH`;
+
+        window.open(`https://wa.me/212766272673?text=${message}`, "_blank");
+    }
+
+    // 2. RUN EVERYTHING AFTER PAGE LOADS
+    window.onload = function() {
+        initCheckout();
+    };
+</script>
+</body>
+</html>
