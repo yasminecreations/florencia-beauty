@@ -3,27 +3,389 @@
 
 body {
     font-family: "Nova Round" , sans-serif ;
-    max-width: 1000px;
+    width: 100%;
     
 }
 
-#products-container {
-    font-family: "Nova Round" , sans-serif ;
+/* =========================================
+   PRODUCTS GRID
+========================================= */
+
+#products-container.products {
+    width: 100%;
+    max-width: 1400px;
+    margin: 2px auto 0;
+    padding: 0 30px 40px;
+
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-    
-    
-    align-items: start; 
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 25px 22px;
+
+    box-sizing: border-box;
 }
-.products-container {
-    font-family: "Nova Round" , sans-serif ;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-    
-    
-    align-items: start; 
+
+
+/* =========================================
+   PRODUCT CARD
+========================================= */
+
+#products-container .product-card {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+cursor: pointer;
+    min-width: 0;
+    padding: 5px;
+
+    background: transparent;
+    border: 1px #ccc solid;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================
+   PRODUCT IMAGE
+========================================= */
+
+#products-container .product-card > img {
+    width: 100%;
+    height: 300px;
+
+    display: block;
+
+    object-fit: contain;
+
+    background: rgb(255, 255, 250);
+
+    border-radius: 12px;
+
+    margin-bottom: 12px;
+
+    transition: transform 0.3s ease;
+}
+
+
+/* Optional hover effect */
+
+#products-container .product-card:hover > img {
+    transform: scale(1.02);
+}
+
+
+/* =========================================
+   RATING
+========================================= */
+
+#products-container .product-card-rating {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    gap: 4px;
+
+    min-height: 20px;
+
+    margin: 0 0 7px;
+
+    font-family: inherit;
+}
+
+
+/* Number */
+
+#products-container .product-rating-number {
+    display: none;
+}
+
+
+/* Stars */
+
+#products-container .product-rating-stars {
+    color: #b34c78;
+    margin-left: 30%;
+    font-size: 17px;
+    line-height: 1;
+
+    letter-spacing: 2px;
+
+    white-space: nowrap;
+}
+
+
+/* Review count */
+
+#products-container .product-rating-count {
+    color: rgb(255, 255, 255);
+
+    font-size: 12px;
+    line-height: 1;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================
+   PRODUCT NAME
+========================================= */
+
+#products-container .product-card h2 {
+    margin: 0 0 12px;
+
+    color: #b34c78;
+
+    font-size: 17px;
+    font-weight: 500;
+
+    line-height: 1.35;
+
+    font-family: inherit;
+
+    /* Keeps cards aligned */
+    min-height: 46px;
+
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+
+
+/* =========================================
+   DESCRIPTION
+========================================= */
+
+/* The screenshot doesn't show descriptions,
+   so hide them in the product grid. */
+
+#products-container .product-card > p {
+    display: none;
+}
+
+
+/* =========================================
+   CURRENT PRICE
+========================================= */
+
+#products-container .product-card > strong {
+    color: #29365f;
+
+    font-size: 18px;
+    font-weight: 500;
+
+    line-height: 1.2;
+
+    margin: 0 0 16px;
+
+    display: block;
+}
+
+
+/* =========================================
+   OLD PRICE
+========================================= */
+
+#products-container .product-card > strong.modal-old-price {
+    color: rgb(189, 189, 189);
+
+    font-size: 14px;
+
+    text-decoration: line-through;
+    align-self: center;
+    margin-top: -10px;
+    margin-bottom: 12px;
+}
+
+
+/* =========================================
+   ADD TO CART BUTTON
+========================================= */
+
+#products-container .product-card button,
+#products-container .product-card .add-to-cart,
+#products-container .product-card .add-cart {
+    width: 100%;
+
+    min-height: 52px;
+
+    padding: 12px 15px;
+
+    border: none;
+    border-radius: 6px;
+
+    background: #d63d91;
+    color: #fff;
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+
+    text-transform: uppercase;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+#products-container .product-card button:hover,
+#products-container .product-card .add-to-cart:hover,
+#products-container .product-card .add-cart:hover {
+    background: #bd317d;
+
+    transform: translateY(-1px);
+}
+
+
+#products-container .product-card button:active,
+#products-container .product-card .add-to-cart:active,
+#products-container .product-card .add-cart:active {
+    transform: translateY(0);
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1000px) {
+
+    #products-container.products {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+
+        gap: 24px 18px;
+
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    #products-container .product-card > img {
+        height: 260px;
+    }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    #products-container.products {
+        width: 100%;
+
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+
+        column-gap: 16px;
+        row-gap: 25px;
+
+        padding: 0 14px 30px;
+    }
+
+
+    /* Product image */
+
+    #products-container .product-card > img {
+        width: 100%;
+        height: 185px;
+
+        margin-bottom: 10px;
+
+        border-radius: 10px;
+    }
+
+
+    /* Stars */
+
+    #products-container .product-rating-stars {
+        font-size: 15px;
+
+        letter-spacing: 0.5px;
+    }
+
+
+    /* Hide review count on mobile */
+
+    #products-container .product-rating-count {
+        display: none;
+    }
+
+
+    /* Product name */
+
+    #products-container .product-card h2 {
+        font-size: 15px;
+
+        line-height: 1.35;
+
+        min-height: 41px;
+
+        margin-bottom: 9px;
+    }
+
+
+    /* Price */
+
+    #products-container .product-card > strong {
+        font-size: 16px;
+
+        margin-bottom: 12px;
+    }
+
+
+    /* Button */
+
+    #products-container .product-card button,
+    #products-container .product-card .add-to-cart,
+    #products-container .product-card .add-cart {
+        min-height: 46px;
+
+        padding: 10px 8px;
+
+        font-size: 11px;
+
+        border-radius: 5px;
+    }
+
+}
+
+
+/* =========================================
+   VERY SMALL PHONES
+========================================= */
+
+@media (max-width: 380px) {
+
+    #products-container.products {
+        column-gap: 12px;
+        padding-left: 10px;
+        padding-right: 10px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    #products-container .product-card > img {
+        height: 165px;
+    }
+
+    #products-container .product-card h2 {
+        font-size: 14px;
+    }
+
+    #products-container .product-card > strong {
+        font-size: 15px;
+    }
+
+    #products-container .product-card button,
+    #products-container .product-card .add-to-cart,
+    #products-container .product-card .add-cart {
+        font-size: 10px;
+    }
 }
 .product-card2 {
     font-family: "Nova Round" , sans-serif ;
@@ -89,13 +451,16 @@ body {
     font-family: "Nova Round" , sans-serif ;
     background:rgb(252, 252, 252);
     border-radius:18px;
+    margin-left: 10%;
     padding:15px;
     text-align:center;
     margin-top: 15px;
     transition:0.3s;
-    border: 2px #fdc7fd;
+    border: 2px #ffb7ff solid;
+    
     outline-width: 2px;
     outline-color: #fdc7fd;
+    width: 80%;
 }
 
 .product-cardy:hover{
@@ -112,7 +477,7 @@ body {
 
 .product-cardy h2{
     font-family: "Nova Round" , sans-serif ;
-    font-size:15px;
+    font-size:10px !important;
     margin-top:20px;
     color:#f3d6dc;
 }
@@ -120,70 +485,258 @@ body {
     display: flex;
     font-family: "Nova Round" , sans-serif ;
 }
+/* ==========================
+   NAVBAR
+========================== */
+
+/* ================================
+   NAVBAR
+================================ */
+
 #nav {
-    position: relative;
-    background-color: #ffffff;
-    border: none;
-    outline: none;
-    padding-top: 5px;
-    height: 50px;
-    font-family: "Nova Round" , sans-serif ;
     width: 100%;
-}
-.costum-menu {
-    width: 38px;
-    height: 30px;
-    padding: 5px 0;
-    border: none;
-    background: transparent;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 7px;
+    background: #ffffff;
+    padding: 8px 25px;
+    position: relative;
+    z-index: 1000;
 }
 
-.container-fluid span {
-    display: grid;
+.navbar-container {
+    width: 100%;
+    min-height: 65px;
+    display: flex;
+    align-items: center;
+}
+
+
+/* ================================
+   LOGO
+================================ */
+
+.navbar-brand {
+    margin: 0;
+    padding: 0;
+    flex-shrink: 0;
+}
+
+.navbar-brand img {
+    width: 150px;
+    height: 50px;
+    object-fit: contain;
+}
+
+
+/* ================================
+   DESKTOP NAVIGATION
+================================ */
+
+.navbar-collapse {
+    margin-left: 30px;
+}
+
+.navbar-nav {
+    display: flex;
+    align-items: center;
     gap: 4px;
-    width: 15px;
-    height: 3px;
-    background: currentColor;
-    border-radius: 10px;
+}
+
+.nav-link {
+    color: #222 !important;
+
+    font-size: 15px;
+    font-weight: 500;
+
+    padding: 8px 10px !important;
+
+    white-space: nowrap;
+
+    transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+    color: #b52d67 !important;
+}
+
+
+/* ================================
+   SEARCH + CART
+================================ */
+
+.navbar-actions {
+    margin-left: auto;
+
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+}
+
+
+/* Search */
+
+.search-button {
+    width: 42px;
+    height: 42px;
+
     border: none;
     outline: none;
+    background: transparent;
+
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
 }
+
+
+/* Cart */
+
+.cart-button {
+    position: relative;
+
+    width: 42px;
+    height: 42px;
+
+    border: none;
+    outline: none;
+    background: transparent;
+
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+}
+
+
+/* Cart number */
+
+.cart-count {
+    position: absolute;
+
+    top: 0;
+    right: 0;
+
+    min-width: 18px;
+    height: 18px;
+
+    padding: 0 4px;
+
+    border-radius: 50%;
+
+    background: #f3d6dc;
+    color: #a94d73;
+
+    font-size: 10px;
+    font-weight: 600;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* ================================
+   HAMBURGER
+================================ */
 
 .navbar-toggler {
-    margin-right: 20px;
-    border: none;
-    outline: none;
-}
-.navbar-toggler:focus,
-.navbar-toggler:focus-visible,
-.navbar-toggler:active {
-    box-shadow: none !important;
     border: none !important;
     outline: none !important;
+    box-shadow: none !important;
+
+    padding: 8px;
+
+    display: none;
+
+    flex-direction: column;
+    gap: 6px;
 }
-.navbar-toggler:active {
-    box-shadow: none;
-    border: none;
-    outline: none !important;
+
+.navbar-toggler span {
+    display: block;
+
+    width: 25px;
+    height: 2px;
+
+    background: #b52d67;
+
+    border-radius: 10px;
 }
-.navbar-toggler:hover {
-    border: none;
-    outline: none;
-    
+
+
+/* ================================
+   MOBILE
+================================ */
+
+@media (max-width: 991.98px) {
+
+    #nav {
+        padding: 8px 14px;
+    }
+
+    .navbar-container {
+        position: relative;
+        min-height: 58px;
+    }
+
+
+    /* Hamburger appears */
+
+    .navbar-toggler {
+        display: flex;
+        flex-shrink: 0;
+
+        order: 1;
+    }
+
+
+    /* Logo moves to CENTER */
+
+    .navbar-brand {
+        position: absolute;
+
+        left: 50%;
+        transform: translateX(-50%);
+
+        z-index: 2;
+    }
+
+    .navbar-brand img {
+        width: 130px;
+        height: 45px;
+    }
+
+
+    /* Desktop links disappear */
+
+    .navbar-collapse {
+        display: none !important;
+    }
+
+
+    /* Search + cart stay on right */
+
+    .navbar-actions {
+        margin-left: auto;
+        order: 3;
+
+        gap: 2px;
+    }
+
+    .search-button,
+    .cart-button {
+        width: 38px;
+        height: 38px;
+    }
+
 }
-.navbar-brand {
-    margin-left: 0px;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 22px;
-    font-family: "Nova Round" , sans-serif ;
-  
-}
+
 
 .offcanvas-start {
     width: 280px !important;
@@ -237,7 +790,7 @@ body {
 
     background: white;
 
-    z-index: 9999;
+    z-index: 9999999;
 
     display: none;
 
@@ -253,7 +806,7 @@ body {
 
 
 .search-window.show {
-    display: block;
+    display: block !important;
 }
 
 
@@ -383,6 +936,33 @@ body {
     color: #777;
 
 }
+@media (max-width: 500px) {
+
+    #nav {
+        padding: 8px 14px;
+    }
+
+    .navbar-container {
+        height: 58px;
+    }
+
+    .navbar-brand img {
+        width: 125px;
+        height: 45px;
+    }
+
+    .navbar-toggler,
+    .search-button,
+    .cart-button {
+        width: 38px;
+        height: 38px;
+    }
+
+    .navbar-actions {
+        gap: 3px;
+    }
+
+}
 .hero{
     width:100%;
     height: auto;
@@ -400,8 +980,8 @@ body {
 .marquee-container {
     overflow: hidden;
     width: 100%;
-    max-width: 1000px;
-    background: #f9f9f9;
+    max-width: 100%;
+    background: white;
     padding: 20px 0;
   }
   
@@ -440,253 +1020,1081 @@ body {
       transform: translateX(-50%);
     }
   }
- 
+/* =========================================
+   TROUVEZ VOTRE ROUTINE
+========================================= */
+
 .scroll-container-wrapper {
-    position: relative;
     width: 100%;
-    max-width: 600px;
-    margin: 40px auto;
-    font-family: sans-serif;
-  }
-  
-  
-  .scroll-controls {
-    position: absolute;
-    top: 2px;
-    right: 0;
+    position: relative;
+    padding: 10px 0 50px;
+    overflow: hidden;
+}
+
+/* Title */
+.scroll-container-wrapper h2 {
+    color: #25283d;
+    margin-bottom: 25px !important;
+}
+
+
+/* =========================================
+   CARDS CONTAINER
+========================================= */
+
+.scroll-box1 {
+    display: flex;
+    gap: 20px;
+
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    padding: 0 8px 15px;
+
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+
+    /* Makes scrolling snap nicely */
+    scroll-snap-type: x mandatory;
+}
+
+.scroll-box1::-webkit-scrollbar {
     display: none;
-    gap: 8px;
-  }
-  @media (min-width: 700px) {
-      .scroll-controls {
-          display: flex;
-      }
-  }
-  
-  .scroll-btn {
-    background-color: #f0f0f0;
-    border: 1px solid #ccc;
-    border-radius: 50%;
-    width: 32px;
-    height: 32px;
+}
+
+/* =========================================
+   DERMALAB RECOMMENDATIONS
+   ========================================= */
+
+   .dermalab-heading {
+    font-family: 'Nova Round', sans-serif !important;
+    font-size: 34px !important;
+    font-weight: bold !important;
+    text-align: center;
+    color: #111;
+    text-decoration: underline #f4dfe2 !important;
+    text-decoration-thickness: 8px;
+    text-underline-offset: 5px;
+    margin-top: 47px !important;
+    margin-bottom: 35px;
+}
+
+
+/* Main container */
+.dermalab-container {
+    width: 100%;
+    min-height: 0;
+
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 30px;
+
+    padding: 0 10px;
+    margin-top: 0;
+
+    box-sizing: border-box;
+    text-align: center;
+}
+
+
+/* =========================================
+   EACH CARD
+   ========================================= */
+
+.dermalab-card {
+    position: relative;
+
+    width: 100%;
+    height: auto;
+    justify-self: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    box-sizing: border-box;
+
+    background: #fff;
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    padding-bottom: 25px;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.dermalab-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+
+/* =========================================
+   VIDEO
+   ========================================= */
+
+.dermalab-card > video {
+    width: 100%;
+    height: 350px;
+
+    display: block;
+
+    object-fit: cover;
+    object-position: center;
+
+    border-radius: 18px;
+}
+
+
+/* =========================================
+   SPA ICON
+   ========================================= */
+
+.dermalab-card > span {
+    color: #ffa1af;
+
+    font-size: 48px;
+
+    line-height: 1;
+
+    margin-top: 8px;
+    margin-bottom: 10px;
+}
+
+
+/* =========================================
+   TITLE
+   ========================================= */
+
+.dermalab-card > h2 {
+    font-family: 'Nova Round', sans-serif;
+
+    font-size: 22px;
+    font-weight: bold;
+
+    color: #111;
+
+    margin: 0 15px 12px;
+
+    line-height: 1.3;
+}
+
+
+/* =========================================
+   DESCRIPTION
+   ========================================= */
+
+.dermalab-card > h4 {
+    font-family: 'Nova Round', sans-serif;
+
+    font-size: 16px;
+    font-weight: normal;
+
+    color: #222;
+
+    line-height: 1.6;
+
+    margin: 0 20px;
+
+    max-width: 380px;
+}
+
+
+/* =========================================
+   BUTTON AREA
+   ========================================= */
+
+.dermalab-buttons {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-top: 20px;
+}
+
+
+.dermalab-buttons a {
+    display: block;
+
+    width: 90%;
+
+    text-decoration: none;
+}
+
+
+.dermalab-buttons button {
+    width: 100%;
+
+    box-sizing: border-box;
+
+    margin: 0;
+
+    padding: 11px 18px;
+
+    border-radius: 12px;
+
+    font-family: 'Nova Round', sans-serif;
+
+    font-size: 14px;
+
     cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+/* First button */
+.dermalab-buttons a:first-child button {
+    border: none;
+
+    background: #f3d6dc;
+
+    color: white;
+}
+
+
+.dermalab-buttons a:first-child button:hover {
+    background: #ffa1af;
+
+    transform: translateY(-2px);
+}
+
+
+/* Second button */
+.dermalab-buttons a:last-child button {
+    border: 2px solid #f3d6dc;
+
+    background: white;
+
+    outline: none;
+
+    color: #e9a9b5;
+}
+
+
+.dermalab-buttons a:last-child button:hover {
+    background: #f3d6dc;
+
+    color: white;
+
+    transform: translateY(-2px);
+}
+
+@media (min-width: 900px) {
+    .dermalab-card{
+        height: max-content;
+    }
+    .dermalab-container{
+        height: max-content;
+    }
+    .yh{
+        margin-top: 0px !important;
+    }
+}
+/* =========================================
+   TABLET
+   ========================================= */
+
+@media (max-width: 900px) {
+
+    .dermalab-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        gap: 25px;
+
+        padding: 0 25px 40px;
+    }
+
+    .dermalab-card > video {
+        height: 300px;
+    }
+
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 600px) {
+
+    .dermalab-heading {
+        font-size: 27px !important;
+
+        margin-top: 35px !important;
+        margin-bottom: 25px;
+    }
+
+
+    .dermalab-container {
+        /*
+         * ONE recommendation card per row
+         */
+        grid-template-columns: 1fr;
+
+        gap: 55px;
+       
+    }
+
+
+    .dermalab-card {
+        width: 90%;
+        
+        border-radius: 18px;
+       
+        padding-bottom: 22px;
+    }
+
+
+    .dermalab-card > video {
+        width: 100%;
+        height: 300px;
+        margin-left: 20px;
+        border-radius: 18px;
+    }
+
+
+    .dermalab-card > span {
+        font-size: 25px;
+
+        margin-top: 8px;
+        margin-bottom: 8px;
+    }
+
+
+    .dermalab-card > h2 {
+        font-size: 21px;
+
+        margin-left: 12px;
+        margin-right: 12px;
+    }
+
+
+    .dermalab-card > h4 {
+        font-size: 15px;
+
+        line-height: 1.55;
+
+        margin-left: 18px;
+        margin-right: 18px;
+    }
+
+
+    .dermalab-buttons a {
+        width: 92%;
+    }
+
+}
+/* =========================================
+   INDIVIDUAL CARD
+========================================= */
+
+.scroll-item {
+    position: relative;
+
+    flex: 0 0 calc(25% - 15px);
+
+    height: 440px;
+
+    border-radius: 20px;
+    overflow: hidden;
+
+    scroll-snap-align: start;
+
+    background: #ddd;
+
+    cursor: pointer;
+}
+
+
+/* =========================================
+   IMAGE
+========================================= */
+
+.scroll-item .imgs {
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    inset: 0;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition: transform 0.5s ease;
+}
+
+
+/* =========================================
+   DARK PURPLE GRADIENT
+========================================= */
+
+.scroll-item::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+        to top,
+        rgba(35, 34, 62, 0.95) 0%,
+        rgba(35, 34, 62, 0.65) 30%,
+        rgba(35, 34, 62, 0.20) 65%,
+        rgba(35, 34, 62, 0) 100%
+    );
+
+    z-index: 1;
+
+    pointer-events: none;
+}
+
+
+/* =========================================
+   BUTTON AREA
+========================================= */
+
+.scroll-item .btn1 {
+    position: absolute;
+
+    left: 25px;
+    bottom: 25px;
+
+    z-index: 2;
+
+    background: #e83b91;
+
+    border-radius: 50px;
+
+    padding: 3px 7px;
+
+    min-width: 130px;
+    height: 48px;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
+    transition: 
+        transform 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+/* Your existing button */
+.scroll-item .btn1 button {
+    font-family: "Nova Round", sans-serif !important;
+
     font-size: 14px;
-    transition: background 0.2s;
-  }
-  
-  .scroll-btn:hover {
-    background-color: #e0e0e0;
-  }
-  
-  
-  .scroll-box {
-    display: flex;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    gap: 16px;
-    padding: 10px 4px;
-    scrollbar-width: none;
-  }
-  
- 
-  .scroll-box::-webkit-scrollbar {
-    display: none;
-  }
-  
- 
-  
-  .scroll-item {
-    width: auto;
-    max-width: 300px;
-    height: auto;
-    max-height: 400px;
-   min-width: 300px;
-   min-height: 400px;
-   transition:0.3s;
-   cursor: pointer;
-    position: relative;
-  }
-  .scroll-item:hover{
-    transform:translateY(-5px);
+    font-weight: 600;
+
+    color: white !important;
+
+    padding: 10px 18px;
+
+    width: 100%;
+    height: 100%;
+
+    cursor: pointer;
+
+    border: none !important;
+    outline: none !important;
 }
-  .imgs {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-      border-radius: 12px;
-      transition:0.3s;
-      cursor: pointer;
-      position: absolute;
-  }
-  .imgs:hover{
-    transform:translateY(-5px);
+
+
+/* =========================================
+   CARD HOVER
+========================================= */
+
+.scroll-item:hover .imgs {
+    transform: scale(1.05);
 }
- 
-.btn1 {
-    z-index: 1000;
-        
-    margin-top: 100%;
-    background-color: #f3d6dc;
-    color: white;
-    font-family:'Nova Round';
-    font-size: 16px;
-    border-radius: 15px;
-    transition:0.3s;
-    padding: 5%;
+
+.scroll-item:hover .btn1 {
+    transform: translateY(-3px);
+
+    background: #d92f83;
+
+    box-shadow: 0 7px 18px rgba(232, 59, 145, 0.3);
+}
+
+
+/* =========================================
+   ARROW BUTTONS
+========================================= */
+
+.scroll-controls {
     position: absolute;
-    margin-left: 30%;
-    width: auto;
-    height: auto;
-  }
-  .btn1:hover{
-    transform:translateY(-5px);
+
+    right: 15px;
+    top: 10px;
+
+    display: flex;
+    gap: 8px;
+
+    z-index: 10;
 }
-/* =========================
-   BESTSELLERS
-========================= */
+
+.scroll-btn {
+    width: 42px;
+    height: 42px;
+
+    border-radius: 50%;
+
+    border: none;
+
+    background: #f4dfe2;
+    color: #6f5361;
+
+    font-size: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+.scroll-btn:hover {
+    background: #e83b91;
+    color: white;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1000px) {
+
+    .scroll-item {
+        flex: 0 0 calc(50% - 10px);
+        height: 430px;
+    }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .scroll-container-wrapper {
+        padding-top: 5px;
+    }
+
+    .scroll-container-wrapper h2 {
+        font-size: 30px !important;
+        margin-left: 10px !important;
+    }
+
+    .scroll-box {
+        gap: 15px;
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .scroll-item {
+        flex: 0 0 82%;
+        height: 380px;
+
+        border-radius: 18px;
+    }
+
+    .scroll-item .btn1 {
+        left: 20px;
+        bottom: 20px;
+
+        min-width: 125px;
+        height: 45px;
+    }
+
+    .scroll-controls {
+        right: 12px;
+        top: 5px;
+        display: none;
+    }
+
+    .scroll-btn {
+        width: 38px;
+        height: 38px;
+        font-size: 17px;
+    }
+}
+/* =====================================================
+   BESTSELLER
+===================================================== */
 
 #bestseller-container {
     width: 100%;
-    max-width: 1000px;
-    margin: 30px auto;
+    max-width: 1250px;
+    margin: 30px auto 60px;
+    padding: 0 15px;
     box-sizing: border-box;
 }
 
-/* ONE bestseller card */
+
+/* =====================================================
+   CARD
+===================================================== */
+
 .bestseller-card {
     width: 100%;
-    min-height: 450px;
+
+    display: grid;
+    grid-template-columns: 50% 50%;
+
+    background: #ffffff;
+
+    box-sizing: border-box;
+}
+
+
+/* =====================================================
+   IMAGE
+===================================================== */
+
+.bestseller-image-container {
+    width: 100%;
+    height: 540px;
 
     display: flex;
-    flex-direction: row;
     align-items: center;
+    justify-content: center;
 
-    gap: 50px;
+    background: #ffffff;
 
-    padding: 40px;
+    overflow: hidden;
+}
+
+.bestseller-image {
+    width: 88%;
+    height: 95%;
+
+    object-fit: contain;
+
+    display: block;
+}
+
+
+/* =====================================================
+   RIGHT SIDE
+===================================================== */
+
+.bestseller-info {
+    position: relative;
+
+    width: 100%;
+    height: 540px;
+
+    padding: 20px 25px 25px;
 
     box-sizing: border-box;
 
-    background-color: rgb(255, 246, 246);
-    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* =====================================================
+   RATING — MOVE TO VERY TOP
+===================================================== */
+
+.average-rating {
+    order: 1;
+
+    display: flex;
+    align-items: center;
+
+    margin: 0 0 24px;
+
+    height: 25px;
+}
+
+
+/* Hide the 4.8 number because screenshot
+   only shows the stars */
+
+.rating-number {
+    display: none;
+}
+
+
+/* Stars */
+
+.average-stars {
+    color: #9d4163 !important;
+
+    font-size: 22px;
+
+    letter-spacing: 2px;
+
+    line-height: 1;
+}
+
+
+/* =====================================================
+   REVIEW COUNT — PUT NEXT TO STARS
+===================================================== */
+
+.review-count {
+    position: absolute;
+
+    top: 20px;
+    left: 165px;
+
+    margin: 0;
+
+    color: #25283d;
+
+    font-family: "Nova Round", sans-serif;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    line-height: 25px;
+}
+
+
+/* =====================================================
+   TITLE
+===================================================== */
+
+.bestseller-title {
+    order: 2;
+
+    margin: 0 0 28px;
+
+    color: #25283d;
+
+    font-family: "Nova Round", sans-serif;
+
+    font-size: 43px;
+
+    font-weight: 500;
+
+    line-height: 1.12;
+
+    max-width: 650px;
+}
+
+
+/* =====================================================
+   PRICE
+===================================================== */
+
+.bestseller-price {
+    order: 3;
+
+    display: inline-block;
+
+    margin: 0;
+
+    color: #25283d;
+
+    font-family: "Nova Round", sans-serif;
+
+    font-size: 28px;
+
+    font-weight: bold;
+}
+
+
+/* =====================================================
+   OLD PRICE
+===================================================== */
+
+.modal-old-price {
+    order: 4;
+
+    display: inline-block;
+
+    width: fit-content;
+
+    margin: -28px 0 28px 190px;
+
+    color: #888;
+
+    font-family: "Nova Round", sans-serif;
+
+    font-size: 19px;
+
+    font-weight: normal;
+
+    text-decoration: line-through;
+}
+
+
+/* =====================================================
+   DESCRIPTION
+===================================================== */
+
+.bestseller-description {
+    order: 5;
+
+    margin: 0 0 25px;
+
+    color: #343750;
+
+    font-family: "Nova Round", sans-serif;
+
+    font-size: 16px;
+
+    line-height: 1.75;
+
+    max-width: 650px;
+
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5;
 
     overflow: hidden;
 }
 
 
-/* LEFT SIDE — IMAGE */
-
-.bestseller-image-container {
-    flex: 0 0 45%;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    min-width: 0;
-}
-
-.bestseller-image {
-    display: block;
-
-    width: 100%;
-    max-width: 320px;
-    height: 320px;
-
-    object-fit: contain;
-
-    border-radius: 15px;
-}
-
-
-/* RIGHT SIDE — INFORMATION */
-
-.bestseller-info {
-    flex: 1;
-    min-width: 0;
-
-    display: flex;
-    flex-direction: column;
-
-    align-items: flex-start;
-    justify-content: center;
-}
-
-
-/* TITLE */
-
-.bestseller-title {
-    margin: 0 0 15px;
-
-    font-family: "Nova Round", sans-serif;
-
-    font-size: 32px;
-
-    color: #f3d6dc;
-}
-
-
-/* DESCRIPTION */
-
-.bestseller-description {
-    margin: 0 0 15px;
-
-    font-family: "Nova Round", sans-serif;
-
-    font-size: 18px;
-
-    line-height: 1.5;
-}
-
-
-/* PRICE */
-
-.bestseller-price {
-    margin-bottom: 15px;
-
-    font-family: "Nova Round", sans-serif;
-
-    font-size: 22px;
-}
-
-
-/* REVIEW COUNT */
-
-.review-count {
-    margin: 0 0 15px;
-
-    font-family: "Nova Round", sans-serif;
-
-    font-size: 15px;
-}
-
-
-/* REVIEW BUTTON */
+/* =====================================================
+   ADD TO CART / CURRENT BUTTON
+===================================================== */
 
 .review-button {
-    padding: 12px 20px;
+    order: 6;
 
-    border: none;
-    border-radius: 12px;
+    width: 100%;
 
-    background-color: #f3d6dc;
+    height: 66px;
+
+    flex-shrink: 0;
+
+    border: none !important;
+    outline: none !important;
+
+    border-radius: 3px;
+
+    background: #d93691;
+
     color: white;
 
     font-family: "Nova Round", sans-serif;
 
+    font-size: 15px;
+
+    font-weight: bold;
+
     cursor: pointer;
 
-    transition: 0.2s ease;
+    transition: 0.3s ease;
 }
 
 .review-button:hover {
-    transform: translateY(-2px);
+    background: #c92e83;
 }
 
+
+/* =====================================================
+   PRODUCT REVIEWS
+===================================================== */
+
+.product-reviews {
+    grid-column: 1 / -1;
+}
+
+
+/* =====================================================
+   PHONE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    #bestseller-container {
+        width: 100%;
+
+        margin: 0 auto 40px;
+
+        padding: 0 20px;
+    }
+
+
+    /* -----------------------------
+       CARD BECOMES VERTICAL
+    ----------------------------- */
+
+    .bestseller-card {
+        display: flex;
+
+        flex-direction: column;
+
+        width: 100%;
+    }
+
+
+    /* -----------------------------
+       IMAGE ON TOP
+    ----------------------------- */
+
+    .bestseller-image-container {
+        width: 100%;
+
+        height: 270px;
+
+        flex-shrink: 0;
+    }
+
+    .bestseller-image {
+        width: 78%;
+        height: 100%;
+
+        object-fit: contain;
+    }
+
+
+    /* -----------------------------
+       INFO BELOW IMAGE
+    ----------------------------- */
+
+    .bestseller-info {
+        width: 100%;
+
+        height: auto;
+
+        padding: 25px 5px 0;
+
+        display: flex;
+
+        flex-direction: column;
+    }
+
+
+    /* -----------------------------
+       RATING
+    ----------------------------- */
+
+    .average-rating {
+        order: 1;
+
+        height: 22px;
+
+        margin-bottom: 20px;
+    }
+
+    .average-stars {
+        font-size: 20px;
+
+        letter-spacing: 1px;
+    }
+
+    .average-stars , .review-count {
+        display: flex;
+    }
+    /* REVIEW COUNT */
+
+    .review-count {
+        position: absolute;
+
+        top: 25px;
+        left: 135px;
+
+        margin: 0;
+
+        font-size: 12px;
+
+        line-height: 22px;
+    }
+
+
+    /* -----------------------------
+       TITLE
+    ----------------------------- */
+
+    .bestseller-title {
+        order: 2;
+
+        font-size: 31px;
+
+        line-height: 1.18;
+
+        margin: 0 0 22px;
+
+        max-width: 100%;
+    }
+
+
+    /* -----------------------------
+       PRICE
+    ----------------------------- */
+
+    .bestseller-price {
+        order: 3;
+
+        font-size: 23px;
+
+        margin: 0;
+    }
+
+
+    /* -----------------------------
+       OLD PRICE
+    ----------------------------- */
+
+    .modal-old-price {
+        order: 4;
+
+        margin: -24px 0 22px 145px;
+
+        font-size: 19px;
+    }
+
+
+    /* -----------------------------
+       DESCRIPTION
+    ----------------------------- */
+
+    .bestseller-description {
+        order: 5;
+
+        font-size: 15px;
+
+        line-height: 1.75;
+
+        margin: 0 0 18px;
+
+        -webkit-line-clamp: 7;
+    }
+
+
+    /* -----------------------------
+       BUTTON
+    ----------------------------- */
+
+    .review-button {
+        order: 6;
+
+        width: 100%;
+
+        height: 68px;
+
+        font-size: 13px;
+    }
+}
 
 /* REVIEWS UNDER THE CARD */
 
@@ -760,7 +2168,7 @@ body {
 }
 
 .review-modal.show {
-    display: flex;
+    display: flex !important;
 }
 @media(min-width: 650px) {
 .bestseller-card, .review-box {
@@ -868,6 +2276,144 @@ body {
     }
 
 }
+/* =========================================
+   PHONE FIX
+========================================= */
+
+@media (max-width: 600px) {
+
+    /* -----------------------------
+       RATING + REVIEW COUNT
+    ----------------------------- */
+
+    .average-rating {
+        order: 1;
+
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        width: 100%;
+
+        margin: 0 0 20px;
+
+        height: auto;
+    }
+
+    .average-stars {
+        font-size: 20px;
+
+        letter-spacing: 1px;
+
+        line-height: 1;
+
+        white-space: nowrap;
+    }
+
+    /* Put review count normally beside the stars */
+    .review-count {
+        position: static;
+
+        margin: 0;
+
+        font-size: 12px;
+
+        line-height: 1;
+
+        color: #25283d;
+
+        white-space: nowrap;
+    }
+
+
+    /* -----------------------------
+       TITLE
+    ----------------------------- */
+
+    .bestseller-title {
+        order: 2;
+
+        font-size: 31px;
+
+        line-height: 1.18;
+
+        margin: 0 0 22px;
+    }
+
+
+    /* -----------------------------
+       PRICE
+    ----------------------------- */
+
+    .bestseller-price {
+        order: 3;
+
+        display: block;
+
+        width: fit-content;
+
+        margin: 0 0 8px;
+
+        font-size: 23px;
+
+        line-height: 1.2;
+    }
+
+
+    /* -----------------------------
+       OLD PRICE
+    ----------------------------- */
+
+    .modal-old-price {
+        order: 4;
+
+        display: block;
+
+        width: fit-content;
+
+        margin: 0 0 22px;
+
+        font-size: 23px;
+
+        line-height: 1.2;
+
+        color: #888;
+
+        text-decoration: line-through;
+    }
+
+
+    /* -----------------------------
+       DESCRIPTION
+    ----------------------------- */
+
+    .bestseller-description {
+        order: 5;
+
+        font-size: 15px;
+
+        line-height: 1.75;
+
+        margin: 0 0 18px;
+
+        -webkit-line-clamp: 7;
+    }
+
+
+    /* -----------------------------
+       BUTTON
+    ----------------------------- */
+
+    .review-button {
+        order: 6;
+
+        width: 100%;
+
+        height: 68px;
+
+        min-height: 68px;
+    }
+}
 /* =========================
    PRODUCT MODAL — FULL PAGE
 ========================= */
@@ -883,7 +2429,7 @@ body {
     width: 100vw;
     height: 100vh;
 
-    z-index: 99998;
+    z-index: 1000;
 
     background: white;
 
@@ -1079,7 +2625,7 @@ body {
 
     text-decoration: line-through;
 
-    font-size: 14px;
+    font-size: 19px;
 
 }
 
@@ -1390,7 +2936,7 @@ body {
 
     text-decoration: line-through;
 
-    font-size: 13px;
+    font-size: 19px;
 
 }
 
@@ -1525,7 +3071,7 @@ body {
 }
 .product-card3 {
     background: rgb(255, 255, 255);
-    margin-top: 110px;
+    margin-top: 0;
     padding: 20px;
     border-radius: 18px;
     
@@ -1533,7 +3079,7 @@ body {
     box-sizing: border-box;
     display: flex;
     gap: 5px;
-    height: 20%;
+    height: max-content;
 }
 
 .product-card3 img {
@@ -1552,7 +3098,7 @@ body {
 }
 .product-card4 {
     background: rgb(255, 255, 255);
-    margin-top: 110px;
+    margin-top: 0;
     padding: 20px;
     border-radius: 18px;
     
@@ -1560,7 +3106,7 @@ body {
     box-sizing: border-box;
     display: flex;
     gap: 5px;
-    height: 20%;
+    height: max-content;
 }
 
 .product-card4 img {
@@ -1578,39 +3124,13 @@ body {
     font-size: 15px;
 }
 
-.scroll-item1 {
-    width: auto;
-    max-width: 300px;
-    height: auto;
-    max-height: 400px;
-   min-width: 300px;
-   min-height: 400px;
-   transition:0.3s;
-   cursor: pointer;
-    position: relative;
-  }
-  .scroll-item1:hover{
-    transform:translateY(-5px);
-}
+
 .b{
     transition:0.3s;   
 }
 .b:hover{
     transform:translateY(-10px);}
-.scroll-item2 {
-    width: auto;
-    max-width: 300px;
-    height: auto;
-    max-height: 400px;
-   min-width: 300px;
-   min-height: 400px;
-   transition:0.3s;
-   cursor: pointer;
-    position: relative;
-  }
-  .scroll-item2:hover{
-    transform:translateY(-5px);
-}
+
 .cart-sidebar {
     position: fixed;
     top: 0;
@@ -1625,7 +3145,219 @@ body {
     display: flex;
     flex-direction: column;
 }
+/* =========================================
+   BESTSELLER VIDEO SECTION
+========================================= */
 
+.scroll-box {
+    width: 100%;
+    max-width: 1200px;
+    margin: 35px auto 70px;
+    
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 35px;
+
+    padding: 0 15px;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================
+   EACH VIDEO + PRODUCT ITEM
+========================================= */
+
+.scroll-item1,
+.scroll-item2 {
+    position: relative;
+
+    width: 100%;
+    justify-self: center;
+    background: #ffffff;
+
+    border-radius: 22px;
+
+    overflow: hidden;
+    
+    box-shadow: 0 8px 30px rgba(120, 70, 90, 0.10);
+
+    transition: transform 0.35s ease,
+                box-shadow 0.35s ease;
+}
+
+.scroll-item1:hover,
+.scroll-item2:hover {
+    transform: translateY(-6px);
+
+    box-shadow: 0 15px 40px rgba(120, 70, 90, 0.16);
+}
+
+
+/* =========================================
+   VIDEO CONTAINER
+========================================= */
+
+.scroll-item1 > div:first-child,
+.scroll-item2 > div:first-child {
+    position: relative;
+
+    width: 100%;
+
+    height: 420px;
+
+    overflow: hidden;
+
+    background: #f8f1f3;
+}
+
+
+/* =========================================
+   VIDEO
+========================================= */
+
+.scroll-item1 video,
+.scroll-item2 video {
+    position: relative !important;
+
+    display: block;
+
+    width: 100% !important;
+    height: 100% !important;
+
+    object-fit: cover;
+
+    object-position: center;
+
+    border-radius: 0 !important;
+
+    cursor: pointer;
+
+    transition: transform 0.5s ease;
+}
+
+
+/* Slight zoom when hovering */
+
+.scroll-item1:hover video,
+.scroll-item2:hover video {
+    transform: scale(1.03);
+}
+
+
+/* =========================================
+   PRODUCT CARD AREA
+========================================= */
+
+#product4-container,
+#product5-container {
+    position: relative;
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+    background: #ffffff;
+
+    padding: 0;
+}
+
+
+/* =========================================
+   OPTIONAL: SMALL DIVIDER
+========================================= */
+
+#product4-container::before,
+#product5-container::before {
+    content: "";
+
+    display: block;
+
+    width: 45px;
+    height: 3px;
+
+    margin: 18px auto 5px;
+
+    background: #f3d6dc;
+
+    border-radius: 10px;
+}
+
+
+/* =========================================
+   DESKTOP PRODUCT CARD
+========================================= */
+
+.scroll-item1 .product-card3,
+.scroll-item2 .product-card4 {
+    border-radius: 0 0 22px 22px;
+
+    box-shadow: none;
+
+    margin: 0;
+
+    background: #ffffff;
+}
+
+
+/* =========================================
+   TITLE
+========================================= */
+
+h1[style*="Nova Round"] {
+    text-align: center !important;
+
+    color: #8f4565;
+
+    margin-bottom: 35px !important;
+
+    line-height: 1.3;
+}
+@media (max-width: 768px) {
+
+    .scroll-box {
+        display: grid;
+
+        grid-template-columns: 1fr;
+
+        gap: 28px;
+
+        padding: 0 16px;
+
+        margin-top: 25px;
+    }
+
+    .scroll-item1,
+    .scroll-item2 {
+        width: 90%;
+
+        border-radius: 18px;
+    }
+
+    .scroll-item1 > div:first-child,
+    .scroll-item2 > div:first-child {
+        height: 420px;
+    }
+
+    .scroll-item1 video,
+    .scroll-item2 video {
+        width: 100% !important;
+        height: 100% !important;
+    }
+
+    #product4-container::before,
+    #product5-container::before {
+        margin-top: 15px;
+    }
+
+    h1[style*="Nova Round"] {
+        font-size: 26px !important;
+
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+}
 
 @media (max-width: 480px) {
     .cart-sidebar {
@@ -1795,17 +3527,21 @@ body {
 }
 .brand-card {
     padding: 30px;
-    border: 1px solid #ddd;
-    margin: 10px;
+    border: 2px solid #c51650;
+    margin: 7px;
     cursor: pointer;
     text-align: center;
-    background: #fffff0;
+    background: transparent;
+}
+.brand-card text {
+    font-family: "Nova Round";
+    color: #c51650;
 }
 
 #brand-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
 }
 #modalQuantityContainer {
   
@@ -1899,4 +3635,39 @@ body {
     color: #c51650;
     margin-left: 10px;
     margin-top: 10px;
+}
+.lbll{
+    display: grid;
+    grid-row: inherit;
+}
+.yh{
+    margin-top: 100px !important;
+}
+.cardy{
+    width: 100%; height: auto; border-radius: 35px;  margin-top: 47px;
+}
+@media (min-width: 600px) {
+    .cardy{
+        display: grid;
+        grid-template-columns: repeat(3 , 1fr);
+        gap: 10px;
+        row-gap: 10px !important;
+    }
+    .cntnr{
+        width: 100%;
+
+    display: grid;
+    grid-template-columns: 50% 50%;
+    margin-top: 20% 0%;
+    background: #ffffff;
+
+    box-sizing: border-box;
+    }
+   #swpr{
+       margin-top: 20% !important;
+   }
+   #products-container2{
+       display: grid;
+       grid-template-columns: repeat(4 , 1fr);
+   }
 }

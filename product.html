@@ -8,7 +8,7 @@
     <title>Florencia Beauty</title>
 
     <link rel="stylesheet" href="style.css">
-    <link
+    <link 
   rel="stylesheet"
   href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
 >
@@ -247,200 +247,285 @@
     
         </div>
     </div>
-    <main>
+    <h1 style="color: #c51650; font-family: 'Nova Round'; margin-top: 10px; margin-bottom:20px ; margin-left: 20px;"> Nos Produits </h1>
+    <div id="products-container" class="products"  style="margin-top: 5px;"></div>
+    <div id="reviewModal" class="review-modal">
 
-        <h1 style="color: #c51650; font-family: 'Nova Round'; margin-top: 10px; margin-bottom:20px ; margin-left: 20px;" id="category-title"></h1>
+        <div class="review-box">
+    
+            <button
+                type="button"
+                id="closeReview"
+                class="close-review"
+            >
+                ×
+            </button>
+    
+            <h2 class="rvwtxt">
+                Ajouter un avis
+            </h2>
+    
+            <h3 id="reviewProductName"></h3>
+    
+    
+            <input
+                type="text"
+                id="reviewName"
+                placeholder="Insérez votre nom.."
+            >
+    
+    
+            <textarea
+                id="reviewText"
+                placeholder="écrivez votre avis..."
+            ></textarea>
+            <label style="    font-size: 20px;
+            color: #c51650;
+            margin-top: 10px;" for="reviewImage">Ajoutez une photo (optional)</label>
 
-        <div id="brand-container"></div>
+<input
+    type="file"
+    id="reviewImage"
+    accept="image/png, image/jpeg, image/webp"
+>
 
-    </main>
-
-
-    <div class="footer" style="margin-top: 100px;">
-        <h1 style="margin-top: 30px; color: #c51650; font-weight: bold; font-size: 35px;"> NAVIGATION </h1> 
-        <div style="display: grid; gap: 10px; margin-top: 20px; ">
-        <a href="index.html" style="color: #c51650; text-decoration: none; font-size: 24px; font-weight: bold;">  Acceuil</a>   
-        <a href="products.html" style="color: #c51650; text-decoration: none; font-size: 24px; font-weight: bold;"> Products </a>
-        <a href="#bestseller-container"style="color: #c51650; text-decoration: none; font-size: 24px; font-weight: bold;"> BestSellers </a>
-        <a href="contact.html"style="color: #c51650; text-decoration: none; font-size: 24px; font-weight: bold;"> Contact </a></div>
-        <div style="display: flex; gap: 10px; margin-top: 15px;  margin-left: 20px; ">
-          <a href="https://www.instagram.com/florenciabeauty.ma?igsi=YXhpazUyb296ZGVn" target="_blank" rel="noopener noreferrer"><i style="color: #c51650; font-size: 30px;" class="fa-brands fa-instagram"> </i></a>
-         <a href="https://www.tiktok.com/@florencia.beauty.ma?_r=1&_t=ZS-99HbskBBZav" target="_blank" rel="noopener noreferrer">  <i style="color: #c51650; font-size: 30px;" class="fa-brands fa-tiktok"></i></a>
-        </div>
-       </div>
-   <div id="message" style="
-position: fixed;
-top: 80px;
-right: 20px;
-background: #4caf50;
-color: white;
-padding: 10px 20px;
-border-radius: 8px;
-display: none;
-z-index: 999;
-"> Product added to cart
-</div>
-
-
-<div id="productModal" class="product-modal" >
-
-    <div class="product-modal-box">
-
-        
-        <button
-            type="button"
-            id="closeProductModal"
-            class="close-product-modal"
-        >
-            ×
-        </button>
-
-
-        
-        <div class="swiper product-swiper">
-
-            <div class="swiper-wrapper" id="productSwiperWrapper">
-              
-            </div>
-
-            
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
-
-           
-            <div class="swiper-pagination"></div>
-
-        </div>
-
-
-        
-        <div class="product-modal-info">
-
-            <h2 id="modalProductName"></h2>
-
+<img
+    id="reviewImagePreview"
+    style="display: none; max-width: 200px;"
+    alt="Preview"
+>
+    
             <div
-                id="modalProductRating"
-                class="modal-product-rating"
-            ></div>
-
-            <p
-                id="modalProductDescription"
-                class="modal-product-description"
-            ></p>
-
-
-           
-            <div class="modal-product-prices">
-
-                <span
-                    id="modalOldPrice"
-                    class="modal-old-price"
-                ></span>
-
-                <span
-                    id="modalCurrentPrice"
-                    class="modal-current-price"
-                ></span>
-
+                class="rating-stars"
+                id="ratingStars"
+            >
+    
+                <button
+                    type="button"
+                    class="rating-star"
+                    data-rating="1"
+                ><span class="material-symbols-outlined">
+                    kid_star
+                    </span></button>
+    
+                <button
+                    type="button"
+                    class="rating-star"
+                    data-rating="2"
+                ><span class="material-symbols-outlined">
+                    kid_star
+                    </span></button>
+    
+                <button
+                    type="button"
+                    class="rating-star"
+                    data-rating="3"
+                ><span class="material-symbols-outlined">
+                    kid_star
+                    </span></button>
+    
+                <button
+                    type="button"
+                    class="rating-star"
+                    data-rating="4"
+                ><span class="material-symbols-outlined">
+                    kid_star
+                    </span></button>
+    
+                <button
+                    type="button"
+                    class="rating-star"
+                    data-rating="5"
+                ><span class="material-symbols-outlined">
+                    kid_star
+                    </span></button>
+    
             </div>
+    
+    
+            <input
+                type="hidden"
+                id="reviewRating"
+                value="0"
+            >
+    
+    
+            <button
+                type="button"
+                id="submitReview"
+            >
+                Envoyer Le Formulaire
+            </button>
+    
+    
+            <p id="reviewMessage"></p>
+    
+        </div>
+    
+    </div></div>
+    
+    <div id="productModal" class="product-modal" >
 
-
+        <div class="product-modal-box">
+    
            
             <button
                 type="button"
-                id="modalAddToCart"
+                id="closeProductModal"
+                class="close-product-modal"
+            >
+                ×
+            </button>
+    
+    
+            
+            <div class="swiper product-swiper">
+    
+                <div class="swiper-wrapper" id="productSwiperWrapper">
+                   
+                </div>
+    
+                
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+    
+                
+                <div class="swiper-pagination"></div>
+    
+            </div>
+    
+    
+            
+            <div class="product-modal-info">
+    
+                <h2 id="modalProductName"></h2>
+    
+                <div
+                    id="modalProductRating"
+                    class="modal-product-rating"
+                ></div>
+    
+                <p
+                    id="modalProductDescription"
+                    class="modal-product-description"
+                ></p>
+    
+    
+               
+                <div class="modal-product-prices">
+    
+                    <span
+                        id="modalOldPrice"
+                        class="modal-old-price"
+                    ></span>
+    
+                    <span
+                        id="modalCurrentPrice"
+                        class="modal-current-price"
+                    ></span>
+    
+                </div>
+    
+    
+                
+                <button
+                    type="button"
+                    id="modalAddToCart"
+                    class="modal-add-cart"
+                >
+                    Add to cart
+                </button>
+                <button
+                type="button"
+                id="modalBuyNow"
                 class="modal-add-cart"
             >
-                Add to cart
+                Buy Now
             </button>
-            <button
-            type="button"
-            id="modalBuyNow"
-            class="modal-add-cart"
-        >
-            Buy Now
-        </button>
-
-        </div>
-
-
-       
-        <div id="modalProductReviews" class="modal-reviews-section">
-
-            <h3>Customer Reviews</h3>
-        
-            <div
-                id="modalReviewsList"
-                class="modal-reviews"
-            >
-            </div>
-        
-            <button
-                type="button"
-                id="modalAddReview"
-                class="modal-add-review"
-            >
-                Add a review
-            </button>
-        
-        </div>
-        <h1 style="font-family: 'Nova Round' , sans-serif ; margin-top: 5px;">D'autres Produits:</h1>
-        <div id="products-container2" style="display: grid; grid-template-columns: repeat(2, 1fr); margin-top: 5px;" > </div>
-    </div></div>
-       
     
-
-
-
-        <div id="searchWindow" class="search-window">
-
-            <div class="search-header">
-        
-                <input
-                    type="text"
-                    id="searchInput"
-                    placeholder="Search products..."
-                    autocomplete="off"
+            </div>
+    
+    
+           
+            <div id="modalProductReviews" class="modal-reviews-section">
+    
+                <h3>Customer Reviews</h3>
+            
+                <div
+                    id="modalReviewsList"
+                    class="modal-reviews"
                 >
-        
-                <button id="closeSearch" type="button">
-                    ×
+                </div>
+            
+                <button
+                    type="button"
+                    id="modalAddReview"
+                    class="modal-add-review"
+                >
+                    Add a review
                 </button>
-        
+            
             </div>
-        
-        
-            <div id="searchResults" class="search-results"></div>
-        
-        </div>
-        <div id="cart-overlay" class="cart-overlay"></div>
+            
+           
+            <div style="display: grid; text-align: center; margin-top: 70px;">
+                <h1 style="font-weight: bold; font-family: 'Nova Round' ;"> Découvrez aussi: </h1>
+                <a style="text-decoration: none; color: #c51650; font-size: 20px; font-weight: bold;" href="category.html?category=body care">
+                    Body Care
+                </a>
+                <a style="text-decoration: none; color: #c51650; font-size: 20px; font-weight: bold;" href="category.html?category=facial care">
+                    Facial Care
+                </a>
+                <a style="text-decoration: none; color: #c51650; font-size: 20px; font-weight: bold;" href="category.html?category=hair care">
+                    Hair Care
+                </a>
+            </div>
+            <h1 style="font-family: 'Nova Round' , sans-serif ; margin-top: 5px;">D'autres Produits:</h1>
+            <div id="products-container2" style="display: grid; grid-template-columns: repeat(2, 1fr); margin-top: 5px;" > </div>
+      </div></div>
+      <div id="cart-overlay" class="cart-overlay"></div>
 
-        <div id="cart-sidebar" class="cart-sidebar">
-            <div class="cart-header">
-                <h3>Your Bag</h3>
-                <button class="close-btn" onclick="toggleCart()">&times;</button>
-            </div>
-            <div class="cart-items" style="color:black;">
-                </div>
-            <div class="cart-footer" style="padding: 20px; border-top: 1px solid #333;">
-                <div class="d-flex justify-content-between mb-3">
-                    <span>Subtotal</span>
-                    <span id="cart-subtotal">dh0.00</span>
-                </div>
-                
-                <button class="buy-button" onclick="goToCheckout()" style="color: rgb(0, 0, 0);">Checkout</button>
-            </div>
-        </div>
+      <div id="cart-sidebar" class="cart-sidebar">
+          <div class="cart-header">
+              <h3>Your Bag</h3>
+              <button class="close-btn" onclick="toggleCart()">&times;</button>
+          </div>
+          <div class="cart-items" style="color:black;">
+              </div>
+          <div class="cart-footer" style="padding: 20px; border-top: 1px solid #333;">
+              <div class="d-flex justify-content-between mb-3">
+                  <span>Subtotal</span>
+                  <span id="cart-subtotal">dh0.00</span>
+              </div>
+              
+              <button class="buy-button" onclick="goToCheckout()" style="color: rgb(0, 0, 0);">Checkout</button>
+          </div>
+      </div>
+  
+      <div id="searchWindow" class="search-window">
 
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
-    <script src="app.js"> </script>
-   <script src="category.js"></script> 
-   <script>
-        console.log("Supabase test:", window.supabase);
-    </script>
+        <div class="search-header">
+    
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search products..."
+                autocomplete="off"
+            >
+    
+            <button id="closeSearch" type="button">
+                ×
+            </button>
+    
+        </div>
     
     
-
+        <div id="searchResults" class="search-results"></div>
+    
+    </div>
+            
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="app.js"></script> 
     
     
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
@@ -455,7 +540,7 @@ z-index: 999;
 ></script>
 <script>
     function toggleSearch(){
-        const box = document.getElementById("searchWindow");
+        const box = document.getElementById("searchBox");
     
         if(box.style.display === "none" || box.style.display === ""){
             box.style.display = "block";
@@ -483,7 +568,3 @@ z-index: 999;
     
     }
     </script>
-
-</body>
-
-</html>

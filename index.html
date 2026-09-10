@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Supabase Test</title>
+    <title>Florencia Beauty</title>
 
     <link rel="stylesheet" href="style.css">
     <link
@@ -32,33 +32,159 @@
 </head>
 
 <body>
-    <div style="width: 100%; height: 30px; color: white; background-color: #f4dfe2;"> <h3 style="font-size: 16px; font-family: 'Nova Round' , sans-serif ; padding-left: 55px; padding-top: 5px; padding-right: 20px;"> Nouveaux Produits Et Promotions </h3> </div>
-    <nav class="navbar navbar-lg" id="nav" style="display: flex; gap: 12px;">
-        <div class="container-fluid">
+    <div style="width: 100%; height: 30px; color: white; background-color: #f4dfe2;"> <h3 style="font-size: 16px; font-family: 'Nova Round' , sans-serif ; padding-left: 30%; padding-top: 5px; padding-right: 30%;"> Nouveaux Produits Et Promotions </h3> </div>
+    <nav class="navbar navbar-expand-lg" id="nav">
+
+        <div class="container-fluid navbar-container">
     
-           
+            <!-- LOGO -->
+            <a class="navbar-brand" href="index.html">
+                <img src="logo.png" alt="FlorenciaBeautyLogo">
+            </a>
     
-            
-            <button 
-                style="border: none;"
+    
+            <!-- HAMBURGER - MOBILE ONLY -->
+            <button
                 class="navbar-toggler"
                 type="button"
                 data-bs-toggle="offcanvas"
                 data-bs-target="#sidebar"
+                aria-controls="sidebar"
                 aria-label="Open Menu"
             >
-            <span></span>
-            <span style="margin-top: 5px;"></span>
+                <span></span>
+                <span></span>
             </button>
-            <a class="navbar-brand" href="#">My Website</a>
-     <div style="gap: 10px;">
-            <button id="searchButton" class="search-button" type="button" style="background-color: transparent; color: transparent;">
-               
-                <?xml version="1.0" encoding="UTF-8"?><svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" color="#000000"><path d="M17 17L21 21" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M3 11C3 15.4183 6.58172 19 11 19C13.213 19 15.2161 18.1015 16.6644 16.6493C18.1077 15.2022 19 13.2053 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11Z" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-            </button>
-            <a  style=" color: #d47fa6;  "> <?xml version="1.0" encoding="UTF-8"?><svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" color="#000000"><path d="M19.2609 9.69589L20.6455 18.6959C20.8319 19.9074 19.8945 21 18.6688 21H5.33122C4.10545 21 3.16809 19.9074 3.35448 18.6959L4.73909 9.69589C4.8892 8.72022 5.7287 8 6.71584 8H17.2842C18.2713 8 19.1108 8.72022 19.2609 9.69589Z" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M14 5C14 3.89543 13.1046 3 12 3C10.8954 3 10 3.89543 10 5" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg><button style="background: #f3d6dc; border-radius: 50%; color: #ffa1af; border: none; outline: none; " id="btn-to-open-cart" onclick="toggleCart()">0</button></a>
-           
-       </div> </div>
+    
+    
+            <!-- DESKTOP NAVIGATION -->
+            <div class="collapse navbar-collapse" id="mainNavbar">
+    
+                <ul class="navbar-nav">
+    
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            Acceuil
+                        </a>
+                    </li>
+    
+                    <li class="nav-item">
+                        <a class="nav-link" href="product.html">
+                            Produits
+                        </a>
+                    </li>
+    
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">
+                            Infos
+                        </a>
+                    </li>
+    
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">
+                            Contact
+                        </a>
+                    </li>
+    
+                    <li class="nav-item">
+                        <a class="nav-link" href="category.html?category=hair care">
+                            Soin Cheveux
+                        </a>
+                    </li>
+    
+                    <li class="nav-item">
+                        <a class="nav-link" href="category.html?category=facial care">
+                            Soin Visage
+                        </a>
+                    </li>
+    
+                    <li class="nav-item">
+                        <a class="nav-link" href="category.html?category=body care">
+                            Soin Corporel
+                        </a>
+                    </li>
+    
+                </ul>
+    
+            </div>
+    
+    
+            <!-- SEARCH + CART -->
+            <div class="navbar-actions">
+    
+                <button
+                    id="searchButton"
+                    class="search-button"
+                    type="button"
+                >
+    
+                    <!-- Search icon -->
+                    <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            d="M17 17L21 21"
+                            stroke="#000000"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        />
+    
+                        <path
+                            d="M3 11C3 15.4183 6.58172 19 11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11Z"
+                            stroke="#000000"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        />
+                    </svg>
+    
+                </button>
+    
+    
+                <!-- CART -->
+                <button
+                    class="cart-button"
+                    id="btn-to-open-cart"
+                    onclick="toggleCart()"
+                >
+    
+                    <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            d="M19.2609 9.69589L20.6455 18.6959C20.8319 19.9074 19.8945 21 18.6688 21H5.33122C4.10545 21 3.16809 19.9074 3.35448 18.6959L4.73909 9.69589C4.8892 8.72022 5.7287 8 6.71584 8H17.2842C18.2713 8 19.1108 8.72022 19.2609 9.69589Z"
+                            stroke="#000000"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        />
+    
+                        <path
+                            d="M14 5C14 3.89543 13.1046 3 12 3C10.8954 3 10 3.89543 10 5"
+                            stroke="#000000"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        />
+                    </svg>
+    
+                    <span class="cart-count">0</span>
+    
+                </button>
+    
+            </div>
+    
+        </div>
+    
     </nav>
     
     
@@ -88,33 +214,33 @@
             <ul class="navbar-nav">
     
                 <li class="nav-item">
-                    <a class="nav-link" href="index.html">Home</a>
+                    <a class="nav-link" href="index.html">Acceuil</a>
                 </li>
     
                 <li class="nav-item">
-                    <a class="nav-link" href="products.html">Products</a>
+                    <a class="nav-link" href="product.html">Produits</a>
                 </li>
     
                 <li class="nav-item">
-                    <a class="nav-link" href="about.html">About</a>
+                    <a class="nav-link" href="about.html">Infos</a>
                 </li>
     
                 <li class="nav-item">
                     <a class="nav-link" href="contact.html">Contact</a>
                 </li>
                 <li class="nav-item">
-                <a href="category.html?category=hair care">
-                    Hair Care
+                <a class="nav-link" href="category.html?category=hair care">
+                    Soin Cheveux
                 </a>
             </li>
                 <li class="nav-item">
-                <a href="category.html?category=facial care">
-                    Facial Care
+                <a class="nav-link" href="category.html?category=facial care">
+                    Soin Visage
                 </a>
             </li>
                 <li class="nav-item">
-                <a href="category.html?category=body care">
-                    Body Care
+                <a class="nav-link" href="category.html?category=body care">
+                    Soin Corporel
                 </a>
             </li>
             </ul>
@@ -122,7 +248,7 @@
         </div>
     </div>
    <div class="hero">
-   <a href="products.html"> <img src="pic.jpeg" alt=""></a>
+   <a href="product.html"> <img src="pic.jpeg" alt=""></a>
     
    </div>
    <div class="marquee-container">
@@ -170,7 +296,7 @@
     </div>
   
     
-    <div class="scroll-box" id="scrollBox">
+    <div class="scroll-box1" id="scrollBox">
       <div class="scroll-item"> <img class="imgs" src="acne.jpeg" alt=""> <div class="btn1"> <a  href="routine.html?concern=acné&title=acné"><button type="button" style="background: none; color: white; outline: transparent !important; border: transparent !important;" > Acné</button> </a></div> </div>
       <div class="scroll-item"> <img class="imgs" src="sec.jpeg" alt=""><div class="btn1"> <a  href="routine.html?concern=peau%seche&title=peau séche"><button type="button" style="background: none; color: white; outline: transparent !important; border: transparent !important;" > peau séche</button> </a></div> </div>
       <div class="scroll-item"> <img class="imgs" src="cernes.jpeg" alt=""><div class="btn1"> <a  href="routine.html?concern=cernes&title=cernes"><button type="button"style="background: none; color: white; outline: transparent !important; border: transparent !important;" > cernes</button> </a></div> </div>
@@ -300,12 +426,12 @@
         </div>
     
     </div></div>
-    <!-- PRODUCT DETAILS MODAL -->
+    
 <div id="productModal" class="product-modal" >
 
     <div class="product-modal-box">
 
-        <!-- CLOSE BUTTON -->
+        
         <button
             type="button"
             id="closeProductModal"
@@ -315,24 +441,24 @@
         </button>
 
 
-        <!-- PRODUCT IMAGE / SWIPER -->
+       
         <div class="swiper product-swiper">
 
             <div class="swiper-wrapper" id="productSwiperWrapper">
-                <!-- JavaScript will put the images here -->
+                
             </div>
 
-            <!-- Swiper arrows -->
+            
             <div class="swiper-button-prev"></div>
             <div class="swiper-button-next"></div>
 
-            <!-- Swiper dots -->
+            
             <div class="swiper-pagination"></div>
 
         </div>
 
 
-        <!-- PRODUCT INFORMATION -->
+        
         <div class="product-modal-info">
 
             <h2 id="modalProductName"></h2>
@@ -348,7 +474,7 @@
             ></p>
 
 
-            <!-- PRICE -->
+            
             <div class="modal-product-prices">
 
                 <span
@@ -364,7 +490,7 @@
             </div>
 
 
-            <!-- ADD TO CART -->
+            
             <button
                 type="button"
                 id="modalAddToCart"
@@ -383,7 +509,7 @@
         </div>
 
 
-        <!-- REVIEWS -->
+        
         <div id="modalProductReviews" class="modal-reviews-section">
 
             <h3>Customer Reviews</h3>
@@ -419,14 +545,7 @@
    <div class="scroll-box" id="scrollBox" style="display: flexbox;">
      <div class="scroll-item1"> 
          <div>
-             <video src="tiktok.mp4" playsinline="true" autoplay="autoplay" loop="loop" muted="muted" style="width: 100%;
-             height: 60%;
-             object-fit: cover;
-             object-position: top 44px;
-             border-radius: 12px;
-             transition:0.3s;
-             cursor: pointer;
-             position: absolute;">  
+             <video src="tiktok.mp4" playsinline="true" autoplay="autoplay" loop="loop" muted="muted" >  
                  </video>
 
     </div>
@@ -437,14 +556,7 @@
       
       <div class="scroll-item2"> 
         <div>
-            <video src="vid2.mp4" playsinline="true" autoplay="autoplay" loop="loop" muted="muted" style="width: 100%;
-            height: 60%;
-            object-fit: cover;
-            object-position: top 44px;
-            border-radius: 12px;
-            transition:0.3s;
-            cursor: pointer;
-            position: absolute;">  
+            <video src="vid2.mp4" playsinline="true" autoplay="autoplay" loop="loop" muted="muted" >  
                 </video>
 
    </div>
@@ -452,7 +564,7 @@
 
        </div>
    </div>
-     </div></div>
+     </div>
  
     <h1 id="Os" style="font-family: 'Nova Round' , sans-serif ; font-size: 34px; text-decoration: underline #f4dfe2; margin-top: 35px; font-weight: bold;">Offres Exclusives：</h1>
 
@@ -480,41 +592,42 @@
     </div>
            <h1 style="font-family: 'Nova Round' , sans-serif ; font-size: 34px; text-decoration: underline #f4dfe2; margin-top: 47px; font-weight: bold; "> Recommandations de Dermalab by W： </h1>
 
-           <div style="
+           <div class="dermalab-container" style="
            
            border-radius: 17px;
            width: 100%;
            position: relative;
            text-align: center;
            margin-top: 37px;
-           height: 1650px;
+           
        ">
-     <div  style="display: grid; width: 100%; position: absolute; height: 500px;  " >
+     <div class="dermalab-card"  >
         <video style="height: 300px; width: 95%; object-fit: cover; object-position: center; border-radius: 18px; margin-left: 5px;  " playsinline autoplay loop controls muted > <source src="vid4.mp4" type="video/mp4"> </video>
-        <span style=" color: #ffa1af; font-size: 60px;" class="material-symbols-outlined">
+        <span style=" color: #ffa1af; font-size: 30px;" class="material-symbols-outlined">
         spa
         </span> 
-        <h2 style="font-size: 25px; font-weight: bold; font-family: 'Nova Round'; color: black; "> Dermalab by W： </h2>
+        <h2 style="font-size: 25px; font-weight: 500; font-family: 'Nova Round'; color: #c51650; "> Dermalab by W： </h2>
         <h4  style="font-size: 19px; font-family: 'Nova Round'; color: black; "> Nous ne pouvons pas trouver de produit de soin qui résolve tous les problèmes, avec des recommandations de produits pour certains problèmes spécifiques. </h4>
     </div>
-    <div  style="display: grid; width: 100%; position: absolute; height: 500px; margin-top: 550px; " >
+    <div class="dermalab-card" >
         <video style="height: 300px; width: 95%; object-fit: cover; object-position: center; border-radius: 18px; margin-left: 5px;  " playsinline autoplay loop controls muted > <source src="vid6.mp4" type="video/mp4"> </video>
-        <span style=" color: #ffa1af; font-size: 60px;" class="material-symbols-outlined">
+        <span style=" color: #ffa1af; font-size: 30px;" class="material-symbols-outlined">
         spa
         </span> 
-        <h2 style="font-size: 25px; font-weight: bold; font-family: 'Nova Round'; color: black; "> Dermalab by W： </h2>
+        <h2 style="font-size: 25px; font-weight: 500; font-family: 'Nova Round'; color: #c51650; "> Dermalab by W： </h2>
         <h4  style="font-size: 19px; font-family: 'Nova Round'; color: black; "> Explication de chacun des trois sérums Anua avec des recommandations basées sur les préoccupations de chaque produit. </h4>
     </div>
-    <div  style="display: grid; width: 100%; position: absolute; height: 500px; margin-top: 1100px; " >
+    <div class="dermalab-card" >
         <video style="height: 300px; width: 95%; object-fit: cover; object-position: center; border-radius: 18px; margin-left: 5px;  " playsinline autoplay loop controls muted > <source src="vid5.mp4" type="video/mp4"> </video>
-        <span style=" color: #ffa1af; font-size: 60px;" class="material-symbols-outlined">
+     
+        <span style=" color: #ffa1af; font-size: 30px;" class="material-symbols-outlined">
         spa
         </span> 
-        <h2 style="font-size: 25px; font-weight: bold; font-family: 'Nova Round'; color: black; "> Dermalab by W： </h2>
+           <h2 style="font-size: 25px; font-weight: 500; font-family: 'Nova Round'; color: #c51650; "> Dermalab by W： </h2>
         <h4  style="font-size: 19px; font-family: 'Nova Round'; color: black; "> Recommandations et avis sur les crèmes solaires coréennes en termes de préoccupations, de texture et d'effets. </h4>
    
        <div style="display: grid; gap: 5px;">
-    <a class="b" href="products.html"><button  style="    border: none;
+    <a class="b" href="product.html"><button  style="    border: none;
         
         background: #f3d6dc;
     
@@ -549,50 +662,66 @@
             height: auto;
             ">  Offres Exclusives </button></a></div>
     </div> </div>
-    <h1 style="font-family: 'Nova Round' , sans-serif ; font-size: 34px; text-decoration: underline #f4dfe2; margin-top: 97px; font-weight: bold; "> Avis Clients： </h1>
-       <div  style="width: 100%; height: auto; border-radius: 35px;  margin-top: 47px;">
+         <h1 class="yh" style="font-family: 'Nova Round' , sans-serif ; font-size: 34px; text-decoration: underline #f4dfe2;  font-weight: bold;  text-align: center !important;
+
+         color: #8f4565;
+     
+         margin-bottom: 35px !important;
+     
+         line-height: 1.3;
+     "> Avis Clients： </h1>
+       <div class="cardy" style="width: 100%; height: auto; border-radius: 35px;  margin-top: 47px;">
+  
         <div class="product-cardy" >
            <img src="rev (1).jpeg" alt="">
-          <h1 style="color: #ffa1af; font-family: 'Nova Round';  "> Avis De Marque  </h1>
-          <h4> Centella wa3raa 。。 </h4>
-          <span style="color: #ffa1af; display: inline-block; width: 300px;"> ★★★★★ </span>
+          <span style="color: #ffa1af; display: inline-block; width: 300px;  "> ★ ★ ★ ★ ★ </span>
+          <h1 style="color: #ffa1af;   "> Avis De Marque  </h1>
+          <h4> Centella wa3raa  </h4>
+          
         </div>
         <div class="product-cardy" >
-            <img src="rev (2).jpeg" alt="">
+     <img src="rev (2).jpeg" alt="">
+     <span style="color: #ffa1af; display: inline-block; width: 300px;"> ★ ★ ★ ★ ★ </span>   
+                   
            <h1 style="color: #ffa1af; font-family: 'Nova Round';  "> Avis De Service  </h1>
-           <h4> Fenaa Aslan nti ktjibi ghir zaaz yakhtii 。。 </h4>
-           <span style="color: #ffa1af; display: inline-block; width: 300px;"> ★★★★★ </span>
+           <h4> Fenaa Aslan nti ktjibi ghir zaaz yakhtii </h4>
+
         </div>
         <div class="product-cardy" >
             <img src="rev (3).jpeg" alt="">
+            <span style="color: #ffa1af; display: inline-block;  width: 200px; margin-top: 8px;"> ★ ★ ★ ★ ★ </span>
            <h1 style="color: #ffa1af; font-family: 'Nova Round';  "> Avis De Service  </h1>
            <h4> زوين هادشي غزال وصلني تبارك الله دغياا قل من 24 ساعة
 
             صراحة تبارك الله عليكم
             
-            وشكرا بزاف على تعاملك اصحبتي الله يسهل عليك 。。 </h4>
-           <span style="color: #ffa1af; display: inline-block; width: 300px;"> ★★★★★ </span>
+            وشكرا بزاف على تعاملك اصحبتي الله يسهل عليك  </h4>
+           
         </div>
         <div class="product-cardy" >
             <img src="rev (4).jpeg" alt="">
+            <span style="color: #ffa1af; display: inline-block; width: 200px; margin-top: 8px;"> ★ ★ ★ ★ ★ </span>
            <h1 style="color: #ffa1af; font-family: 'Nova Round';  "> Avis De Marque  </h1>
-           <h4> الصراحة حتى انا ولا عندي ادمان فالروتين ديالي وكيعطي نتيجة واو 。。 </h4>
-           <span style="color: #ffa1af; display: inline-block; width: 300px;"> ★★★★★ </span>
+           <h4> الصراحة حتى انا ولا عندي ادمان فالروتين ديالي وكيعطي نتيجة واو  </h4>
+           
         </div>
         <div class="product-cardy" >
             <img src="rev (5).jpeg" alt="">
+            <span style="color: #ffa1af; display: inline-block;  width: 200px; margin-top: 8px;"> ★ ★ ★ ★ ★ </span>
            <h1 style="color: #ffa1af; font-family: 'Nova Round';  "> Avis De Marque </h1>
-           <h4> Mrcc rah jarbto wa3eer 。。 </h4>
-           <span style="color: #ffa1af; display: inline-block; width: 300px;"> ★★★★★ </span>
+           <h4> Mrcc rah jarbto wa3eer  </h4>
+           
         </div>
         <div class="product-cardy" >
             <img src="rev (6).jpeg" alt="">
+            <span style="color: #ffa1af; display: inline-block; width: 200px; margin-top: 8px;"> ★ ★ ★ ★ ★ </span>
            <h1 style="color: #ffa1af; font-family: 'Nova Round';  "> Avis De Marque </h1>
-           <h4> خديتو صدق ليا طوووب 。。 </h4>
-           <span style="color: #ffa1af; display: inline-block; width: 300px;"> ★★★★★ </span>
+           <h4> خديتو صدق ليا طوووب  </h4>
+           
         </div>
     </div>
-    <div class="swiper mySwiper" style="width: 80%; height: 300px;">
+    <div class="cntnr">
+    <div id="swpr" class="swiper mySwiper" style="width: 80%; height: 300px; margin-top: 30px;">
         <div class="swiper-wrapper">
             <div class="swiper-slide">
                 <img src="pics (1).jpeg">
@@ -615,9 +744,10 @@
             </div>
         </div>
     </div>
+    
     <div class="faq-section">
-
-        <h1 class="faq-title">Questions Fréquentes</h1>
+   <h1 style="font-family: 'Nova Round'; margin-right: 100%;">Questions Fréquentes</h1>
+        
     
         <!-- FAQ 1 -->
         <div class="faq-item">
@@ -652,7 +782,7 @@
         </div>
     
     
-        <!-- FAQ 3 -->
+        
         <div class="faq-item">
             <button class="faq-question">
                 Effectuez-vous des livraisons internationales ?
@@ -669,7 +799,7 @@
         </div>
     
     
-        <!-- FAQ 4 -->
+        
         <div class="faq-item">
             <button class="faq-question">
                 Quels sont les moyens de paiement disponibles ?
@@ -685,7 +815,7 @@
         </div>
     
     
-        <!-- FAQ 5 -->
+        
         <div class="faq-item">
             <button class="faq-question">
                 Puis-je suivre ma commande ?
@@ -717,7 +847,7 @@
             </div>
         </div>
     
-    </div>
+    </div></div>
     <div class="footer">
          <h1 style="margin-top: 30px; color: #c51650; font-weight: bold; font-size: 35px;"> NAVIGATION </h1> 
          <div style="display: grid; gap: 10px; margin-top: 20px; ">
@@ -810,7 +940,7 @@ z-index: 999;
     const scrollRightBtn = document.getElementById('scrollRightBtn');
     
     scrollLeftBtn.addEventListener('click', () => {
-      scrollBox.scrollBy({left: 200, behavior: 'smooth' });
+      scrollBox.scrollBy({left: -200, behavior: 'smooth' });
     });
     
     scrollRightBtn.addEventListener('click', () => {

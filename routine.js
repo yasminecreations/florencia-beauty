@@ -3,18 +3,6 @@ console.log("ROUTINE.JS IS RUNNING!");
 
 
 
-const SUPABASE_URL =
-    "https://wcnjkjpqgwpszesjiuzz.supabase.co";
-
-const SUPABASE_KEY =
-    "sb_publishable_w5h0bJZLiL_LGc5V09P6JA_PZwfnpLD";
-
-
-const supabaseClient =
-    window.supabase.createClient(
-        SUPABASE_URL,
-        SUPABASE_KEY
-    );
 
 
 
@@ -55,19 +43,27 @@ const routineProducts =
 
 
 
-async function loadRoutineProducts() {
+    async function loadroutineProducts() {
 
-    console.log("Looking for concern:", concern);
-
-
-    if (!concern) {
-
-        routineProducts.innerHTML = `
-            <p>Aucune catégorie sélectionnée.</p>
-        `;
-
-        return;
-    }
+        const container =
+            document.getElementById(
+                "routineProducts"
+            );
+    
+        if (!container) {
+    
+            console.error(
+                "Product container not found!"
+            );
+    
+            return;
+        }
+    
+    
+        console.log(
+            "Loading products..."
+        );
+    
 
 
   
@@ -125,7 +121,6 @@ async function loadRoutineProducts() {
         const card =
             document.createElement("div");
 
-
         card.className =
             "product-card";
 
@@ -142,22 +137,44 @@ async function loadRoutineProducts() {
             </h2>
 
             <p>
-                ${product.description}
+                ${product.description || ""}
             </p>
 
             <strong>
                 ${product.price} MAD
             </strong>
-
+            ${
+                product.old_price !== null &&
+                product.old_price !== undefined &&
+                product.old_price !== ""
+                    ? `
+                        <strong class="modal-old-price">
+                            ${product.old_price} MAD
+                        </strong>
+                    `
+                    : ""
+            }
         `;
+        card.addEventListener("click", () => {
+            openProductModal(product);
+        });
 
+        container.appendChild(
+            card
+        );
 
-        routineProducts.appendChild(card);
 
     });
+
 }
 
 
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
 
+        
+     loadroutineProducts();
+    }
+);
 
-loadRoutineProducts();

@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Merci pour votre commande - Florencia Beauty</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Nova+Round&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: #fafafa;
+            font-family: 'Nova Round', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px 15px;
+            color: #333;
+        }
+
+        .thankyou-card {
+            width: 100%;
+            max-width: 550px;
+            background: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+
+        .check {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            background: #f3d6dc;
+            color: #c51650;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 35px;
+        }
+
+        h1 {
+            color: #c51650;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 15px;
+            margin-bottom: 30px;
+        }
+
+        .order-number {
+            background: #fafafa;
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 25px;
+        }
+
+        .order-number span {
+            display: block;
+            color: #888;
+            font-size: 13px;
+            margin-bottom: 5px;
+        }
+
+        .order-number strong {
+            color: #c51650;
+            font-size: 18px;
+        }
+
+        .section {
+            text-align: left;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+            margin-top: 20px;
+        }
+
+        .section h3 {
+            color: #c51650;
+            font-size: 17px;
+            margin-bottom: 15px;
+        }
+
+        .product-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            padding: 10px 0;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 14px;
+        }
+
+        .product-name {
+            color: #444;
+        }
+
+        .product-price {
+            white-space: nowrap;
+            font-weight: bold;
+        }
+
+        .total-row {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 2px solid #eee;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .total-row span:last-child {
+            color: #c51650;
+        }
+
+        .loading {
+            color: #777;
+            padding: 20px;
+        }
+
+        .error {
+            color: #c51650;
+            background: #fff3f5;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .home-button {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 13px 25px;
+            border-radius: 25px;
+            background: #a8977a;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        .home-button:hover {
+            opacity: 0.85;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="thankyou-card">
+
+        <div class="check">✓</div>
+
+        <h1>Merci pour votre commande !</h1>
+
+        <p class="subtitle">
+            Votre commande a bien été confirmée.
+        </p>
+
+        <div id="order-number" class="order-number">
+            <span>Numéro de commande</span>
+            <strong id="order-id">Chargement...</strong>
+        </div>
+
+        <div id="order-content">
+            <p class="loading">Chargement de votre commande...</p>
+        </div>
+
+        <a href="index.html" class="home-button">
+            Retourner à la boutique
+        </a>
+
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script>
+
+        const SUPABASE_URL = "https://wcnjkjpqgwpszesjiuzz.supabase.co";
+
+        const SUPABASE_KEY = "sb_publishable_w5h0bJZLiL_LGc5V09P6JA_PZwfnpLD";
+
+        const supabaseClient = window.supabase.createClient(
+            SUPABASE_URL,
+            SUPABASE_KEY
+        );
+
+
+        async function loadOrder() {
+
+// Get public token from URL
+const params = new URLSearchParams(window.location.search);
+const publicToken = params.get("token");
+
+const orderIdElement = document.getElementById("order-id");
+const content = document.getElementById("order-content");
+
+
+// No public token
+if (!publicToken) {
+
+    orderIdElement.textContent = "—";
+
+    content.innerHTML = `
+        <div class="error">
+            Impossible de trouver votre numéro de commande.
+        </div>
+    `;
+
+    return;
+}
+
+
+console.log("Loading order with public token:", publicToken);
+
+
+
+const { data, error } = await supabaseClient
+    .rpc("get_order_by_public_token", {
+        token: publicToken
+    });
+
+const order = data?.[0];
+
+
+if (error) {
+
+    console.error("ORDER LOAD ERROR:", error);
+
+    orderIdElement.textContent = "—";
+
+    content.innerHTML = `
+        <div class="error">
+            Nous n'avons pas pu charger les détails de votre commande.
+            <br><br>
+            Votre paiement peut néanmoins avoir été effectué.
+        </div>
+    `;
+
+    return;
+}
+
+
+console.log("Order loaded:", order);
+
+
+// Display the normal sequential order ID
+orderIdElement.textContent = order.id;
+
+            // Cart
+            let cart = order.cart;
+
+            // In case cart is stored as text
+            if (typeof cart === "string") {
+                try {
+                    cart = JSON.parse(cart);
+                } catch (e) {
+                    console.error("Could not parse cart:", e);
+                    cart = [];
+                }
+            }
+
+
+            let productsHTML = "";
+
+
+            if (Array.isArray(cart) && cart.length > 0) {
+
+                cart.forEach(item => {
+
+                    const quantity = item.quantity || 1;
+
+                    const price = parseFloat(item.price) || 0;
+
+                    const itemTotal = price * quantity;
+
+
+                    productsHTML += `
+                        <div class="product-row">
+
+                            <span class="product-name">
+                                ${item.name} × ${quantity}
+                            </span>
+
+                            <span class="product-price">
+                                ${itemTotal.toFixed(2)} DH
+                            </span>
+
+                        </div>
+                    `;
+                });
+
+            } else {
+
+                productsHTML = `
+                    <p style="color:#777;">
+                        Aucun produit trouvé.
+                    </p>
+                `;
+
+            }
+
+
+            // Display order
+            content.innerHTML = `
+
+                <div class="section">
+
+                    <h3>Votre commande</h3>
+
+                    ${productsHTML}
+
+                    <div class="total-row">
+                        <span>Total</span>
+                        <span>
+                            ${parseFloat(order.total_price).toFixed(2)} DH
+                        </span>
+                    </div>
+
+                </div>
+
+            `;
+
+        }
+
+
+        // Load order
+        window.onload = function() {
+            loadOrder();
+        };
+
+    </script>
+
+</body>
+</html>

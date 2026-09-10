@@ -77,62 +77,58 @@ products.slice(0, limit).forEach(product => {
         );
 
         card.innerHTML = `
-            <img
-                src="${product.image}"
-                alt="${product.name}"
-            >
-
-            <h2>${product.name}</h2>
-
-            <p>${product.description}</p>
-
-            <strong>${product.price} MAD</strong>
-
-            ${
-                product.old_price !== null &&
-                product.old_price !== undefined &&
-                product.old_price !== ""
-                    ? `
-                        <strong class="modal-old-price">
-                            ${product.old_price} MAD
-                        </strong>
-                    `
-                    : ""
-            }
-
-            <div class="product-card-rating">
-
-                <span class="product-rating-number">
-                    ${
-                        averageRatings[product.id]
-                            ? averageRatings[product.id].toFixed(1)
-                            : "0.0"
-                    }
-                </span>
-
-                <span class="product-rating-stars">
-                    ${
-                        averageRatings[product.id]
-                            ? "★".repeat(
-                                Math.round(
-                                    averageRatings[product.id]
-                                )
-                            )
-                            : "☆"
-                    }
-                </span>
-
-                <span class="product-rating-count">
-                    (${reviewCounts[product.id] || 0}
-                    ${
-                        reviewCounts[product.id] === 1
-                            ? "review"
-                            : "reviews"
-                    })
-                </span>
-
-            </div>
-        `;
+        <img
+            src="${product.image}"
+            alt="${product.name}"
+        >
+    
+        <div class="product-card-rating">
+            <span class="product-rating-number">
+                ${
+                    averageRatings[product.id]
+                        ? averageRatings[product.id].toFixed(1)
+                        : "0.0"
+                }
+            </span>
+    
+            <span class="product-rating-stars">
+                ${
+                    averageRatings[product.id]
+                        ? "★".repeat(
+                            Math.round(averageRatings[product.id])
+                        )
+                        : "★★★★★"
+                }
+            </span>
+    
+            <span class="product-rating-count">
+                (${reviewCounts[product.id] || 0}
+                ${
+                    reviewCounts[product.id] === 1
+                        ? "review"
+                        : "reviews"
+                })
+            </span>
+        </div>
+    
+        <h2>${product.name}</h2>
+    
+        <p>${product.description}</p>
+    
+        <strong>${product.price} MAD</strong>
+    
+        ${
+            product.old_price !== null &&
+            product.old_price !== undefined &&
+            product.old_price !== ""
+                ? `
+                    <strong class="modal-old-price">
+                        ${product.old_price} MAD
+                    </strong>
+                `
+                : ""
+        }
+    `;
 
         container.appendChild(card);
 
@@ -192,7 +188,7 @@ products.slice(0, limit).forEach(product => {
                                         averageRatings[product.id]
                                     )
                                 )
-                                : "☆"
+                                : "★★★★★"
                         }
                     </span>
 
@@ -578,7 +574,7 @@ async function loadBestsellers() {
                                         averageRatings[product.id]
                                     )
                                 )
-                                : "☆"
+                                : "★★★★★"
                         }
                     </span>
 
@@ -1160,7 +1156,11 @@ function setupSearch() {
         !searchResults ||
         !closeSearch
     ) {
-
+        console.log("SEARCH BUTTON:", searchButton);
+        console.log("SEARCH WINDOW:", searchWindow);
+        console.log("SEARCH INPUT:", searchInput);
+        console.log("SEARCH RESULTS:", searchResults);
+        console.log("CLOSE SEARCH:", closeSearch);
         console.warn(
             "Search HTML elements were not found."
         );
@@ -1172,7 +1172,9 @@ function setupSearch() {
     searchButton.addEventListener(
         "click",
         () => {
-
+    
+            console.log("🔍 SEARCH BUTTON CLICKED!");
+    
             searchWindow.classList.add(
                 "show"
             );
@@ -1660,7 +1662,7 @@ async function loadModalReviews(productId) {
 ========================= */
 
 function openProductModal(product) {
-
+     selectedProductId = product.id;
     const modal =
         document.getElementById(
             "productModal"
@@ -2441,7 +2443,7 @@ async function loadProductById(
                         ${
                             averageRating > 0
                                 ? roundedRating
-                                : "0.0"
+                                : "★★★★★"
                         }
                     </span>
 
@@ -2515,7 +2517,7 @@ container.innerHTML = `
                 product.old_price !== undefined &&
                 product.old_price !== ""
                     ? `
-                        <strong class="modal-old-price">
+                        <strong style="font-size: 13px;" class="modal-old-price">
                             ${product.old_price} MAD
                         </strong>
                     `
@@ -2531,11 +2533,11 @@ container.innerHTML = `
                 ${
                     averageRating > 0
                         ? roundedRating
-                        : "0.0"
+                        : "★★★★★"
                 }
             </span>
 
-            <span class="product-card4-stars">
+            <span style="display: none;" class="product-card4-stars">
                 ${stars}
             </span>
 
@@ -2839,6 +2841,66 @@ function goToCheckout() {
         "checkout.html";
 
 }
+/* =========================
+   BUY NOW
+========================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const buyNowButton = document.getElementById("modalBuyNow");
+
+    if (!buyNowButton) {
+        console.error("Buy Now button not found.");
+        return;
+    }
+
+    buyNowButton.addEventListener("click", () => {
+
+        // Find the product currently open in the modal
+        const product = products.find(
+            p => String(p.id) === String(selectedProductId)
+        );
+
+        if (!product) {
+            console.error("Could not find the selected product.");
+            alert("Something went wrong. Please try again.");
+            return;
+        }
+
+        /* =========================
+           CREATE BUY NOW CART
+        ========================= */
+
+
+
+        const buyNowItem = {
+            id: product.id,
+            name: product.name,
+            price: Number(product.price),
+            image: product.image_url || product.image || "",
+            quantity: 1
+        };
+
+        /* =========================
+           SAVE TO LOCAL STORAGE
+        ========================= */
+
+        localStorage.setItem(
+            "cart",
+            JSON.stringify([buyNowItem])
+        );
+
+        console.log("Buy Now product:", buyNowItem);
+
+        /* =========================
+           GO TO CHECKOUT
+        ========================= */
+
+        window.location.href = "checkout.html";
+
+    });
+
+});
 
 /* =========================
    PAGE START

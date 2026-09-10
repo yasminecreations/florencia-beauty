@@ -1,18 +1,4 @@
 console.log("CATEGORY.JS IS RUNNING!");
-
-const SUPABASE_URL = "https://wcnjkjpqgwpszesjiuzz.supabase.co";
-const SUPABASE_KEY = "sb_publishable_w5h0bJZLiL_LGc5V09P6JA_PZwfnpLD";
-
-const supabaseClient = window.supabase.createClient(
-    SUPABASE_URL,
-    SUPABASE_KEY
-);
-
-let products = [];
-let bestseller = [];
-let selectedProductId = null;
-let productSwiper = null;
-
 const params = new URLSearchParams(window.location.search);
 const selectedCategory = params.get("category");
 

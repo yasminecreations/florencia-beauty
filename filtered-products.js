@@ -122,7 +122,17 @@ async function loadFilteredProducts() {
             <strong>
                 ${product.price} MAD
             </strong>
-
+            ${
+                product.old_price !== null &&
+                product.old_price !== undefined &&
+                product.old_price !== ""
+                    ? `
+                        <strong class="modal-old-price">
+                            ${product.old_price} MAD
+                        </strong>
+                    `
+                    : ""
+            }
         `;
         card.addEventListener("click", () => {
             openProductModal(product);

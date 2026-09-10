@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Florencia Beauty</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+>
+    <link href="https://fonts.googleapis.com/css?family=Playfair Display|Montserrat|Parisienne" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nova+Round&display=swap" rel="stylesheet">
+<link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<link
+  rel="stylesheet"
+  href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+  crossorigin="anonymous"
+/> 
+<link rel="stylesheet" href="http://www.w3.org/2000/svg">
+</head>
+
+<body>
+    <div style="width: 100%; height: 30px; color: white; background-color: #f4dfe2;"> <h3 style="font-size: 16px; font-family: 'Nova Round' , sans-serif ; padding-left: 55px; padding-top: 5px; padding-right: 20px;"> Nouveaux Produits Et Promotions </h3> </div>
+    <nav class="navbar navbar-expand-lg" id="nav">
+
+        <div class="container-fluid navbar-container">
+    
+            <!-- LOGO -->
+            <a class="navbar-brand" href="index.html">
+                <img src="logo.png" alt="FlorenciaBeautyLogo">
+            </a>
+    
+    
+            <!-- HAMBURGER - MOBILE ONLY -->
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="offcanvas"
+                data-bs-target="#sidebar"
+                aria-controls="sidebar"
+                aria-label="Open Menu"
+            >
+                <span></span>
+                <span></span>
+            </button>
+    
+    
+            <!-- DESKTOP NAVIGATION -->
+            <div class="collapse navbar-collapse" id="mainNavbar">
+    
+                <ul class="navbar-nav">
+    
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            Acceuil
+                        </a>
+                    </li>
+    
+                    <li class="nav-item">
+                        <a class="nav-link" href="product.html">
+                            Produits
+                        </a>
+                    </li>
+    
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">
+                            Infos
+                        </a>
+                    </li>
+    
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">
+                            Contact
+                        </a>
+                    </li>
+    
+                    <li class="nav-item">
+                        <a class="nav-link" href="category.html?category=hair care">
+                            Soin Cheveux
+                        </a>
+                    </li>
+    
+                    <li class="nav-item">
+                        <a class="nav-link" href="category.html?category=facial care">
+                            Soin Visage
+                        </a>
+                    </li>
+    
+                    <li class="nav-item">
+                        <a class="nav-link" href="category.html?category=body care">
+                            Soin Corporel
+                        </a>
+                    </li>
+    
+                </ul>
+    
+            </div>
+    
+    
+            <!-- SEARCH + CART -->
+            <div class="navbar-actions">
+    
+                <button
+                    id="searchButton"
+                    class="search-button"
+                    type="button"
+                >
+    
+                    <!-- Search icon -->
+                    <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            d="M17 17L21 21"
+                            stroke="#000000"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        />
+    
+                        <path
+                            d="M3 11C3 15.4183 6.58172 19 11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11Z"
+                            stroke="#000000"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        />
+                    </svg>
+    
+                </button>
+    
+    
+                <!-- CART -->
+                <button
+                    class="cart-button"
+                    id="btn-to-open-cart"
+                    onclick="toggleCart()"
+                >
+    
+                    <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            d="M19.2609 9.69589L20.6455 18.6959C20.8319 19.9074 19.8945 21 18.6688 21H5.33122C4.10545 21 3.16809 19.9074 3.35448 18.6959L4.73909 9.69589C4.8892 8.72022 5.7287 8 6.71584 8H17.2842C18.2713 8 19.1108 8.72022 19.2609 9.69589Z"
+                            stroke="#000000"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        />
+    
+                        <path
+                            d="M14 5C14 3.89543 13.1046 3 12 3C10.8954 3 10 3.89543 10 5"
+                            stroke="#000000"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        />
+                    </svg>
+    
+                    <span class="cart-count">0</span>
+    
+                </button>
+    
+            </div>
+    
+        </div>
+    
+    </nav>
+    
+    
+    
+    <div
+        class="offcanvas offcanvas-start"
+        tabindex="-1"
+        id="sidebar"
+        aria-labelledby="sidebarLabel"
+    >
+    
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="sidebarLabel">
+              
+            </h5>
+    
+            <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="offcanvas"
+                aria-label="Close"
+            ></button>
+        </div>
+    
+        <div class="offcanvas-body">
+    
+            <ul class="navbar-nav">
+    
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Acceuil</a>
+                </li>
+    
+                <li class="nav-item">
+                    <a class="nav-link" href="product.html">Produits</a>
+                </li>
+    
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">Infos</a>
+                </li>
+    
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="category.html?category=hair care">
+                    Soin Cheveux
+                </a>
+            </li>
+                <li class="nav-item">
+                <a class="nav-link" href="category.html?category=facial care">
+                    Soin Visage
+                </a>
+            </li>
+                <li class="nav-item">
+                <a class="nav-link" href="category.html?category=body care">
+                    Soin Corporel
+                </a>
+            </li>
+            </ul>
+    
+        </div>
+    </div>
+    <h1 class="faq-title" style="margin-top: 20px; font-family: 'Nova Round'; margin-left: 10px;"> Pour nous contacter vous pouvez visiter: </h1>
+    <div>
+        <h2 style="margin-top: 10px; font-family: 'Nova Round'; margin-left: 10px;"> Notre Page instagram : </h2>
+         <a href="https://www.instagram.com/florenciabeauty.ma?igsi=YXhpazUyb296ZGVn" target="_blank" rel="noopener noreferrer"><button style=" border: none;
+
+            background: #f3d6dc;
+        
+            color: white;
+        
+            padding: 13px 28px;
+        
+            border-radius: 12px;
+        
+            font-family: 'Nova Round', sans-serif;
+        
+            cursor: pointer;"> Visitez Notre Page instagram </button></a>
+                    <h2 style="margin-top: 10px; font-family: 'Nova Round'; margin-left: 10px;"> Notre Page TikTok : </h2>
+                    <a href="https://www.tiktok.com/@florencia.beauty.ma?_r=1&_t=ZS-99HbskBBZav" target="_blank" rel="noopener noreferrer"><button style=" border: none;
+           
+                       background: #f3d6dc;
+                   
+                       color: white;
+                   
+                       padding: 13px 28px;
+                   
+                       border-radius: 12px;
+                   
+                       font-family: 'Nova Round', sans-serif;
+                   
+                       cursor: pointer;"> Visitez Notre Page TikTok  </button></a>
+                              <h2 style="margin-top: 10px; font-family: 'Nova Round'; margin-left: 10px;"> WhatsApp : </h2>
+                              <a href="https://wa.me/212766272673" target="_blank" rel="noopener noreferrer"><button style=" border: none;
+                     
+                                 background: #f3d6dc;
+                             
+                                 color: white;
+                             
+                                 padding: 13px 28px;
+                             
+                                 border-radius: 12px;
+                             
+                                 font-family: 'Nova Round', sans-serif;
+                             
+                                 cursor: pointer;"> contactez-nous via WhatsApp </button></a>
+               
+    </div>
+    <h1 class="faq-title" style="margin-top: 20px; font-family: 'Nova Round'; margin-left: 10px;"> Ou Vous Pouvez Consulter Notre Expert: </h1>
+    <div>
+        <h2 style="margin-top: 10px; font-family: 'Nova Round'; margin-left: 10px;"> Consulter sur instagram : </h2>
+         <a href="https://www.instagram.com/dermalab.w?igsi=c3R3bGlsa3o3aDMy" target="_blank" rel="noopener noreferrer"><button style=" border: none;
+
+            background: #f3d6dc;
+        
+            color: white;
+        
+            padding: 13px 28px;
+        
+            border-radius: 12px;
+        
+            font-family: 'Nova Round', sans-serif;
+        
+            cursor: pointer;"> Consulter sur instagram </button></a>
+                    <h2 style="margin-top: 10px; font-family: 'Nova Round'; margin-left: 10px;"> Notre Page TikTok : </h2>
+                    <a href="https://www.tiktok.com/@dermalab.w?_r=1&_t=ZS-99R8xhFfEqz" target="_blank" rel="noopener noreferrer"><button style=" border: none;
+           
+                       background: #f3d6dc;
+                   
+                       color: white;
+                   
+                       padding: 13px 28px;
+                   
+                       border-radius: 12px;
+                   
+                       font-family: 'Nova Round', sans-serif;
+                   
+                       cursor: pointer;"> consulter sur TikTok  </button></a>
+                              
+    </div>
+   
+    <h1 class="faq-title" style="margin-top: 20px; font-family: 'Nova Round'; margin-left: 10px;"> Sur Florencia Beauty: </h1>
+      <h2 style="margin-top: 10px; font-family: 'Nova Round'; margin-left: 10px;"> florencia beauty est un store de beauté et de cosmétiques active sur TikTok, axée sur les soins de la peau, les produits corporels et les tendances de bien-être esthétique. Son contenu met en avant des présentations de produits soignées, des routines de soins et des essentiels de beauté accessibles, parfaits pour les passionnés qui souhaitent sublimer leur rituel quotidien. </h2>
+    <div class="faq-section">
+
+        <h1 class="faq-title">Questions Fréquentes</h1>
+    
+        
+        <div class="faq-item">
+            <button class="faq-question">
+                Quelle est votre politique de retour ?
+                <span class="faq-icon">+</span>
+            </button>
+    
+            <div class="faq-answer">
+                <p>
+                    Vous pouvez retourner un produit dans un délai de 14 jours
+                    après sa réception, à condition qu'il soit non utilisé et
+                    dans son emballage d'origine.
+                </p>
+            </div>
+        </div>
+    
+    
+        
+        <div class="faq-item">
+            <button class="faq-question">
+                Combien de temps faut-il pour recevoir ma commande ?
+                <span class="faq-icon">+</span>
+            </button>
+    
+            <div class="faq-answer">
+                <p>
+                    Les commandes sont généralement livrées sous 2 à 5 jours
+                    ouvrables au Maroc. Le délai peut varier selon votre ville.
+                </p>
+            </div>
+        </div>
+    
+    
+        
+        <div class="faq-item">
+            <button class="faq-question">
+                Effectuez-vous des livraisons internationales ?
+                <span class="faq-icon">+</span>
+            </button>
+    
+            <div class="faq-answer">
+                <p>
+                    Nous proposons actuellement des livraisons au Maroc.
+                    Les livraisons internationales peuvent être disponibles
+                    prochainement.
+                </p>
+            </div>
+        </div>
+    
+    
+        
+        <div class="faq-item">
+            <button class="faq-question">
+                Quels sont les moyens de paiement disponibles ?
+                <span class="faq-icon">+</span>
+            </button>
+    
+            <div class="faq-answer">
+                <p>
+                    Vous pouvez payer votre commande avec les moyens de paiement
+                    disponibles au moment du passage de la commande.
+                </p>
+            </div>
+        </div>
+    
+    
+        
+        <div class="faq-item">
+            <button class="faq-question">
+                Puis-je suivre ma commande ?
+                <span class="faq-icon">+</span>
+            </button>
+    
+            <div class="faq-answer">
+                <p>
+                    Oui. Une fois votre commande expédiée, vous recevrez les
+                    informations nécessaires pour suivre l'état de votre colis.
+                </p>
+            </div>
+        </div>
+    
+    
+       
+        <div class="faq-item">
+            <button class="faq-question">
+                Puis-je annuler ou modifier ma commande ?
+                <span class="faq-icon">+</span>
+            </button>
+    
+            <div class="faq-answer">
+                <p>
+                    Si votre commande n'a pas encore été préparée ou expédiée,
+                    contactez-nous rapidement afin de demander une modification
+                    ou une annulation.
+                </p>
+            </div>
+        </div>
+    
+    </div>
+    <div class="footer">
+         <h1 style="margin-top: 30px; color: #c51650; font-weight: bold; font-size: 35px;"> NAVIGATION </h1> 
+         <div style="display: grid; gap: 10px; margin-top: 20px; ">
+         <a href="index.html" style="color: #c51650; text-decoration: none; font-size: 24px; font-weight: bold;">  Acceuil</a>   
+         <a href="products.html" style="color: #c51650; text-decoration: none; font-size: 24px; font-weight: bold;"> Products </a>
+         <a href="#bestseller-container"style="color: #c51650; text-decoration: none; font-size: 24px; font-weight: bold;"> BestSellers </a>
+         <a href="contact.html"style="color: #c51650; text-decoration: none; font-size: 24px; font-weight: bold;"> Contact </a></div>
+         <div style="display: flex; gap: 10px; margin-top: 15px;  margin-left: 20px; ">
+           <a href="https://www.instagram.com/florenciabeauty.ma?igsi=YXhpazUyb296ZGVn" target="_blank" rel="noopener noreferrer"><i style="color: #c51650; font-size: 30px;" class="fa-brands fa-instagram"> </i></a>
+          <a href="https://www.tiktok.com/@florencia.beauty.ma?_r=1&_t=ZS-99HbskBBZav" target="_blank" rel="noopener noreferrer">  <i style="color: #c51650; font-size: 30px;" class="fa-brands fa-tiktok"></i></a>
+         </div>
+        </div>
+        <div id="cart-overlay" class="cart-overlay"></div>
+
+        <div id="cart-sidebar" class="cart-sidebar">
+            <div class="cart-header">
+                <h3>Your Bag</h3>
+                <button class="close-btn" onclick="toggleCart()">&times;</button>
+            </div>
+            <div class="cart-items" style="color:black;">
+                </div>
+            <div class="cart-footer" style="padding: 20px; border-top: 1px solid #333;">
+                <div class="d-flex justify-content-between mb-3">
+                    <span>Subtotal</span>
+                    <span id="cart-subtotal">dh0.00</span>
+                </div>
+                
+                <button class="buy-button" onclick="goToCheckout()" style="color: rgb(0, 0, 0);">Checkout</button>
+            </div>
+        </div>
+        <div id="searchWindow" class="search-window">
+
+            <div class="search-header">
+        
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search products..."
+                    autocomplete="off"
+                >
+        
+                <button id="closeSearch" type="button">
+                    ×
+                </button>
+        
+            </div>
+        
+        
+            <div id="searchResults" class="search-results"></div>
+        
+        </div>
+        <div id="reviewModal" class="review-modal">
+
+            <div class="review-box">
+        
+                <button
+                    type="button"
+                    id="closeReview"
+                    class="close-review"
+                >
+                    ×
+                </button>
+        
+                <h2>
+                    Add a review
+                </h2>
+        
+                <h3 id="reviewProductName"></h3>
+        
+        
+                <input
+                    type="text"
+                    id="reviewName"
+                    placeholder="Your name"
+                >
+        
+        
+                <textarea
+                    id="reviewText"
+                    placeholder="Write your review..."
+                ></textarea>
+                <label for="reviewImage">Add a photo (optional)</label>
+    
+    <input
+        type="file"
+        id="reviewImage"
+        accept="image/png, image/jpeg, image/webp"
+    >
+    
+    <img
+        id="reviewImagePreview"
+        style="display: none; max-width: 200px;"
+        alt="Preview"
+    >
+        
+                <div
+                    class="rating-stars"
+                    id="ratingStars"
+                >
+        
+                    <button
+                        type="button"
+                        class="rating-star"
+                        data-rating="1"
+                    ><span class="material-symbols-outlined">
+                        kid_star
+                        </span></button>
+        
+                    <button
+                        type="button"
+                        class="rating-star"
+                        data-rating="2"
+                    ><span class="material-symbols-outlined">
+                        kid_star
+                        </span></button>
+        
+                    <button
+                        type="button"
+                        class="rating-star"
+                        data-rating="3"
+                    ><span class="material-symbols-outlined">
+                        kid_star
+                        </span></button>
+        
+                    <button
+                        type="button"
+                        class="rating-star"
+                        data-rating="4"
+                    ><span class="material-symbols-outlined">
+                        kid_star
+                        </span></button>
+        
+                    <button
+                        type="button"
+                        class="rating-star"
+                        data-rating="5"
+                    ><span class="material-symbols-outlined">
+                        kid_star
+                        </span></button>
+        
+                </div>
+        
+        
+                <input
+                    type="hidden"
+                    id="reviewRating"
+                    value="0"
+                >
+        
+        
+                <button
+                    type="button"
+                    id="submitReview"
+                >
+                    Submit review
+                </button>
+        
+        
+                <p id="reviewMessage"></p>
+        
+            </div>
+        
+        </div></div>
+        
+    <div id="productModal" class="product-modal" >
+    
+        <div class="product-modal-box">
+    
+            
+            <button
+                type="button"
+                id="closeProductModal"
+                class="close-product-modal"
+            >
+                ×
+            </button>
+    
+    
+            
+            <div class="swiper product-swiper">
+    
+                <div class="swiper-wrapper" id="productSwiperWrapper">
+                   
+                </div>
+    
+               
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+    
+               
+                <div class="swiper-pagination"></div>
+    
+            </div>
+    
+    
+            
+            <div class="product-modal-info">
+    
+                <h2 id="modalProductName"></h2>
+    
+                <div
+                    id="modalProductRating"
+                    class="modal-product-rating"
+                ></div>
+    
+                <p
+                    id="modalProductDescription"
+                    class="modal-product-description"
+                ></p>
+    
+    
+                
+                <div class="modal-product-prices">
+    
+                    <span
+                        id="modalOldPrice"
+                        class="modal-old-price"
+                    ></span>
+    
+                    <span
+                        id="modalCurrentPrice"
+                        class="modal-current-price"
+                    ></span>
+    
+                </div>
+    
+    
+                
+                <button
+                    type="button"
+                    id="modalAddToCart"
+                    class="modal-add-cart"
+                >
+                    Add to cart
+                </button>
+                <button
+                type="button"
+                id="modalBuyNow"
+                class="modal-add-cart"
+            >
+                Buy Now
+            </button>
+    
+            </div>
+    
+    
+            
+            <div id="modalProductReviews" class="modal-reviews-section">
+    
+                <h3>Customer Reviews</h3>
+            
+                <div
+                    id="modalReviewsList"
+                    class="modal-reviews"
+                >
+                </div>
+            
+                <button
+                    type="button"
+                    id="modalAddReview"
+                    class="modal-add-review"
+                >
+                    Add a review
+                </button>
+            
+            </div>
+           
+    
+    
+    
+    
+    
+            
+            <h1 style="font-family: 'Nova Round' , sans-serif ; margin-top: 5px;">D'autres Produits:</h1>
+           <div id="products-container2" style="display: grid; grid-template-columns: repeat(2, 1fr); margin-top: 5px;" > </div>
+    </div> </div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    
+    <script src="app.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+
+<script type="text/javascript" src="{{ url_for('static', filename='index.js') }}"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<script> lucide.createIcons(); </script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+></script>
+<script>
+    const swiper = new Swiper(".mySwiper", {
+     loop: true,
+ 
+     effect: "fade",
+ 
+     fadeEffect: {
+         crossFade: true
+     },
+ 
+     autoplay: {
+         delay: 1000,
+     },
+ 
+     speed: 1000
+ });</script>
+<script>
+    
+    const faqQuestions = document.querySelectorAll(".faq-question");
+    
+    faqQuestions.forEach(question => {
+    
+        question.addEventListener("click", () => {
+    
+            const answer = question.nextElementSibling;
+            const icon = question.querySelector(".faq-icon");
+    
+            if (answer.style.maxHeight) {
+    
+                answer.style.maxHeight = null;
+                icon.textContent = "+";
+    
+            } else {
+    
+                answer.style.maxHeight = answer.scrollHeight + "px";
+                icon.textContent = "−";
+    
+            }
+    
+        });
+    
+    });
+    
+    </script>
+   
+        
+    </body>
+   </html>

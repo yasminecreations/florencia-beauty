@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EliteShop - Checkout</title>
+    <title>florenciabeauty - Checkout</title>
     <link href="https://fonts.googleapis.com/css2?family=Nova+Round&display=swap" rel="stylesheet">
-    <script src="https://www.paypal.com/sdk/js?client-id=AUX"></script>
+    <script src="https://www.paypal.com/sdk/js?client-id=BAAmIRX6ibA8Zuudk2Sqj2amCPh9DWXX7WMGR-4MK8ah3eEzM3PILodZD_ZQHULmw57KXmm_bBa_ng3mAM"></script>
     <style>
         body { font-family: 'Nova Round', sans-serif; background: #fafafa; display: flex; justify-content: center; padding: 50px 20px; margin: 0; }
         .checkout-card { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); width: 100%; max-width: 450px; }
@@ -19,14 +19,17 @@
     </style>
 </head>
 <body>
+ 
 <div style="display: grid;">
     <div class="checkout-card">
         <h2>Votre Commande</h2>
         <div id="order-items-container"></div>
         
         <div style="margin-top: 20px;"> 
-            <h3 style="font-size: 16px;">Veuillez entrer votre num / رقم الهاتف</h3>
+            <h3 style="font-size: 16px;">Veuillez entrer vos informations</h3>
             <input id="client-phone" type="tel" placeholder="+212 6..." required> 
+            <input id="client-address" type="text" placeholder="Adresse" required>
+            <input id="client-city" type="text" placeholder="ville" required>
         </div>
 
         <div id="paypal-button-container"></div>
@@ -43,9 +46,16 @@
         </form>
     </div>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script>
-    // --- DISPLAY & INITIALIZATION ---
+    const SUPABASE_URL = "https://wcnjkjpqgwpszesjiuzz.supabase.co";
+const SUPABASE_KEY = "sb_publishable_w5h0bJZLiL_LGc5V09P6JA_PZwfnpLD";
+
+const supabaseClient = window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+);
     function initCheckout() {
         const container = document.getElementById('order-items-container');
         const myCart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -122,12 +132,63 @@
                     });
                 },
                 onApprove: function(data, actions) {
-                    return actions.order.capture().then(function(details) {
-                        alert('Thank you ' + details.payer.name.given_name + '!');
-                        localStorage.removeItem("cart");
-                        window.location.href = "thankyou.html"; 
-                    });
-                },
+    return actions.order.capture().then(async function(details) {
+
+        console.log("PayPal payment successful:", details);
+
+        const userPhone = document.getElementById('client-phone').value;
+
+        const firstName = details.payer?.name?.given_name || "";
+        const lastName = details.payer?.name?.surname || "";
+        const email = details.payer?.email_address || "";
+
+        const orderData = {
+            public_token: crypto.randomUUID(),
+            cart: myCart,
+            total_price: finalTotalMAD,
+
+            first_name: firstName,
+            last_name: lastName,
+            email: email,
+            phone: userPhone,
+
+            address: document.getElementById('client-address').value,
+           city: document.getElementById('client-city').value,
+            postal_code: null,
+
+            paypal_order_id: data.orderID,
+            payment_status: details.status === "COMPLETED" ? "paid" : "pending",
+            order_status: "new"
+        };
+
+        console.log("Saving order to Supabase:", orderData);
+
+        const { data: savedOrder, error } = await supabaseClient
+    .from("orders")
+    .insert(orderData);
+    
+
+        if (error) {
+            console.error("ORDER SAVE ERROR:", error);
+
+            alert(
+                "Votre paiement PayPal a bien été effectué, " +
+                "mais une erreur est survenue lors de l'enregistrement de votre commande. " +
+                "Veuillez contacter le magasin."
+            );
+
+            return;
+        }
+
+        console.log("Order saved successfully:", savedOrder);
+
+        localStorage.removeItem("cart");
+
+        window.location.href =
+            
+    `thankyou.html?token=${encodeURIComponent(orderData.public_token)}`;
+    });
+},
                 onError: function(err) {
                     console.error("PayPal Error:", err);
                     alert("A PayPal error occurred. Please check your network or try again.");

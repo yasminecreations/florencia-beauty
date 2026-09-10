@@ -86,8 +86,49 @@
             margin-top: 0;
         }
         #productsSection {
-    margin-top: 30px;
+    margin-top: 30px;}
+    .admin-review-card {
+    background: white;
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+    border: 1px solid #eee;
 }
+
+.admin-review-card h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.admin-review-card p {
+    margin: 8px 0;
+    line-height: 1.5;
+}
+
+.admin-review-card img {
+    display: block;
+    margin-top: 15px;
+    border-radius: 10px;
+    max-width: 150px;
+}
+
+.admin-review-card button {
+    padding: 9px 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-right: 8px;
+}
+
+.admin-review-card .approve-review {
+    background: #e8f5e9;
+}
+
+.admin-review-card .delete-review {
+    background: #ffebee;
+}
+
 
 #addProductButton,
 #saveProductButton,
@@ -123,6 +164,40 @@
 #addProductForm textarea {
     min-height: 100px;
     resize: vertical;
+}
+.admin-order-card {
+    background: white;
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+    border: 1px solid #eee;
+}
+
+.admin-order-card h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.admin-order-card h4 {
+    margin-top: 20px;
+    margin-bottom: 8px;
+}
+
+.admin-order-card p {
+    margin: 8px 0;
+    line-height: 1.5;
+}
+
+.admin-order-card hr {
+    border: none;
+    border-top: 1px solid #eee;
+    margin: 20px 0;
+}
+
+.admin-order-card ul {
+    padding-left: 20px;
+    line-height: 1.8;
 }
     </style>
 
@@ -160,7 +235,7 @@
 
             <div class="admin-card" id="productsCard">
 
-                <h2>📦 Products</h2>
+                <h2> Products</h2>
 
                 <p>
                     Add, edit and delete products.
@@ -169,144 +244,232 @@
             </div>
 
 
-            <div class="admin-card">
+            <div class="admin-card" id="reviewsCard" >
 
-                <h2>⭐ Reviews</h2>
+                <h2> Reviews</h2>
 
                 <p>
                     Approve or manage customer reviews.
                 </p>
 
             </div>
+            <div class="admin-card" id="ordersCard">
 
-
-            <div class="admin-card">
-
-                <h2>🛍️ Orders</h2>
-
+                <h2>Orders</h2>
+            
                 <p>
-                    View customer orders.
+                    View customer orders and order details.
                 </p>
-
+            
             </div>
 
-
+         
         </div>
-       <!-- PRODUCTS SECTION -->
+      
+       <section
+       id="productsSection"
+       style="display: none; margin-top: 40px;"
+   >
+   
+       <h2>Products</h2>
+   
+       <button id="backToDashboard">
+           ← Back
+       </button>
+   
+       <button id="addProductButton">
+           + Add Product
+       </button>
+       <div id="addProductForm" style="display: none;">
 
-<section
-id="productsSection"
-style="display: none; margin-top: 40px;"
->
+        <h3>Add New Product</h3>
+    
+        <label>Product Name</label>
+        <input type="text" id="productName" placeholder="Product name">
+    
+        <label>Description</label>
+        <textarea id="productDescription" placeholder="Product description"></textarea>
+    
+        <label>Price</label>
+        <input type="number" id="productPrice" placeholder="Price">
+    
+        <label>Old Price</label>
+        <input type="number" id="productOldPrice" placeholder="Old price">
+    
+        <label>Brand</label>
+        <select id="productBrand">
+            <option value="">Select a brand</option>
+            <option value="Medicube">Medicube</option>
+            <option value="Vaseline">Vaseline</option>
+            <option value="The ordinary">The ordinary</option>
+            <option value="Arencia">Arencia</option>
+            <option value="Celimax">Celimax</option>
+            <option value="Fino">Fino</option>
+            <option value="Eucerin">Eucerin</option>
+            <option value="Panoxyl">Panoxyl</option>
+            <option value="Dr.althea">Dr.althea</option>
+            <option value="Anua">Anua</option>
+            <option value="Skin1004">Skin1004</option>
+            <option value="Marvis">Marvis</option>
+            <option value="Redken">Redken</option>
+        </select> <br>
+    
+        <label>Category</label>
+        <select id="productCategory">
+            <option value="">Select a category</option>
+            <option value="facial care">facial care</option>
+            <option value="hair care">hair care</option>
+            <option value="body care">body care</option>
+        </select> <br>
+    
+        <label>Concern</label>
+        <select id="productConcern">
+            <option value="">Select a concern</option>
+            <option value="acné">acné</option>
+            <option value="peau seche">peau seche</option>
+            <option value="peau irritée">peau irritée</option>
+            <option value="tâches pigmentées">tâches pigmentées</option>
+            <option value="rides">rides</option>
+        </select> <br>
+    
+        <label>Status</label>
+        <select id="productStatus">
+            <option value="">No status</option>
+            <option value="bestseller">bestseller</option>
+        </select><br>
+    
+        <label>Main Product Image</label>
+        <input type="file" id="productImage" accept="image/*"> <br>
+    
+        <label>Thumbnail 1</label>
+        <input type="file" id="productThumbnail1" accept="image/*"><br>
+    
+        <label>Thumbnail 2</label>
+        <input type="file" id="productThumbnail2" accept="image/*"><br>
+    
+        <label>Thumbnail 3</label>
+        <input type="file" id="productThumbnail3" accept="image/*"><br>
+    
+        <button id="saveProductButton">Save Product</button>
+    
+        <p id="productMessage"></p>
+    
+    </div>
+    <div id="editProductForm" style="display: none; margin-top: 30px; gap: 10px ;  color: #c51650;  ">
+        <h3>Edit Product</h3>
+    
+        <label style="margin-top: 20px;" class="lbll">Product Name</label>
+        <input style="color: #c51650; height: 50px; width: 150px; border-radius: 12px; border: #c51650 2px solide; margin-left: 20px; margin-top: 20px;" type="text" id="editProductName"> <br>
+    
+        <label style="margin-top: 20px;" class="lbll">Description</label>
+        <textarea style="color: #c51650; height: 50px; width: 150px; border-radius: 12px; border: #c51650 2px solide; margin-left: 20px;margin-top: 20px;" id="editProductDescription"></textarea> <br>
+    
+        <label style="margin-top: 20px;" class="lbll">Price</label>
+        <input style="color: #c51650; height: 50px; width: 150px; border-radius: 12px; border: #c51650 2px solide; margin-left: 20px;margin-top: 20px;" type="number" id="editProductPrice"> <br>
+    
+        <label style="margin-top: 20px;" class="lbll">Old Price</label>
+        <input style="color: #c51650; height: 50px; width: 150px; border-radius: 12px; border: #c51650 2px solide; margin-left: 20px;margin-top: 20px;" type="number" id="editProductOldPrice"> <br>
+    
+        <label style="margin-top: 20px;" class="lbll">Brand</label> <br>
+        <select style="color: #c51650; height: 50px; width: 150px; border-radius: 12px; border: #c51650 2px solide; margin-left: 20px;margin-top: 20px;" id="editProductBrand"> <br>
+            <option value="">Select a brand</option>
+            <option value="Medicube">Medicube</option>
+            <option value="Vaseline">Vaseline</option>
+            <option value="The ordinary">The ordinary</option>
+            <option value="Arencia">Arencia</option>
+            <option value="Celimax">Celimax</option>
+            <option value="Fino">Fino</option>
+            <option value="Eucerin">Eucerin</option>
+            <option value="Panoxyl">Panoxyl</option>
+            <option value="Dr.althea">Dr.althea</option>
+            <option value="Anua">Anua</option>
+            <option value="Skin1004">Skin1004</option>
+            <option value="Marvis">Marvis</option>
+            <option value="Redken">Redken</option>
+        </select><br>
+    
+        <label style="margin-top: 20px;" class="lbll">Category</label> <br>
+        <select style="color: #c51650; height: 50px; width: 150px; border-radius: 12px; border: #c51650 2px solide; margin-left: 20px;margin-top: 20px;" id="editProductCategory"><br>
+            <option value="">Select a category</option>
+            <option value="facial care">facial care</option>
+            <option value="hair care">hair care</option>
+            <option value="body care">body care</option>
+        </select><br>
+    
+        <label style="margin-top: 20px;" class="lbll">Concern</label><br>
+        <select style="color: #c51650; height: 50px; width: 150px; border-radius: 12px; border: #c51650 2px solide; margin-left: 20px;margin-top: 20px;" id="editProductConcern"><br>
+            <option value="">Select a concern</option>
+            <option value="acné">acné</option>
+            <option value="peau seche">peau seche</option>
+            <option value="peau irritée">peau irritée</option>
+            <option value="tâches pigmentées">tâches pigmentées</option>
+            <option value="rides">rides</option>
+        </select><br>
+    
+        <label style="margin-top: 20px;" class="lbll">Status</label><br>
+        <select style="color: #c51650; height: 50px; width: 150px; border-radius: 12px; border: #c51650 2px solide; margin-left: 20px;margin-top: 20px;" id="editProductStatus"> <br>
+            <option value="">No status</option>
+            <option value="bestseller">bestseller</option>
+        </select><br>
+    
+        <label style="margin-top: 20px;" class="lbll">Main Product Image</label><br>
+        <input style="color: #c51650; height: 50px; width: 150px; border-radius: 12px; border: #c51650 2px solide; margin-left: 20px;margin-top: 20px;" type="file" id="editProductImage" accept="image/*">
+        <br>
+        <label style="margin-top: 20px;" class="lbll">Thumbnail 1</label><br>
+        <input style="color: #c51650; height: 50px; width: 150px; border-radius: 12px; border: #c51650 2px solide; margin-left: 20px;margin-top: 20px;" type="file" id="editProductThumbnail1" accept="image/*">
+        <br>
+        <label style="margin-top: 20px;" class="lbll">Thumbnail 2</label><br>
+        <input style="color: #c51650; height: 50px; width: 150px; border-radius: 12px; border: #c51650 2px solide; margin-left: 20px;margin-top: 20px;" type="file" id="editProductThumbnail2" accept="image/*">
+        <br>
+        <label style="margin-top: 20px;" class="lbll">Thumbnail 3</label><br>
+        <input style="color: #c51650; height: 50px; width: 150px; border-radius: 12px; border: #c51650 2px solide; margin-left: 20px;margin-top: 20px;" type="file" id="editProductThumbnail3" accept="image/*">
+        <br>
+        <button id="saveEditProductButton">Save Changes</button>
+        <button id="cancelEditProductButton">Cancel</button>
+    
+        <p id="editProductMessage"></p>
+    </div>
+   
+       <div
+           id="adminProductsContainer"
+           style="
+               margin-top: 25px;
+               display: grid;
+               grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+               gap: 20px;
+           "
+       ></div>
+   
+   </section>
+   <div id="reviewsSection" style="display: none; margin-top: 30px;">
 
-<h2>Products</h2>
+    <button id="backFromReviews">← Back to Dashboard</button>
 
-<button
-    id="backToDashboard"
-    style="
-        padding: 10px 20px;
-        border: none;
-        border-radius: 8px;
-        background: #f3d6dc;
-        cursor: pointer;
-        font-family: inherit;
-    "
->
-    ← Back
-</button>
+    <h2>Customer Reviews</h2>
 
-<div
-    id="adminProductsContainer"
-    style="
-        margin-top: 25px;
-        display: grid;
-        grid-template-columns:
-            repeat(auto-fit, minmax(250px, 1fr));
-        gap: 20px;
-    "
->
-
-    <p>Loading products...</p>
+    <div id="adminReviewsContainer"></div>
 
 </div>
 
-</section>
-<!-- PRODUCTS SECTION -->
 
-<div id="productsSection" style="display: none;">
+<div id="ordersSection" style="display: none; margin-top: 30px;">
 
-    <button id="backToDashboard">
+    <button id="backFromOrders">
         ← Back to Dashboard
     </button>
 
-    <h2>Manage Products</h2>
+    <h2>Customer Orders</h2>
 
-    <button id="addProductButton">
-        + Add Product
-    </button>
-
-    <!-- ADD PRODUCT FORM -->
-
-    <div id="addProductForm" style="display: none;">
-
-        <h3>Add New Product</h3>
-
-        <input
-            type="text"
-            id="productName"
-            placeholder="Product name"
-        >
-
-        <textarea
-            id="productDescription"
-            placeholder="Product description"
-        ></textarea>
-
-        <input
-            type="number"
-            id="productPrice"
-            placeholder="Price"
-        >
-
-        <input
-            type="number"
-            id="productOldPrice"
-            placeholder="Old price (optional)"
-        >
-
-        <input
-            type="text"
-            id="productBrand"
-            placeholder="Brand"
-        >
-
-        <input
-            type="text"
-            id="productCategory"
-            placeholder="Category"
-        >
-
-        <input
-            type="text"
-            id="productImage"
-            placeholder="Image URL"
-        >
-
-        <button id="saveProductButton">
-            Save Product
-        </button>
-
-        <p id="productMessage"></p>
-
-    </div>
-
-    <div id="adminProductsContainer"></div>
+    <div id="adminOrdersContainer"></div>
 
 </div>
+
+
+
     </main>
 
 
-    <!-- SUPABASE -->
+    
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
@@ -444,146 +607,853 @@ backToDashboard.addEventListener(
 ========================= */
 
 async function loadAdminProducts() {
+    adminProductsContainer.innerHTML = "<p>Loading products...</p>";
 
-    adminProductsContainer.innerHTML =
-        "<p>Loading products...</p>";
+    const { data, error } = await supabaseClient
+        .from("products")
+        .select("*")
+        .order("id", { ascending: true });
 
+    if (error) {
+        console.error("Error loading products:", error);
+        adminProductsContainer.innerHTML = "<p>Could not load products.</p>";
+        return;
+    }
 
-    const {
-        data,
-        error
-    } =
-        await supabaseClient
+    adminProductsContainer.innerHTML = "";
+
+    data.forEach(product => {
+        const card = document.createElement("div");
+
+        card.style.border = "1px solid #ddd";
+        card.style.padding = "20px";
+        card.style.marginBottom = "20px";
+        card.style.borderRadius = "10px";
+
+        card.innerHTML = `
+            <img src="${product.image || ""}"
+                 style="width:150px;height:150px;object-fit:cover;border-radius:8px;">
+
+            <h3>${product.name || "Unnamed product"}</h3>
+
+            <p>${product.description || ""}</p>
+
+            <p><strong>Price:</strong> ${product.price || 0} MAD</p>
+
+            ${product.old_price ? `
+                <p><strong>Old price:</strong> ${product.old_price} MAD</p>
+            ` : ""}
+
+            <p><strong>Brand:</strong> ${product.Brand || "—"}</p>
+
+            <p><strong>Category:</strong> ${product.category || "—"}</p>
+
+            <p><strong>Concern:</strong> ${product.concerns || "—"}</p>
+
+            <p><strong>Status:</strong> ${product.status || "—"}</p>
+
+            <div style="display:flex;gap:10px;margin-top:15px;">
+                <button class="edit-product-button">Edit</button>
+                <button class="delete-product-button">Delete</button>
+            </div>
+        `;
+
+        adminProductsContainer.appendChild(card);
+
+        const editButton = card.querySelector(".edit-product-button");
+
+        editButton.addEventListener("click", () => {
+            document.getElementById("editProductForm").style.display = "block";
+
+            document.getElementById("editProductName").value = product.name || "";
+            document.getElementById("editProductDescription").value = product.description || "";
+            document.getElementById("editProductPrice").value = product.price || "";
+            document.getElementById("editProductOldPrice").value = product.old_price || "";
+
+            document.getElementById("editProductBrand").value = product.Brand || "";
+            document.getElementById("editProductCategory").value = product.category || "";
+            document.getElementById("editProductConcern").value = product.concerns || "";
+            document.getElementById("editProductStatus").value = product.status || "";
+
+            window.editingProductId = product.id;
+
+            document.getElementById("editProductForm").scrollIntoView({
+                behavior: "smooth"
+            });
+        });
+
+        const deleteButton = card.querySelector(".delete-product-button");
+
+        deleteButton.addEventListener("click", async () => {
+            const confirmed = confirm(
+                `Are you sure you want to delete "${product.name}"?`
+            );
+
+            if (!confirmed) return;
+
+            deleteButton.disabled = true;
+            deleteButton.textContent = "Deleting...";
+
+            const { data: deletedProduct, error: deleteError } = await supabaseClient
+                .from("products")
+                .delete()
+                .eq("id", product.id)
+                .select("*");
+
+            console.log("Product ID we're trying to delete:", product.id);
+            console.log("Deleted product:", deletedProduct);
+            console.log("Delete error:", deleteError);
+
+            if (deleteError) {
+                console.error("Error deleting product:", deleteError);
+                alert("Could not delete this product.");
+
+                deleteButton.disabled = false;
+                deleteButton.textContent = "Delete";
+
+                return;
+            }
+
+            alert("Product deleted successfully!");
+
+            loadAdminProducts();
+        });
+    });
+}
+
+const saveEditProductButton = document.getElementById("saveEditProductButton");
+const cancelEditProductButton = document.getElementById("cancelEditProductButton");
+
+saveEditProductButton.addEventListener("click", async () => {
+    const productId = window.editingProductId;
+
+    if (!productId) {
+        alert("No product selected.");
+        return;
+    }
+
+    const name = document.getElementById("editProductName").value.trim();
+    const description = document.getElementById("editProductDescription").value.trim();
+    const price = document.getElementById("editProductPrice").value;
+    const oldPrice = document.getElementById("editProductOldPrice").value;
+
+    const brand = document.getElementById("editProductBrand").value;
+    const category = document.getElementById("editProductCategory").value;
+    const concern = document.getElementById("editProductConcern").value;
+    const status = document.getElementById("editProductStatus").value;
+
+    const imageFile = document.getElementById("editProductImage").files[0];
+    const thumbnail1File = document.getElementById("editProductThumbnail1").files[0];
+    const thumbnail2File = document.getElementById("editProductThumbnail2").files[0];
+    const thumbnail3File = document.getElementById("editProductThumbnail3").files[0];
+
+    const message = document.getElementById("editProductMessage");
+
+    if (!name || !price || !brand || !category) {
+        message.textContent = "Please fill in the product name, price, brand and category.";
+        return;
+    }
+
+    try {
+        saveEditProductButton.disabled = true;
+        saveEditProductButton.textContent = "Saving...";
+        message.textContent = "Saving changes...";
+
+        const { data: currentProduct, error: fetchError } = await supabaseClient
             .from("products")
             .select("*")
-            .order("id", {
-                ascending: true
-            });
+            .eq("id", productId)
+            .single();
 
+        if (fetchError) {
+            console.error("Error loading current product:", fetchError);
+            message.textContent = "Could not load current product.";
+            return;
+        }
+
+        let mainImageUrl = currentProduct.image;
+        let thumbnail1Url = currentProduct.thumbnail_1;
+        let thumbnail2Url = currentProduct.thumbnail_2;
+        let thumbnail3Url = currentProduct.thumbnail_3;
+
+        if (imageFile) {
+            message.textContent = "Uploading main image...";
+            mainImageUrl = await uploadProductImage(imageFile, "products");
+        }
+
+        if (thumbnail1File) {
+            message.textContent = "Uploading thumbnail 1...";
+            thumbnail1Url = await uploadProductImage(
+                thumbnail1File,
+                "products/thumbnails"
+            );
+        }
+
+        if (thumbnail2File) {
+            message.textContent = "Uploading thumbnail 2...";
+            thumbnail2Url = await uploadProductImage(
+                thumbnail2File,
+                "products/thumbnails"
+            );
+        }
+
+        if (thumbnail3File) {
+            message.textContent = "Uploading thumbnail 3...";
+            thumbnail3Url = await uploadProductImage(
+                thumbnail3File,
+                "products/thumbnails"
+            );
+        }
+
+        message.textContent = "Saving changes...";
+
+        const { error } = await supabaseClient
+            .from("products")
+            .update({
+                name: name,
+                description: description,
+                price: Number(price),
+                old_price: oldPrice ? Number(oldPrice) : null,
+                image: mainImageUrl,
+                thumbnail_1: thumbnail1Url,
+                thumbnail_2: thumbnail2Url,
+                thumbnail_3: thumbnail3Url,
+                Brand: brand,
+                category: category,
+                concerns: concern || null,
+                status: status || null
+            })
+            .eq("id", productId);
+
+        if (error) {
+            console.error("Error updating product:", error);
+            message.textContent = "Could not save changes.";
+            return;
+        }
+
+        message.textContent = "Product updated successfully!";
+
+        document.getElementById("editProductImage").value = "";
+        document.getElementById("editProductThumbnail1").value = "";
+        document.getElementById("editProductThumbnail2").value = "";
+        document.getElementById("editProductThumbnail3").value = "";
+
+        await loadAdminProducts();
+
+        document.getElementById("editProductForm").style.display = "none";
+
+        window.editingProductId = null;
+
+    } catch (error) {
+        console.error("Product update failed:", error);
+        message.textContent = "Something went wrong while updating the product.";
+    } finally {
+        saveEditProductButton.disabled = false;
+        saveEditProductButton.textContent = "Save Changes";
+    }
+});
+
+cancelEditProductButton.addEventListener("click", () => {
+    document.getElementById("editProductForm").style.display = "none";
+    window.editingProductId = null;
+
+    document.getElementById("editProductImage").value = "";
+    document.getElementById("editProductThumbnail1").value = "";
+    document.getElementById("editProductThumbnail2").value = "";
+    document.getElementById("editProductThumbnail3").value = "";
+});
+/* =========================
+   ADD PRODUCT
+========================= */
+
+const addProductButton = document.getElementById("addProductButton");
+const addProductForm = document.getElementById("addProductForm");
+const saveProductButton = document.getElementById("saveProductButton");
+
+addProductButton.addEventListener("click", () => {
+    addProductForm.style.display = "block";
+});
+
+async function uploadProductImage(file, folder) {
+    if (!file) {
+        return null;
+    }
+
+    const fileExtension = file.name.split(".").pop();
+    const fileName = `${Date.now()}-${Math.random().toString(36).substring(2)}.${fileExtension}`;
+    const filePath = `${folder}/${fileName}`;
+
+    const { error: uploadError } = await supabaseClient
+        .storage
+        .from("product pic")
+        .upload(filePath, file);
+
+    if (uploadError) {
+        console.error("Image upload error:", uploadError);
+        throw uploadError;
+    }
+
+    const { data } = supabaseClient
+        .storage
+        .from("product pic")
+        .getPublicUrl(filePath);
+
+    return data.publicUrl;
+}
+
+saveProductButton.addEventListener("click", async () => {
+
+    const name = document.getElementById("productName").value.trim();
+    const description = document.getElementById("productDescription").value.trim();
+    const price = document.getElementById("productPrice").value;
+    const oldPrice = document.getElementById("productOldPrice").value;
+
+    const brand = document.getElementById("productBrand").value;
+    const category = document.getElementById("productCategory").value;
+    const concern = document.getElementById("productConcern").value;
+    const status = document.getElementById("productStatus").value;
+
+    const imageFile = document.getElementById("productImage").files[0];
+    const thumbnail1File = document.getElementById("productThumbnail1").files[0];
+    const thumbnail2File = document.getElementById("productThumbnail2").files[0];
+    const thumbnail3File = document.getElementById("productThumbnail3").files[0];
+
+    const message = document.getElementById("productMessage");
+
+    if (!name || !price || !brand || !category) {
+        message.textContent = "Please fill in the product name, price, brand and category.";
+        return;
+    }
+
+    if (!imageFile) {
+        message.textContent = "Please choose a main product image.";
+        return;
+    }
+
+    try {
+
+        saveProductButton.disabled = true;
+        saveProductButton.textContent = "Uploading...";
+        message.textContent = "Uploading images...";
+
+        const mainImageUrl = await uploadProductImage(
+            imageFile,
+            "products"
+        );
+
+        const thumbnail1Url = await uploadProductImage(
+            thumbnail1File,
+            "products/thumbnails"
+        );
+
+        const thumbnail2Url = await uploadProductImage(
+            thumbnail2File,
+            "products/thumbnails"
+        );
+
+        const thumbnail3Url = await uploadProductImage(
+            thumbnail3File,
+            "products/thumbnails"
+        );
+
+        message.textContent = "Saving product...";
+
+        const { error } = await supabaseClient
+            .from("products")
+            .insert([
+                {
+                    name: name,
+                    description: description,
+                    price: Number(price),
+                    old_price: oldPrice ? Number(oldPrice) : null,
+
+                    image: mainImageUrl,
+                    thumbnail_1: thumbnail1Url,
+                    thumbnail_2: thumbnail2Url,
+                    thumbnail_3: thumbnail3Url,
+
+                    Brand: brand,
+                    category: category,
+                    concerns: concern || null,
+                    status: status || null
+                }
+            ]);
+
+        if (error) {
+            console.error("Error adding product:", error);
+            message.textContent = "Could not add product.";
+            return;
+        }
+
+        message.textContent = "Product added successfully!";
+
+        document.getElementById("productName").value = "";
+        document.getElementById("productDescription").value = "";
+        document.getElementById("productPrice").value = "";
+        document.getElementById("productOldPrice").value = "";
+
+        document.getElementById("productBrand").value = "";
+        document.getElementById("productCategory").value = "";
+        document.getElementById("productConcern").value = "";
+        document.getElementById("productStatus").value = "";
+
+        document.getElementById("productImage").value = "";
+        document.getElementById("productThumbnail1").value = "";
+        document.getElementById("productThumbnail2").value = "";
+        document.getElementById("productThumbnail3").value = "";
+
+        await loadAdminProducts();
+
+    } catch (error) {
+
+        console.error("Product creation failed:", error);
+        message.textContent = "Something went wrong while uploading the product.";
+
+    } finally {
+
+        saveProductButton.disabled = false;
+        saveProductButton.textContent = "Save Product";
+
+    }
+});
+    </script>
+<script>
+    const reviewsCard = document.getElementById("reviewsCard");
+const reviewsSection = document.getElementById("reviewsSection");
+
+const backFromReviews = document.getElementById("backFromReviews");
+async function loadAdminReviews() {
+    const container = document.getElementById("adminReviewsContainer");
+
+    container.innerHTML = "<p>Loading reviews...</p>";
+
+    const { data, error } = await supabaseClient
+        .from("reviews")
+        .select(`
+            id,
+            product_id,
+            name,
+            review,
+            rating,
+            status,
+            created_at,
+            image_url,
+            products (
+                name
+            )
+        `)
+        .order("created_at", { ascending: false });
+
+    if (error) {
+        console.error("Error loading reviews:", error);
+        container.innerHTML = "<p>Could not load reviews.</p>";
+        return;
+    }
+
+    if (!data || data.length === 0) {
+        container.innerHTML = "<p>No reviews yet.</p>";
+        return;
+    }
+
+    container.innerHTML = "";
+
+    data.forEach(review => {
+        const productName = review.products?.name || "Unknown product";
+
+        const card = document.createElement("div");
+
+        card.className = "admin-review-card";
+
+        card.innerHTML = `
+            <h3>${productName}</h3>
+            <p><strong>Customer:</strong> ${review.name || "Anonymous"}</p>
+            <p><strong>Rating:</strong> ${"★".repeat(review.rating || 0)}${"☆".repeat(5 - (review.rating || 0))}</p>
+            <p><strong>Review:</strong> ${review.review || ""}</p>
+            <p><strong>Status:</strong> ${review.status || "pending"}</p>
+            
+            ${review.image_url ? `
+                <img src="${review.image_url}" alt="Review image" style="max-width: 150px;">
+            ` : ""}
+
+            <div style="margin-top: 15px;">
+                <button class="approve-review" data-id="${review.id}">
+                    Approve
+                </button>
+
+                <button class="delete-review" data-id="${review.id}">
+                    Delete
+                </button>
+            </div>
+        `;
+
+        container.appendChild(card);
+    });
+}
+document.getElementById("adminReviewsContainer").addEventListener("click", async (event) => {
+    const approveButton = event.target.closest(".approve-review");
+    const deleteButton = event.target.closest(".delete-review");
+
+    if (approveButton) {
+        const reviewId = approveButton.dataset.id;
+
+        approveButton.disabled = true;
+        approveButton.textContent = "Approving...";
+
+        const { error } = await supabaseClient
+            .from("reviews")
+            .update({ status: "approved" })
+            .eq("id", reviewId);
+
+        if (error) {
+            console.error("Error approving review:", error);
+            alert("Could not approve the review.");
+            approveButton.disabled = false;
+            approveButton.textContent = "Approve";
+            return;
+        }
+
+        await loadAdminReviews();
+    }
+
+    if (deleteButton) {
+        const reviewId = deleteButton.dataset.id;
+
+        const confirmed = confirm("Are you sure you want to delete this review?");
+
+        if (!confirmed) {
+            return;
+        }
+
+        deleteButton.disabled = true;
+        deleteButton.textContent = "Deleting...";
+
+        const { error } = await supabaseClient
+            .from("reviews")
+            .delete()
+            .eq("id", reviewId);
+
+        if (error) {
+            console.error("Error deleting review:", error);
+            alert("Could not delete the review.");
+            deleteButton.disabled = false;
+            deleteButton.textContent = "Delete";
+            return;
+        }
+
+        await loadAdminReviews();
+    }
+});
+reviewsCard.addEventListener("click", async () => {
+  
+    document.querySelector(".admin-sections").style.display = "none";
+
+    productsSection.style.display = "none";
+
+    
+    reviewsSection.style.display = "block";
+
+    await loadAdminReviews();
+});
+
+backFromReviews.addEventListener("click", () => {
+    reviewsSection.style.display = "none";
+    productsSection.style.display = "none";
+
+    document.querySelector(".admin-sections").style.display = "grid";
+});
+/* =========================
+   ORDERS
+========================= */
+
+const ordersCard = document.getElementById("ordersCard");
+const ordersSection = document.getElementById("ordersSection");
+const backFromOrders = document.getElementById("backFromOrders");
+const adminOrdersContainer = document.getElementById("adminOrdersContainer");
+
+
+/* =========================
+   LOAD ORDERS
+========================= */
+
+async function loadAdminOrders() {
+
+    adminOrdersContainer.innerHTML =
+        "<p>Loading orders...</p>";
+
+    const { data, error } = await supabaseClient
+        .from("orders")
+        .select(`
+            id,
+            created_at,
+            cart,
+            total_price,
+            first_name,
+            last_name,
+            email,
+            phone,
+            address,
+            city,
+            postal_code,
+            paypal_order_id,
+            payment_status,
+            order_status
+        `)
+        .order("created_at", {
+            ascending: false
+        });
 
     if (error) {
 
         console.error(
-            "Error loading admin products:",
+            "Error loading orders:",
             error
         );
 
-        adminProductsContainer.innerHTML =
-            "<p>Could not load products.</p>";
+        adminOrdersContainer.innerHTML =
+            "<p>Could not load orders.</p>";
 
         return;
     }
-
-
-    console.log(
-        "Admin products:",
-        data
-    );
-
-
-    adminProductsContainer.innerHTML =
-        "";
-
 
     if (!data || data.length === 0) {
 
-        adminProductsContainer.innerHTML =
-            "<p>No products found.</p>";
+        adminOrdersContainer.innerHTML =
+            "<p>No orders yet.</p>";
 
         return;
     }
 
+    adminOrdersContainer.innerHTML = "";
 
-    data.forEach(product => {
+
+    data.forEach(order => {
+
+        /* =========================
+           CART
+        ========================= */
+
+        let cart = order.cart;
+
+        if (typeof cart === "string") {
+
+            try {
+                cart = JSON.parse(cart);
+            } catch (error) {
+                cart = [];
+            }
+
+        }
+
+        if (!Array.isArray(cart)) {
+            cart = [];
+        }
+
+
+        const itemsHTML = cart.length
+
+            ? cart.map(item => {
+
+                const name =
+                    item.name ||
+                    item.product_name ||
+                    "Product";
+
+                const quantity =
+                    item.quantity ||
+                    item.qty ||
+                    1;
+
+                const price =
+                    item.price ?? "";
+
+                return `
+                    <li>
+                        ${name} × ${quantity}
+                        ${
+                            price !== ""
+                                ? ` — ${price} MAD`
+                                : ""
+                        }
+                    </li>
+                `;
+
+            }).join("")
+
+            : "<li>No product details available.</li>";
+
+
+        /* =========================
+           CUSTOMER NAME
+        ========================= */
+
+        const customerName =
+            `${order.first_name || ""} ${order.last_name || ""}`
+                .trim() || "—";
+
+
+        /* =========================
+           DATE
+        ========================= */
+
+        const date = order.created_at
+            ? new Date(
+                order.created_at
+            ).toLocaleString("fr-FR")
+            : "—";
+
+
+        /* =========================
+           CARD
+        ========================= */
 
         const card =
             document.createElement("div");
 
-
-        card.style.background =
-            "white";
-
-        card.style.padding =
-            "20px";
-
-        card.style.borderRadius =
-            "15px";
-
-        card.style.boxShadow =
-            "0 5px 20px rgba(0,0,0,0.08)";
+        card.className =
+            "admin-order-card";
 
 
         card.innerHTML = `
 
-            <img
-                src="${product.image || ""}"
-                alt="${product.name || ""}"
-                style="
-                    width: 100%;
-                    height: 200px;
-                    object-fit: contain;
-                    border-radius: 10px;
-                "
-            >
-
             <h3>
-                ${product.name || "Unnamed product"}
+                Order #${order.id}
             </h3>
 
             <p>
-                ${product.description || ""}
+                <strong>Date:</strong>
+                ${date}
+            </p>
+
+
+            <hr>
+
+
+            <h4>Customer</h4>
+
+            <p>
+                <strong>Name:</strong>
+                ${customerName}
             </p>
 
             <p>
-                <strong>
-                    Price:
-                </strong>
-
-                ${product.price || 0} MAD
-            </p>
-
-            ${
-                product.old_price
-                    ? `
-                        <p>
-                            <strong>
-                                Old price:
-                            </strong>
-
-                            ${product.old_price} MAD
-                        </p>
-                    `
-                    : ""
-            }
-
-            <p>
-                <strong>
-                    Brand:
-                </strong>
-
-                ${product.Brand || "—"}
+                <strong>Email:</strong>
+                ${order.email || "—"}
             </p>
 
             <p>
-                <strong>
-                    Category:
-                </strong>
+                <strong>Phone:</strong>
+                ${order.phone || "—"}
+            </p>
 
-                ${product.category || "—"}
+
+            <h4>Delivery</h4>
+
+            <p>
+                <strong>Address:</strong>
+                ${order.address || "—"}
+            </p>
+
+            <p>
+                <strong>City:</strong>
+                ${order.city || "—"}
+            </p>
+
+            <p>
+                <strong>Postal code:</strong>
+                ${order.postal_code || "—"}
+            </p>
+
+
+            <h4>Products</h4>
+
+            <ul>
+                ${itemsHTML}
+            </ul>
+
+
+            <p>
+                <strong>Total:</strong>
+                ${order.total_price ?? 0} MAD
+            </p>
+
+
+            <h4>Payment</h4>
+
+            <p>
+                <strong>PayPal Order ID:</strong>
+                ${order.paypal_order_id || "—"}
+            </p>
+
+            <p>
+                <strong>Payment status:</strong>
+                ${order.payment_status || "—"}
+            </p>
+
+            <p>
+                <strong>Order status:</strong>
+                ${order.order_status || "—"}
             </p>
 
         `;
 
 
-        adminProductsContainer.appendChild(
-            card
-        );
+        adminOrdersContainer.appendChild(card);
 
     });
-
 }
-    </script>
 
+
+/* =========================
+   OPEN ORDERS
+========================= */
+
+ordersCard.addEventListener(
+    "click",
+    async () => {
+
+        document.querySelector(
+            ".admin-sections"
+        ).style.display = "none";
+
+        productsSection.style.display =
+            "none";
+
+        reviewsSection.style.display =
+            "none";
+
+        ordersSection.style.display =
+            "block";
+
+        await loadAdminOrders();
+
+    }
+);
+
+
+/* =========================
+   BACK TO DASHBOARD
+========================= */
+
+backFromOrders.addEventListener(
+    "click",
+    () => {
+
+        ordersSection.style.display =
+            "none";
+
+        productsSection.style.display =
+            "none";
+
+        reviewsSection.style.display =
+            "none";
+
+        document.querySelector(
+            ".admin-sections"
+        ).style.display = "grid";
+
+    }
+);
+</script>
 </body>
 
 </html>
