@@ -142,7 +142,7 @@ async function loadFilteredProducts() {
             card,
             product
         );
-
+      container.appendChild(card);
     });
 
 }
