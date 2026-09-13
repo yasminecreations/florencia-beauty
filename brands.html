@@ -1,0 +1,1508 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Florencia Beauty</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="stylesheet" href="style.css">
+    <link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+>
+    <link href="https://fonts.googleapis.com/css?family=Playfair Display|Montserrat|Parisienne" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda&display=swap" rel="stylesheet">
+<link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<link
+  rel="stylesheet"
+  href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+  crossorigin="anonymous"
+/> 
+<link rel="stylesheet" href="http://www.w3.org/2000/svg">
+<style>
+    /* =========================================
+   BRANDS PAGE
+========================================= */
+
+body {
+    font-family: "Bodoni Moda", sans-serif;
+}
+
+
+/* =========================================
+   BRANDS TITLE
+========================================= */
+
+.brands-title {
+    font-family: "Bodoni Moda", sans-serif;
+
+    text-align: center;
+
+    font-size: 36px;
+    font-weight: 600;
+
+    color: #25283d;
+
+    margin: 45px 0 35px;
+
+    text-decoration: underline #f4dfe2;
+    text-decoration-thickness: 7px;
+    text-underline-offset: 6px;
+}
+
+
+/* =========================================
+   BRAND CARDS GRID
+========================================= */
+
+#brand-cards {
+    width: 100%;
+    max-width: 1250px;
+
+    margin: 0 auto 60px;
+
+    padding: 0 30px;
+
+    box-sizing: border-box;
+
+    display: grid;
+
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+
+    gap: 22px;
+}
+
+
+/* =========================================
+   BRAND CARD
+========================================= */
+
+#brand-cards .brand-card {
+    width: 100%;
+    min-width: 0;
+
+    height: 180px;
+
+    padding: 20px;
+
+    box-sizing: border-box;
+
+    background: #ffffff;
+
+    border: 1px solid #f3d6dc;
+
+    border-radius: 18px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    cursor: pointer;
+
+    text-align: center;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+
+/* Hover */
+
+#brand-cards .brand-card:hover {
+    transform: translateY(-5px);
+
+    border-color: #e9a9b5;
+
+    box-shadow:
+        0 10px 30px rgba(120, 70, 90, 0.12);
+}
+
+
+/* =========================================
+   LOGO CONTAINER
+========================================= */
+
+#brand-cards .brand-logo-container {
+    width: 100%;
+
+    height: 105px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin-bottom: 10px;
+}
+
+
+/* =========================================
+   BRAND LOGO
+========================================= */
+
+#brand-cards .brand-logo {
+    width: 130px;
+
+    height: 90px;
+
+    max-width: 100%;
+
+    object-fit: contain;
+
+    object-position: center;
+
+    display: block;
+}
+
+
+/* =========================================
+   BRAND NAME
+========================================= */
+
+#brand-cards .brand-name {
+    margin: 0;
+
+    font-family: "Bodoni Moda", sans-serif;
+
+    font-size: 16px;
+
+    font-weight: 500;
+
+    color: #8f4565;
+
+    line-height: 1.3;
+}
+
+
+/* =========================================
+   SELECTED BRAND — NEW PAGE AREA
+========================================= */
+
+#selected-brand-section {
+    width: 100%;
+
+    min-height: 100vh;
+
+    box-sizing: border-box;
+
+    background: #ffffff;
+
+    padding: 35px 30px 70px;
+
+    margin-top: 20px;
+}
+
+
+/* =========================================
+   BRAND PAGE HEADER
+========================================= */
+
+.brand-page-header {
+    width: 100%;
+
+    max-width: 1250px;
+
+    margin: 0 auto 35px;
+
+    text-align: center;
+}
+
+
+/* Back button */
+
+.brand-back-button {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 10px 22px;
+
+    margin-bottom: 25px;
+
+    border: 1px solid #f3d6dc;
+
+    border-radius: 12px;
+
+    background: white;
+
+    color: #8f4565;
+
+    font-family: "Bodoni Moda", sans-serif;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+
+.brand-back-button:hover {
+    background: #f3d6dc;
+
+    color: white;
+
+    transform: translateY(-2px);
+}
+
+
+/* Selected brand title */
+
+#selected-brand-name {
+    font-family: "Bodoni Moda", sans-serif;
+
+    font-size: 34px;
+
+    font-weight: 600;
+
+    color: #25283d;
+
+    margin: 0;
+
+    text-align: center;
+
+    text-decoration: underline #f4dfe2;
+
+    text-decoration-thickness: 7px;
+
+    text-underline-offset: 6px;
+}
+
+
+/* =====================================================
+   BRAND PRODUCTS
+   Uses the SAME visual style as the main product cards
+===================================================== */
+
+#brand-products-container.products {
+
+width: 100%;
+max-width: 1400px;
+
+margin: 2px auto 0;
+
+padding: 0 30px 40px;
+
+display: grid;
+
+grid-template-columns: repeat(4, minmax(0, 1fr));
+
+gap: 25px 22px;
+
+box-sizing: border-box;
+}
+
+
+/* =====================================================
+BRAND PRODUCT CARD
+===================================================== */
+
+#brand-products-container .product-card {
+
+position: relative;
+
+display: flex;
+flex-direction: column;
+
+min-width: 0;
+
+padding: 5px;
+
+background: transparent;
+
+border: 1px solid #ccc;
+
+box-sizing: border-box;
+
+cursor: pointer;
+
+transition: transform 0.3s ease;
+}
+
+
+/* =====================================================
+PRODUCT IMAGE
+===================================================== */
+
+#brand-products-container .product-card > img {
+
+width: 100%;
+
+height: 300px;
+
+display: block;
+
+object-fit: contain;
+
+background: rgb(255, 255, 250);
+
+border-radius: 12px;
+
+margin-bottom: 12px;
+
+transition: transform 0.3s ease;
+}
+
+
+/* Same hover effect as your normal cards */
+
+#brand-products-container .product-card:hover > img {
+
+transform: scale(1.02);
+}
+
+
+/* =====================================================
+PRODUCT NAME
+===================================================== */
+
+#brand-products-container .product-card h2 {
+
+margin: 0 0 12px;
+
+color: #b34c78;
+
+font-size: 17px;
+
+font-weight: 500;
+
+line-height: 1.35;
+
+font-family: "Bodoni Moda", sans-serif;
+
+min-height: 46px;
+
+display: -webkit-box;
+
+-webkit-box-orient: vertical;
+
+-webkit-line-clamp: 2;
+
+overflow: hidden;
+}
+
+
+/* =====================================================
+DESCRIPTION
+Hidden just like your normal product grid
+===================================================== */
+
+#brand-products-container .product-card > p {
+
+display: none;
+}
+
+
+/* =====================================================
+CURRENT PRICE
+===================================================== */
+
+#brand-products-container .product-card > strong {
+
+color: #29365f;
+
+font-size: 18px;
+
+font-weight: 500;
+
+line-height: 1.2;
+
+margin: 0 0 16px;
+
+display: block;
+
+font-family: "Bodoni Moda", sans-serif;
+}
+
+
+/* =====================================================
+OLD PRICE
+===================================================== */
+
+#brand-products-container .product-card > strong.modal-old-price {
+
+color: rgb(189, 189, 189);
+
+font-size: 14px;
+
+text-decoration: line-through;
+
+align-self: center;
+
+margin-top: -10px;
+
+margin-bottom: 12px;
+}
+
+
+/* =====================================================
+RATING
+===================================================== */
+
+#brand-products-container .product-card-rating {
+
+display: flex;
+
+align-items: center;
+
+justify-content: flex-start;
+
+gap: 4px;
+
+min-height: 20px;
+
+margin: 0 0 7px;
+
+font-family: "Bodoni Moda", sans-serif;
+}
+
+
+/* Rating number hidden — same as main cards */
+
+#brand-products-container .product-rating-number {
+
+display: none;
+}
+
+
+/* Stars */
+
+#brand-products-container .product-rating-stars {
+
+color: #b34c78;
+
+margin-left: 30%;
+
+font-size: 17px;
+
+line-height: 1;
+
+letter-spacing: 2px;
+
+white-space: nowrap;
+}
+
+
+/* Review count */
+
+#brand-products-container .product-rating-count {
+
+color: rgb(255, 255, 255);
+
+font-size: 12px;
+
+line-height: 1;
+
+white-space: nowrap;
+}
+
+
+/* =====================================================
+BUTTON
+===================================================== */
+
+#brand-products-container .product-card button,
+#brand-products-container .product-card .add-to-cart,
+#brand-products-container .product-card .add-cart {
+
+width: 100%;
+
+min-height: 52px;
+
+padding: 12px 15px;
+
+border: none;
+
+border-radius: 6px;
+
+background: #d63d91;
+
+color: #fff;
+
+font-family: "Bodoni Moda", sans-serif;
+
+font-size: 14px;
+
+font-weight: 600;
+
+text-transform: uppercase;
+
+cursor: pointer;
+
+transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+#brand-products-container .product-card button:hover,
+#brand-products-container .product-card .add-to-cart:hover,
+#brand-products-container .product-card .add-cart:hover {
+
+background: #bd317d;
+
+transform: translateY(-1px);
+}
+
+
+#brand-products-container .product-card button:active,
+#brand-products-container .product-card .add-to-cart:active,
+#brand-products-container .product-card .add-cart:active {
+
+transform: translateY(0);
+}
+
+
+/* =====================================================
+TABLET
+===================================================== */
+
+@media (max-width: 1000px) {
+
+#brand-products-container.products {
+
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    gap: 24px 18px;
+
+    padding-left: 20px;
+
+    padding-right: 20px;
+}
+
+
+#brand-products-container .product-card > img {
+
+    height: 260px;
+}
+}
+
+
+/* =====================================================
+MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+#brand-products-container.products {
+
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    column-gap: 16px;
+
+    row-gap: 25px;
+
+    padding: 0 14px 30px;
+}
+
+
+#brand-products-container .product-card > img {
+
+    width: 100%;
+
+    height: 185px;
+
+    margin-bottom: 10px;
+
+    border-radius: 10px;
+}
+
+
+/* Stars */
+
+#brand-products-container .product-rating-stars {
+
+    font-size: 15px;
+
+    letter-spacing: 0.5px;
+}
+
+
+/* Hide review count */
+
+#brand-products-container .product-rating-count {
+
+    display: none;
+}
+
+
+/* Product name */
+
+#brand-products-container .product-card h2 {
+
+    font-size: 15px;
+
+    line-height: 1.35;
+
+    min-height: 41px;
+
+    margin-bottom: 9px;
+}
+
+
+/* Price */
+
+#brand-products-container .product-card > strong {
+
+    font-size: 16px;
+
+    margin-bottom: 12px;
+}
+
+
+/* Button */
+
+#brand-products-container .product-card button,
+#brand-products-container .product-card .add-to-cart,
+#brand-products-container .product-card .add-cart {
+
+    min-height: 46px;
+
+    padding: 10px 8px;
+
+    font-size: 11px;
+
+    border-radius: 5px;
+}
+}
+
+
+/* =====================================================
+VERY SMALL PHONES
+===================================================== */
+
+@media (max-width: 380px) {
+
+#brand-products-container.products {
+
+    column-gap: 12px;
+
+    padding-left: 10px;
+
+    padding-right: 10px;
+
+    grid-template-columns: repeat(2, 1fr);
+}
+
+
+#brand-products-container .product-card > img {
+
+    height: 165px;
+}
+
+
+#brand-products-container .product-card h2 {
+
+    font-size: 14px;
+}
+
+
+#brand-products-container .product-card > strong {
+
+    font-size: 15px;
+}
+
+
+#brand-products-container .product-card button,
+#brand-products-container .product-card .add-to-cart,
+#brand-products-container .product-card .add-cart {
+
+    font-size: 10px;
+}
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1000px) {
+
+    #brand-cards {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+
+        gap: 20px;
+
+        padding: 0 20px;
+    }
+
+
+    #brand-products-container.products {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+
+        gap: 22px 18px;
+    }
+
+
+    #selected-brand-section {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .brands-title {
+        font-size: 28px;
+
+        margin-top: 35px;
+
+        margin-bottom: 28px;
+    }
+
+
+    #brand-cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        column-gap: 14px;
+
+        row-gap: 16px;
+
+        padding: 0 14px;
+
+        margin-bottom: 40px;
+    }
+
+
+    #brand-cards .brand-card {
+        height: 135px;
+
+        padding: 12px;
+
+        border-radius: 15px;
+    }
+
+
+    #brand-cards .brand-logo-container {
+        height: 75px;
+
+        margin-bottom: 5px;
+    }
+
+
+    #brand-cards .brand-logo {
+        width: 95px;
+
+        height: 65px;
+    }
+
+
+    #brand-cards .brand-name {
+        font-size: 13px;
+    }
+
+
+    /* Selected brand page */
+
+    #selected-brand-section {
+        padding: 25px 14px 50px;
+
+        margin-top: 10px;
+    }
+
+
+    #selected-brand-name {
+        font-size: 27px;
+    }
+
+
+    #brand-products-container.products {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        column-gap: 14px;
+
+        row-gap: 25px;
+    }
+}
+
+
+/* =========================================
+   VERY SMALL PHONES
+========================================= */
+
+@media (max-width: 380px) {
+
+    #brand-cards {
+        column-gap: 10px;
+
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+
+    #brand-cards .brand-card {
+        height: 125px;
+    }
+
+
+    #brand-cards .brand-logo {
+        width: 85px;
+        height: 60px;
+    }
+
+
+    #brand-cards .brand-name {
+        font-size: 12px;
+    }
+
+
+    #brand-products-container.products {
+        column-gap: 10px;
+    }
+}
+</style>
+</head>
+
+<body>
+    <div style="width: 100%; height: 30px; color: white; background-color: #f4dfe2;"> <h3 style="font-size: 13px; font-family: 'Bodoni Moda' , sans-serif ; align-self: center; justify-content: center; text-align: center; padding-top: 7px;"> Livraison gratuite A partir de 1000dh </h3> </div>
+    <nav class="navbar navbar-expand-lg" id="nav">
+
+        <div class="container-fluid navbar-container">
+    
+            <!-- LOGO -->
+            <a class="navbar-brand" href="index.html">
+                <img src="logo.png" alt="FlorenciaBeautyLogo">
+            </a>
+    
+    
+            <!-- HAMBURGER - MOBILE ONLY -->
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="offcanvas"
+                data-bs-target="#sidebar"
+                aria-controls="sidebar"
+                aria-label="Open Menu"
+            >
+                <span></span>
+                <span></span>
+            </button>
+    
+    
+            <!-- DESKTOP NAVIGATION -->
+            <div class="collapse navbar-collapse" id="mainNavbar">
+    
+                <ul class="navbar-nav">
+    
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            Acceuil
+                        </a>
+                    </li>
+    
+                    <li class="nav-item">
+                        <a class="nav-link" href="product.html">
+                            Produits
+                        </a>
+                    </li>
+    
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">
+                            Infos
+                        </a>
+                    </li>
+    
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">
+                            Contact
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="brands.html">
+                            Nos Marques
+                        </a>
+                    </li>
+    
+                    <li class="nav-item">
+                        <a class="nav-link" href="category.html?category=hair care">
+                            Soin Cheveux
+                        </a>
+                    </li>
+    
+                    <li class="nav-item">
+                        <a class="nav-link" href="category.html?category=facial care">
+                            Soin Visage
+                        </a>
+                    </li>
+    
+                    <li class="nav-item">
+                        <a class="nav-link" href="category.html?category=body care">
+                            Soin Corporel
+                        </a>
+                    </li>
+    
+                </ul>
+    
+            </div>
+    
+    
+            <!-- SEARCH + CART -->
+            <div class="navbar-actions">
+    
+                <button
+                    id="searchButton"
+                    class="search-button"
+                    type="button"
+                >
+    
+                    <!-- Search icon -->
+                    <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            d="M17 17L21 21"
+                            stroke="#000000"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        />
+    
+                        <path
+                            d="M3 11C3 15.4183 6.58172 19 11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11Z"
+                            stroke="#000000"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        />
+                    </svg>
+    
+                </button>
+    
+    
+                <!-- CART -->
+                <button
+                    class="cart-button"
+                    id="btn-to-open-cart"
+                    onclick="toggleCart()"
+                >
+    
+                    <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            d="M19.2609 9.69589L20.6455 18.6959C20.8319 19.9074 19.8945 21 18.6688 21H5.33122C4.10545 21 3.16809 19.9074 3.35448 18.6959L4.73909 9.69589C4.8892 8.72022 5.7287 8 6.71584 8H17.2842C18.2713 8 19.1108 8.72022 19.2609 9.69589Z"
+                            stroke="#000000"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        />
+    
+                        <path
+                            d="M14 5C14 3.89543 13.1046 3 12 3C10.8954 3 10 3.89543 10 5"
+                            stroke="#000000"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        />
+                    </svg>
+    
+                    <span class="cart-count">0</span>
+    
+                </button>
+    
+            </div>
+    
+        </div>
+    
+    </nav>
+    
+    
+    
+    <div
+        class="offcanvas offcanvas-start"
+        tabindex="-1"
+        id="sidebar"
+        aria-labelledby="sidebarLabel"
+    >
+    
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="sidebarLabel">
+              
+            </h5>
+    
+            <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="offcanvas"
+                aria-label="Close"
+            ></button>
+        </div>
+    
+        <div class="offcanvas-body">
+    
+            <ul class="navbar-nav">
+    
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Acceuil</a>
+                </li>
+    
+                <li class="nav-item">
+                    <a class="nav-link" href="product.html">Produits</a>
+                </li>
+    
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">Infos</a>
+                </li>
+    
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="brands.html">Nos Marques</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="category.html?category=hair care">
+                    Soin Cheveux
+                </a>
+            </li>
+                <li class="nav-item">
+                <a class="nav-link" href="category.html?category=facial care">
+                    Soin Visage
+                </a>
+            </li>
+                <li class="nav-item">
+                <a class="nav-link" href="category.html?category=body care">
+                    Soin Corporel
+                </a>
+            </li>
+            </ul>
+    
+        </div>
+    </div>
+    <h1 class="brands-title">Nos Marques</h1>
+
+<div class="brand-cards" id="brand-cards"></div>
+
+<div id="selected-brand-section" style="display: none;">
+
+    <div class="brand-page-header">
+
+        <button
+            type="button"
+            class="brand-back-button"
+            id="brand-back-button"
+        >
+            ← Nos Marques
+        </button>
+
+        <h2 id="selected-brand-name"></h2>
+
+    </div>
+
+    <div id="brand-products-wrapper">
+
+        <div
+            id="brand-products-container"
+            class="products"
+        ></div>
+
+    </div>
+
+</div>
+<div id="reviewModal" class="review-modal">
+
+    <div class="review-box">
+
+        <button
+            type="button"
+            id="closeReview"
+            class="close-review"
+        >
+            ×
+        </button>
+
+        <h2>
+            Add a review
+        </h2>
+
+        <h3 id="reviewProductName"></h3>
+
+
+        <input
+            type="text"
+            id="reviewName"
+            placeholder="Your name"
+        >
+
+
+        <textarea
+            id="reviewText"
+            placeholder="Write your review..."
+        ></textarea>
+        <label for="reviewImage">Add a photo (optional)</label>
+
+<input
+type="file"
+id="reviewImage"
+accept="image/png, image/jpeg, image/webp"
+>
+
+<img
+id="reviewImagePreview"
+style="display: none; max-width: 200px;"
+alt="Preview"
+>
+
+        <div
+            class="rating-stars"
+            id="ratingStars"
+        >
+
+            <button
+                type="button"
+                class="rating-star"
+                data-rating="1"
+            ><span class="material-symbols-outlined">
+                kid_star
+                </span></button>
+
+            <button
+                type="button"
+                class="rating-star"
+                data-rating="2"
+            ><span class="material-symbols-outlined">
+                kid_star
+                </span></button>
+
+            <button
+                type="button"
+                class="rating-star"
+                data-rating="3"
+            ><span class="material-symbols-outlined">
+                kid_star
+                </span></button>
+
+            <button
+                type="button"
+                class="rating-star"
+                data-rating="4"
+            ><span class="material-symbols-outlined">
+                kid_star
+                </span></button>
+
+            <button
+                type="button"
+                class="rating-star"
+                data-rating="5"
+            ><span class="material-symbols-outlined">
+                kid_star
+                </span></button>
+
+        </div>
+
+
+        <input
+            type="hidden"
+            id="reviewRating"
+            value="0"
+        >
+
+
+        <button
+            type="button"
+            id="submitReview"
+        >
+            Submit review
+        </button>
+
+
+        <p id="reviewMessage"></p>
+
+    </div>
+
+</div></div>
+
+<div id="productModal" class="product-modal" >
+
+<div class="product-modal-box">
+
+    
+    <button
+        type="button"
+        id="closeProductModal"
+        class="close-product-modal"
+    >
+        ×
+    </button>
+
+
+   
+    <div class="swiper product-swiper">
+
+        <div class="swiper-wrapper" id="productSwiperWrapper">
+            
+        </div>
+
+        
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+
+        
+        <div class="swiper-pagination"></div>
+
+    </div>
+
+
+    
+    <div class="product-modal-info">
+
+        <h2 id="modalProductName"></h2>
+
+        <div
+            id="modalProductRating"
+            class="modal-product-rating"
+        ></div>
+
+        <p
+            id="modalProductDescription"
+            class="modal-product-description"
+        ></p>
+
+
+        
+        <div class="modal-product-prices">
+
+            <span
+                id="modalOldPrice"
+                class="modal-old-price"
+            ></span>
+
+            <span
+                id="modalCurrentPrice"
+                class="modal-current-price"
+            ></span>
+
+        </div>
+
+
+        
+        <button
+            type="button"
+            id="modalAddToCart"
+            class="modal-add-cart"
+        >
+            Add to cart
+        </button>
+        <button
+        type="button"
+        id="modalBuyNow"
+        class="modal-add-cart"
+    >
+        Buy Now
+    </button>
+
+    </div>
+
+
+    
+    <div id="modalProductReviews" class="modal-reviews-section">
+
+        <h3>Customer Reviews</h3>
+    
+        <div
+            id="modalReviewsList"
+            class="modal-reviews"
+        >
+        </div>
+    
+        <button
+            type="button"
+            id="modalAddReview"
+            class="modal-add-review"
+        >
+            Add a review
+        </button>
+    
+    </div>
+   
+
+
+
+
+
+    
+   
+</div> </div>
+<div id="searchWindow" class="search-window">
+
+    <div class="search-header">
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search products..."
+            autocomplete="off"
+        >
+
+        <button id="closeSearch" type="button">
+            ×
+        </button>
+
+    </div>
+
+
+    <div id="searchResults" class="search-results"></div>
+
+</div>
+<div id="cart-overlay" class="cart-overlay"></div>
+
+<div id="cart-sidebar" class="cart-sidebar">
+    <div class="cart-header">
+        <h3>Your Bag</h3>
+        <button class="close-btn" onclick="toggleCart()">&times;</button>
+    </div>
+    <div class="cart-items" style="color:black;">
+        </div>
+    <div class="cart-footer" style="padding: 20px; border-top: 1px solid #333;">
+        <div class="d-flex justify-content-between mb-3">
+            <span>Subtotal</span>
+            <span id="cart-subtotal">dh0.00</span>
+        </div>
+        
+        <button class="buy-button" onclick="goToCheckout()" style="color: rgb(0, 0, 0);">Checkout</button>
+    </div>
+</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="app.js"></script>
+    <script src="brands.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+
+<script type="text/javascript" src="{{ url_for('static', filename='index.js') }}"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<script> lucide.createIcons(); </script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+></script>
+<script>
+    function toggleSearch(){
+        const box = document.getElementById("searchBox");
+    
+        if(box.style.display === "none" || box.style.display === ""){
+            box.style.display = "block";
+        }else{
+            box.style.display = "none";
+        }
+    }
+    
+    function searchItems(){
+    
+    let input = document.getElementById("searchInput").value.toLowerCase();
+    let items = document.querySelectorAll(".products");
+    
+    items.forEach(function(item){
+    
+    let text = item.textContent.toLowerCase();
+    
+    if(text.includes(input)){
+        item.style.display = "block";
+    }else{
+        item.style.display = "none";
+    }
+    
+    });
+    
+    }
+    </script>
+    <script>
+    const scrollBox = document.getElementById('scrollBox');
+    const scrollLeftBtn = document.getElementById('scrollLeftBtn');
+    const scrollRightBtn = document.getElementById('scrollRightBtn');
+    
+    scrollLeftBtn.addEventListener('click', () => {
+      scrollBox.scrollBy({left: -200, behavior: 'smooth' });
+    });
+    
+    scrollRightBtn.addEventListener('click', () => {
+      scrollBox.scrollBy({ left: 200, behavior: 'smooth' });
+    });</script>
+    <script>
+   const swiper = new Swiper(".mySwiper", {
+    loop: true,
+
+    effect: "fade",
+
+    fadeEffect: {
+        crossFade: true
+    },
+
+    autoplay: {
+        delay: 1000,
+    },
+
+    speed: 1000
+});</script>
+<script>
+    
+const faqQuestions = document.querySelectorAll(".faq-question");
+
+faqQuestions.forEach(question => {
+
+    question.addEventListener("click", () => {
+
+        const answer = question.nextElementSibling;
+        const icon = question.querySelector(".faq-icon");
+
+        if (answer.style.maxHeight) {
+
+            answer.style.maxHeight = null;
+            icon.textContent = "+";
+
+        } else {
+
+            answer.style.maxHeight = answer.scrollHeight + "px";
+            icon.textContent = "−";
+
+        }
+
+    });
+
+});
+
+</script>
+</body>
+
+
+</html>

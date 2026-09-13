@@ -15,7 +15,90 @@ let bestseller = [];
 let selectedProductId = null;
 let productSwiper = null;
 
+/* =========================
+   DESKTOP HOVER IMAGE SLIDER
+========================= */
 
+function setupHoverImageSwiper(card, product) {
+
+    // Desktop only
+    if (!window.matchMedia("(min-width: 601px)").matches) {
+        return;
+    }
+
+    const imageElement = card.querySelector("img");
+
+    if (!imageElement) {
+        return;
+    }
+
+    const images = [
+        product.image,
+        product.thumbnail_1,
+        product.thumbnail_2,
+        product.thumbnail_3
+    ].filter(Boolean);
+
+    // Don't activate anything for products with only one image
+    if (images.length <= 1) {
+        return;
+    }
+
+    // Create the slideshow wrapper
+    const wrapper = document.createElement("div");
+    wrapper.className = "hover-swiper";
+
+    // Create the sliding track
+    const track = document.createElement("div");
+    track.className = "hover-swiper-track";
+
+    // Create an image for every product image
+    images.forEach(src => {
+
+        const img = document.createElement("img");
+
+        img.src = src;
+        img.alt = product.name || "";
+
+        track.appendChild(img);
+    });
+
+    wrapper.appendChild(track);
+
+    // Replace the original image
+    imageElement.replaceWith(wrapper);
+
+    let currentIndex = 0;
+    let hoverInterval = null;
+
+    wrapper.addEventListener("mouseenter", () => {
+
+        if (hoverInterval) return;
+
+        hoverInterval = setInterval(() => {
+
+            currentIndex++;
+
+            if (currentIndex >= images.length) {
+                currentIndex = 0;
+            }
+
+            track.style.transform =
+                `translateX(-${currentIndex * 100}%)`;
+
+        }, 900);
+    });
+
+    wrapper.addEventListener("mouseleave", () => {
+
+        clearInterval(hoverInterval);
+        hoverInterval = null;
+
+        currentIndex = 0;
+
+        track.style.transform = "translateX(0)";
+    });
+}
 /* =========================
    LOAD ALL PRODUCTS
 ========================= */
@@ -130,8 +213,12 @@ products.slice(0, limit).forEach(product => {
         }
     `;
 
-        container.appendChild(card);
+    container.appendChild(card);
 
+    setupHoverImageSwiper(
+        card,
+        product
+    );
     });
 
 
@@ -205,6 +292,11 @@ products.slice(0, limit).forEach(product => {
             `;
 
             container2.appendChild(card);
+
+            setupHoverImageSwiper(
+                card,
+                product
+            );
 
         });
 
@@ -517,7 +609,7 @@ async function loadBestsellers() {
 
             <div class="bestseller-info">
 
-                <h2 class="bestseller-title">
+                <h2 class="bestseller-title" style="font-size: 27px; font-weight: bold;">
                     ${product.name}
                 </h2>
 

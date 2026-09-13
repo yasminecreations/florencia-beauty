@@ -2,7 +2,7 @@
 
 
 body {
-    font-family: "Nova Round" , sans-serif ;
+    font-family: "Bodoni Moda" , sans-serif ;
     width: 100%;
     
 }
@@ -388,7 +388,7 @@ cursor: pointer;
     }
 }
 .product-card2 {
-    font-family: "Nova Round" , sans-serif ;
+    font-family: "Bodoni Moda" , sans-serif ;
     background:white;
     border-radius:18px;
     padding:15px;
@@ -412,13 +412,13 @@ cursor: pointer;
 }
 
 .product-card2 h2{
-    font-family: "Nova Round" , sans-serif ;
+    font-family: "Bodoni Moda" , sans-serif ;
     font-size:15px;
     margin-top:20px;
     color:#f3d6dc;
 }
 .product-card{
-    font-family: "Nova Round" , sans-serif ;
+    font-family: "Bodoni Moda" , sans-serif ;
     background:white;
     border-radius:18px;
     padding:15px;
@@ -442,13 +442,13 @@ cursor: pointer;
 }
 
 .product-card h2{
-    font-family: "Nova Round" , sans-serif ;
+    font-family: "Bodoni Moda" , sans-serif ;
     font-size:15px;
     margin-top:20px;
     color:#f3d6dc;
 }
 .product-cardy{
-    font-family: "Nova Round" , sans-serif ;
+    font-family: "Bodoni Moda" , sans-serif ;
     background:rgb(252, 252, 252);
     border-radius:18px;
     margin-left: 10%;
@@ -476,14 +476,14 @@ cursor: pointer;
 }
 
 .product-cardy h2{
-    font-family: "Nova Round" , sans-serif ;
+    font-family: "Bodoni Moda" , sans-serif ;
     font-size:10px !important;
     margin-top:20px;
     color:#f3d6dc;
 }
 .container-fluid { 
     display: flex;
-    font-family: "Nova Round" , sans-serif ;
+    font-family: "Bodoni Moda" , sans-serif ;
 }
 /* ==========================
    NAVBAR
@@ -496,7 +496,7 @@ cursor: pointer;
 #nav {
     width: 100%;
     background: #ffffff;
-    padding: 8px 25px;
+    padding: 8px 10px;
     position: relative;
     z-index: 1000;
 }
@@ -514,7 +514,7 @@ cursor: pointer;
 ================================ */
 
 .navbar-brand {
-    margin: 0;
+    margin-left: -25px ;
     padding: 0;
     flex-shrink: 0;
 }
@@ -531,22 +531,23 @@ cursor: pointer;
 ================================ */
 
 .navbar-collapse {
-    margin-left: 30px;
+    margin-left: 20px;
+    margin-right: -7px;
 }
 
 .navbar-nav {
     display: flex;
     align-items: center;
-    gap: 4px;
+    gap: 3px;
 }
 
 .nav-link {
     color: #222 !important;
 
-    font-size: 15px;
+    font-size: 13px;
     font-weight: 500;
 
-    padding: 8px 10px !important;
+    padding: 5px 8px !important;
 
     white-space: nowrap;
 
@@ -575,8 +576,8 @@ cursor: pointer;
 /* Search */
 
 .search-button {
-    width: 42px;
-    height: 42px;
+    width: 40px;
+    height: 40px;
 
     border: none;
     outline: none;
@@ -597,8 +598,8 @@ cursor: pointer;
 .cart-button {
     position: relative;
 
-    width: 42px;
-    height: 42px;
+    width: 40px;
+    height: 40px;
 
     border: none;
     outline: none;
@@ -674,7 +675,7 @@ cursor: pointer;
    MOBILE
 ================================ */
 
-@media (max-width: 991.98px) {
+@media (max-width: 600px) {
 
     #nav {
         padding: 8px 14px;
@@ -741,14 +742,14 @@ cursor: pointer;
 .offcanvas-start {
     width: 280px !important;
     background-color: #ffffff;
-    font-family: "Nova Round" , sans-serif ;
+    font-family: "Bodoni Moda" , sans-serif ;
 }
 
 
 .offcanvas-header {
     border-bottom: 1px solid #eaeaea;
     padding: 1.25rem;
-    font-family: "Nova Round" , sans-serif ;
+    font-family: "Bodoni Moda" , sans-serif ;
 }
 
 
@@ -759,7 +760,7 @@ cursor: pointer;
     transition: background-color 0.2s ease, color 0.2s ease;
     border-radius: 6px;
     margin-bottom: 4px;
-    font-family: "Nova Round" , sans-serif ;
+    font-family: "Bodoni Moda" , sans-serif ;
     
 }
 
@@ -936,6 +937,20 @@ cursor: pointer;
     color: #777;
 
 }
+@media (min-width: 601px) and (max-width: 900px) {
+    .nav-link {
+        font-size: 12px !important;
+        padding: 6px 5px !important;
+    }
+
+    .navbar-brand img {
+        width: 120px;
+    }
+
+    .navbar-collapse {
+        margin-left: 10px !important;
+    }
+}
 @media (max-width: 500px) {
 
     #nav {
@@ -963,18 +978,75 @@ cursor: pointer;
     }
 
 }
-.hero{
-    width:100%;
-    height: auto;
-    
-    
+/* =====================================
+   NAVBAR — 601px AND ABOVE
+===================================== */
+@media (min-width: 601px) {
+
+    .navbar-container {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        width: 100%;
+        min-height: 65px;
+    }
+
+    /* Keep logo on the left */
+    .navbar-brand {
+        position: static !important;
+        transform: none !important;
+        flex-shrink: 0 !important;
+    }
+
+    /* Navigation stays beside the logo */
+    .navbar-collapse {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        flex: 1 1 auto !important;
+        width: auto !important;
+        margin-left: 20px !important;
+    }
+
+    /* ALL links stay on ONE line */
+    .navbar-nav {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        flex-wrap: nowrap !important;
+        gap: 2px !important;
+        width: auto !important;
+    }
+
+    .navbar-nav .nav-link {
+        display: block !important;
+        white-space: nowrap !important;
+    }
+
+    /* Search + cart stay on the right */
+    .navbar-actions {
+        margin-left: auto !important;
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        flex-shrink: 0 !important;
+    }
+
+    /* Hide hamburger */
+    .navbar-toggler {
+        display: none !important;
+    }
 }
-.hero img{
-    width:100%;
-    height:100%;
-    object-fit:contain;
-    object-position: inherit;
-    
+.hero {
+    width: 100%;max-height: 550px;
+    overflow: hidden;
+}
+
+.hero img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-position: center;
 }
 
 .marquee-container {
@@ -1068,7 +1140,7 @@ cursor: pointer;
    ========================================= */
 
    .dermalab-heading {
-    font-family: 'Nova Round', sans-serif !important;
+    font-family: 'Bodoni Moda', sans-serif !important;
     font-size: 34px !important;
     font-weight: bold !important;
     text-align: center;
@@ -1173,7 +1245,7 @@ cursor: pointer;
    ========================================= */
 
 .dermalab-card > h2 {
-    font-family: 'Nova Round', sans-serif;
+    font-family: 'Bodoni Moda', sans-serif;
 
     font-size: 22px;
     font-weight: bold;
@@ -1191,7 +1263,7 @@ cursor: pointer;
    ========================================= */
 
 .dermalab-card > h4 {
-    font-family: 'Nova Round', sans-serif;
+    font-family: 'Bodoni Moda', sans-serif;
 
     font-size: 16px;
     font-weight: normal;
@@ -1244,7 +1316,7 @@ cursor: pointer;
 
     border-radius: 12px;
 
-    font-family: 'Nova Round', sans-serif;
+    font-family: 'Bodoni Moda', sans-serif;
 
     font-size: 14px;
 
@@ -1499,7 +1571,7 @@ cursor: pointer;
 
 /* Your existing button */
 .scroll-item .btn1 button {
-    font-family: "Nova Round", sans-serif !important;
+    font-family: "Bodoni Moda", sans-serif !important;
 
     font-size: 14px;
     font-weight: 600;
@@ -1608,7 +1680,7 @@ cursor: pointer;
     }
 
     .scroll-box {
-        gap: 15px;
+        gap: 10px;
         padding-left: 12px;
         padding-right: 12px;
     }
@@ -1675,23 +1747,25 @@ cursor: pointer;
 
 .bestseller-image-container {
     width: 100%;
-    height: 540px;
-
+    height: 400px;
+    
     display: flex;
     align-items: center;
     justify-content: center;
 
     background: #ffffff;
-
+   padding: 0;
+   top: 0;
     overflow: hidden;
+    margin-top: -30px;
 }
 
 .bestseller-image {
     width: 88%;
-    height: 95%;
-
+    height: 100%;
+    top: -20%;
     object-fit: contain;
-
+object-position: initial;
     display: block;
 }
 
@@ -1766,7 +1840,7 @@ cursor: pointer;
 
     color: #25283d;
 
-    font-family: "Nova Round", sans-serif;
+    font-family: "Bodoni Moda", sans-serif;
 
     font-size: 15px;
 
@@ -1787,7 +1861,7 @@ cursor: pointer;
 
     color: #25283d;
 
-    font-family: "Nova Round", sans-serif;
+    font-family: "Bodoni Moda", sans-serif;
 
     font-size: 43px;
 
@@ -1812,7 +1886,7 @@ cursor: pointer;
 
     color: #25283d;
 
-    font-family: "Nova Round", sans-serif;
+    font-family: "Bodoni Moda", sans-serif;
 
     font-size: 28px;
 
@@ -1835,7 +1909,7 @@ cursor: pointer;
 
     color: #888;
 
-    font-family: "Nova Round", sans-serif;
+    font-family: "Bodoni Moda", sans-serif;
 
     font-size: 19px;
 
@@ -1856,7 +1930,7 @@ cursor: pointer;
 
     color: #343750;
 
-    font-family: "Nova Round", sans-serif;
+    font-family: "Bodoni Moda", sans-serif;
 
     font-size: 16px;
 
@@ -1894,7 +1968,7 @@ cursor: pointer;
 
     color: white;
 
-    font-family: "Nova Round", sans-serif;
+    font-family: "Bodoni Moda", sans-serif;
 
     font-size: 15px;
 
@@ -2212,7 +2286,7 @@ cursor: pointer;
 }
 .review-card h3 {
     margin: 0 0 5px;
-    font-family: 'Nova Round', sans-serif;
+    font-family: 'Bodoni Moda', sans-serif;
 }
 
 .review-stars {
@@ -2222,7 +2296,7 @@ cursor: pointer;
 }
 
 .review-card p {
-    font-family: 'Nova Round', sans-serif;
+    font-family: 'Bodoni Moda', sans-serif;
     margin: 0;
 }
 /* =========================
@@ -2333,7 +2407,7 @@ cursor: pointer;
     .bestseller-title {
         order: 2;
 
-        font-size: 31px;
+        font-size: 19px;
 
         line-height: 1.18;
 
@@ -2567,7 +2641,7 @@ cursor: pointer;
 
 #modalProductName {
 
-    font-family: "Nova Round", sans-serif;
+    font-family: "Bodoni Moda", sans-serif;
 
     font-size: 32px;
 
@@ -2578,7 +2652,7 @@ cursor: pointer;
 
 .modal-product-description {
 
-    font-family: "Nova Round", sans-serif;
+    font-family: "Bodoni Moda", sans-serif;
 
     color: #555;
 
@@ -2608,7 +2682,7 @@ cursor: pointer;
 
 .modal-current-price {
 
-    font-family: "Nova Round", sans-serif;
+    font-family: "Bodoni Moda", sans-serif;
 
     font-size: 24px;
 
@@ -2619,7 +2693,7 @@ cursor: pointer;
 
 .modal-old-price {
 
-    font-family: "Nova Round", sans-serif;
+    font-family: "Bodoni Moda", sans-serif;
 
     color: #999;
 
@@ -2646,7 +2720,7 @@ cursor: pointer;
 
     border-radius: 12px;
 
-    font-family: "Nova Round", sans-serif;
+    font-family: "Bodoni Moda", sans-serif;
 
     cursor: pointer;
 
@@ -2674,7 +2748,7 @@ cursor: pointer;
 
 .modal-reviews-section h3 {
 
-    font-family: "Nova Round", sans-serif;
+    font-family: "Bodoni Moda", sans-serif;
 
     font-size: 22px;
 
@@ -2693,7 +2767,7 @@ cursor: pointer;
 
     border-radius: 10px;
 
-    font-family: "Nova Round", sans-serif;
+    font-family: "Bodoni Moda", sans-serif;
 
     cursor: pointer;
 
@@ -2719,7 +2793,7 @@ cursor: pointer;
 
     margin: 0 0 5px;
 
-    font-family: "Nova Round", sans-serif;
+    font-family: "Bodoni Moda", sans-serif;
 
 }
 
@@ -2737,7 +2811,7 @@ cursor: pointer;
 
     margin: 0 0 10px;
 
-    font-family: "Nova Round", sans-serif;
+    font-family: "Bodoni Moda", sans-serif;
 
 }
 
@@ -2880,7 +2954,7 @@ cursor: pointer;
 
 #modalProductName {
 
-    font-family: "Nova Round", sans-serif;
+    font-family: "Bodoni Moda", sans-serif;
 
     font-size: 28px;
 
@@ -2891,7 +2965,7 @@ cursor: pointer;
 
 .modal-product-description {
 
-    font-family: "Nova Round", sans-serif;
+    font-family: "Bodoni Moda", sans-serif;
 
     color: #555;
 
@@ -2917,7 +2991,7 @@ cursor: pointer;
 
 .modal-current-price {
 
-    font-family: "Nova Round", sans-serif;
+    font-family: "Bodoni Moda", sans-serif;
 
     font-size: 22px;
 
@@ -2930,7 +3004,7 @@ cursor: pointer;
 
 .modal-old-price {
 
-    font-family: "Nova Round", sans-serif;
+    font-family: "Bodoni Moda", sans-serif;
 
     color: #999;
 
@@ -2957,7 +3031,7 @@ cursor: pointer;
 
     border-radius: 12px;
 
-    font-family: "Nova Round", sans-serif;
+    font-family: "Bodoni Moda", sans-serif;
 
     cursor: pointer;
 
@@ -2981,7 +3055,7 @@ cursor: pointer;
 
 .modal-reviews-section h3 {
 
-    font-family: "Nova Round", sans-serif;
+    font-family: "Bodoni Moda", sans-serif;
 
 }
 
@@ -2998,7 +3072,7 @@ cursor: pointer;
 
     border-radius: 10px;
 
-    font-family: "Nova Round", sans-serif;
+    font-family: "Bodoni Moda", sans-serif;
 
     cursor: pointer;
    z-index: 10000;
@@ -3040,7 +3114,7 @@ cursor: pointer;
 
 .modal-review-card h4 {
     margin: 0 0 5px;
-    font-family: "Nova Round", sans-serif;
+    font-family: "Bodoni Moda", sans-serif;
 }
 
 .modal-review-stars {
@@ -3050,7 +3124,7 @@ cursor: pointer;
 
 .modal-review-card p {
     margin: 0 0 10px;
-    font-family: "Nova Round", sans-serif;
+    font-family: "Bodoni Moda", sans-serif;
 }
 
 .modal-review-photo {
@@ -3093,7 +3167,7 @@ cursor: pointer;
 }
 
 .product-card3 h2 {
-    font-family: "Nova Round", sans-serif;
+    font-family: "Bodoni Moda", sans-serif;
     font-size: 15px;
 }
 .product-card4 {
@@ -3120,7 +3194,7 @@ cursor: pointer;
 }
 
 .product-card4 h2 {
-    font-family: "Nova Round", sans-serif;
+    font-family: "Bodoni Moda", sans-serif;
     font-size: 15px;
 }
 
@@ -3150,7 +3224,7 @@ cursor: pointer;
 ========================================= */
 
 .scroll-box {
-    width: 100%;
+    width: 90%;
     max-width: 1200px;
     margin: 35px auto 70px;
     
@@ -3205,7 +3279,7 @@ cursor: pointer;
 
     width: 100%;
 
-    height: 420px;
+    height: 320px;
 
     overflow: hidden;
 
@@ -3224,7 +3298,7 @@ cursor: pointer;
     display: block;
 
     width: 100% !important;
-    height: 100% !important;
+    height: 95% !important;
 
     object-fit: cover;
 
@@ -3261,6 +3335,8 @@ cursor: pointer;
     background: #ffffff;
 
     padding: 0;
+    padding-right: 30%;
+    
 }
 
 
@@ -3292,7 +3368,7 @@ cursor: pointer;
 .scroll-item1 .product-card3,
 .scroll-item2 .product-card4 {
     border-radius: 0 0 22px 22px;
-
+    top: -5%;
     box-shadow: none;
 
     margin: 0;
@@ -3305,7 +3381,7 @@ cursor: pointer;
    TITLE
 ========================================= */
 
-h1[style*="Nova Round"] {
+h1[style*="Bodoni Moda"] {
     text-align: center !important;
 
     color: #8f4565;
@@ -3351,7 +3427,7 @@ h1[style*="Nova Round"] {
         margin-top: 15px;
     }
 
-    h1[style*="Nova Round"] {
+    h1[style*="Bodoni Moda"] {
         font-size: 26px !important;
 
         margin-left: 15px;
@@ -3388,7 +3464,7 @@ h1[style*="Nova Round"] {
     display: block;
 }
 
-.cart-header { font-family: "Nova Round"; padding: 20px; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; }
+.cart-header { font-family: "Bodoni Moda"; padding: 20px; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; }
 .cart-items { flex-grow: 1; overflow-y: auto; padding: 20px; }
 .checkout-btn{
     bottom: 0;
@@ -3469,7 +3545,7 @@ h1[style*="Nova Round"] {
     max-width: 900px;
     margin: 40px auto;
     padding: 0 15px;
-    font-family: 'Nova Round', sans-serif;
+    font-family: 'Bodoni Moda', sans-serif;
 }
 
 .faq-title {
@@ -3492,9 +3568,56 @@ h1[style*="Nova Round"] {
     justify-content: space-between;
     align-items: center;
     text-align: left;
-    font-family: 'Nova Round', sans-serif;
+    font-family: 'Bodoni Moda', sans-serif;
     font-size: 18px;
     cursor: pointer;
+    color: black;
+}
+#brand-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.brand-card {
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+    background: white;
+    border-radius: 15px;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.brand-logo {
+    width: 110px;
+    height: 80px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+}
+@media (max-width: 600px) {
+    #brand-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+        padding: 0 15px;
+    }
+
+    .brand-card {
+        height: 120px;
+        padding: 15px;
+    }
+
+    .brand-logo {
+        width: 90px;
+        height: 65px;
+    }
 }
 
 .faq-icon {
@@ -3520,7 +3643,7 @@ h1[style*="Nova Round"] {
     height: auto;
     background-color: #fff2f4;
     
-    font-family: 'Nova Round' ;
+    font-family: 'Bodoni Moda' ;
     text-align: start;
     display: grid;
     gap: 10px;
@@ -3534,7 +3657,7 @@ h1[style*="Nova Round"] {
     background: transparent;
 }
 .brand-card text {
-    font-family: "Nova Round";
+    font-family: "Bodoni Moda";
     color: #c51650;
 }
 
@@ -3548,7 +3671,7 @@ h1[style*="Nova Round"] {
     margin-top: 20px;
     margin-bottom: 20px;
     color: #f891a6;
-    font-family: "Nova Round";
+    font-family: "Bodoni Moda";
 }
 #modalQuantity{
     width: 100px;
@@ -3558,7 +3681,7 @@ h1[style*="Nova Round"] {
     padding: 10px;
     border-radius: 12px;
     color: #f891a6;
-    font-family: "Nova Round";
+    font-family: "Bodoni Moda";
     border: #f891a6 2px solid;
 }
 #quantityMinus{
@@ -3583,11 +3706,11 @@ h1[style*="Nova Round"] {
 }
 .rvwtxt {
     color: #c51650;
-    font-family: 'Nova Round';
+    font-family: 'Bodoni Moda';
     margin-top: 20px;
 }
 #reviewProductName{
-    font-family: 'Nova Round';
+    font-family: 'Bodoni Moda';
     margin-top: 14px;
     margin-bottom: 14px;
 }
@@ -3598,7 +3721,7 @@ h1[style*="Nova Round"] {
     width: 200px;
     padding: 20px;
     color: #c51650;
-    font-family: 'Nova Round';
+    font-family: 'Bodoni Moda';
 }
 #reviewText{
     border-radius: 12px;
@@ -3609,7 +3732,7 @@ h1[style*="Nova Round"] {
     padding: 10px;
     padding-bottom: 10px;
     color: #c51650;
-    font-family: 'Nova Round';
+    font-family: 'Bodoni Moda';
 }
 #reviewImage{
     border-radius: 12px;
@@ -3617,7 +3740,7 @@ h1[style*="Nova Round"] {
     margin-top: 10px;
     color: #c51650;
     background-color: transparent;
-    font-family: 'Nova Round';
+    font-family: 'Bodoni Moda';
 
 }
 #submitReview{
@@ -3626,11 +3749,11 @@ h1[style*="Nova Round"] {
     margin-top: 10px;
     color: #c51650;
     background-color: transparent;
-    font-family: 'Nova Round';
+    font-family: 'Bodoni Moda';
     border: #c51650 2px solid;
 }
 #reviewMessage{
-    font-family: 'Nova Round';
+    font-family: 'Bodoni Moda';
     font-size: 20px;
     color: #c51650;
     margin-left: 10px;
@@ -3670,4 +3793,41 @@ h1[style*="Nova Round"] {
        display: grid;
        grid-template-columns: repeat(4 , 1fr);
    }
+}
+.hover-swiper {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    border-radius: 12px;
+    background: rgb(255, 255, 250);
+}
+
+.hover-swiper-track {
+    display: flex;
+    width: 100%;
+    height: 100%;
+
+    transition: transform 0.6s ease;
+}
+
+.hover-swiper-track img {
+    flex: 0 0 100%;
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+    display: block;
+}
+
+
+/* Mobile: no hover slideshow */
+@media (max-width: 600px) {
+
+    .hover-swiper {
+        height: auto;
+    }
+
+    .hover-swiper-track {
+        transform: none !important;
+    }
 }

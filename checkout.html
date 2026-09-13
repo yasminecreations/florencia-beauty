@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>florenciabeauty - Checkout</title>
-    <link href="https://fonts.googleapis.com/css2?family=Nova+Round&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda&display=swap" rel="stylesheet">
     <script src="https://www.paypal.com/sdk/js?client-id=BAAmIRX6ibA8Zuudk2Sqj2amCPh9DWXX7WMGR-4MK8ah3eEzM3PILodZD_ZQHULmw57KXmm_bBa_ng3mAM"></script>
     <style>
-        body { font-family: 'Nova Round', sans-serif; background: #fafafa; display: flex; justify-content: center; padding: 50px 20px; margin: 0; }
+        body { font-family: 'Bodoni Moda', sans-serif; background: #fafafa; display: flex; justify-content: center; padding: 50px 20px; margin: 0; }
         .checkout-card { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); width: 100%; max-width: 450px; }
         h2 { border-bottom: 2px solid #a8977a; padding-bottom: 10px; color: #c51650; }
         .price-row { display: flex; justify-content: space-between; margin-bottom: 15px; color: #555; font-size: 14px; }
@@ -77,7 +78,7 @@ const supabaseClient = window.supabase.createClient(
             container.appendChild(row);
         });
 
-        let finalShipping = subtotal >= 700.00 ? 0.00 : 29.00;
+        let finalShipping = subtotal >= 1000.00 ? 0.00 : 29.00;
         let feeMAD = (subtotal + finalShipping) * 0.05;
         let finalTotalMAD = subtotal + finalShipping + feeMAD;
 
@@ -216,7 +217,7 @@ const supabaseClient = window.supabase.createClient(
 
         let subtotal = 0;
         myCart.forEach(item => { subtotal += parseFloat(item.price) * item.quantity; });
-        let shipping = subtotal >= 700 ? 0 : 29;
+        let shipping = subtotal >= 1000 ? 0 : 29;
         let fee = (subtotal + shipping) * 0.05;
         let finalTotale = subtotal + shipping ;
         let finalTotal = subtotal + shipping + fee;

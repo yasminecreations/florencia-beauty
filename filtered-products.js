@@ -138,8 +138,9 @@ async function loadFilteredProducts() {
             openProductModal(product);
         });
 
-        container.appendChild(
-            card
+        setupHoverImageSwiper(
+            card,
+            product
         );
 
     });
